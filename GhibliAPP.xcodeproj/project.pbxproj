@@ -10,7 +10,6 @@
 		4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DA528CA15A2002728F4 /* AppDelegate.swift */; };
 		4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DA728CA15A2002728F4 /* SceneDelegate.swift */; };
 		4B566DAA28CA15A2002728F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DA928CA15A2002728F4 /* ViewController.swift */; };
-		4B566DAD28CA15A2002728F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B566DAB28CA15A2002728F4 /* Main.storyboard */; };
 		4B566DAF28CA15A3002728F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B566DAE28CA15A3002728F4 /* Assets.xcassets */; };
 		4B566DB228CA15A3002728F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B566DB028CA15A3002728F4 /* LaunchScreen.storyboard */; };
 		4B566DBD28CA15A3002728F4 /* GhibliAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */; };
@@ -40,7 +39,6 @@
 		4B566DA528CA15A2002728F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B566DA728CA15A2002728F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4B566DA928CA15A2002728F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4B566DAC28CA15A2002728F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B566DAE28CA15A3002728F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B566DB128CA15A3002728F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B566DB328CA15A3002728F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				4B566DA528CA15A2002728F4 /* AppDelegate.swift */,
 				4B566DA728CA15A2002728F4 /* SceneDelegate.swift */,
 				4B566DA928CA15A2002728F4 /* ViewController.swift */,
-				4B566DAB28CA15A2002728F4 /* Main.storyboard */,
 				4B566DAE28CA15A3002728F4 /* Assets.xcassets */,
 				4B566DB028CA15A3002728F4 /* LaunchScreen.storyboard */,
 				4B566DB328CA15A3002728F4 /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				4B566DB228CA15A3002728F4 /* LaunchScreen.storyboard in Resources */,
 				4B566DAF28CA15A3002728F4 /* Assets.xcassets in Resources */,
-				4B566DAD28CA15A2002728F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4B566DAB28CA15A2002728F4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B566DAC28CA15A2002728F4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4B566DB028CA15A3002728F4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +430,6 @@
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +457,6 @@
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
