@@ -13,7 +13,9 @@ final class OnbordingViewController: UIViewController {
         
         super.viewDidLoad()
         view.backgroundColor = .blue
+        Task{
+            let test = await APICall.getAllGhibliData()
+        }
 
     }
-
 }
