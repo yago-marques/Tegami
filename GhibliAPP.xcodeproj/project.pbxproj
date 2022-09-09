@@ -14,6 +14,7 @@
 		4B566DBD28CA15A3002728F4 /* GhibliAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */; };
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
+		DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF56CE6D28CB6486007AFC43 /* FilmModel.swift */; };
 		DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		4B566DC228CA15A3002728F4 /* GhibliAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITests.swift; sourceTree = "<group>"; };
 		4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF56CE6D28CB6486007AFC43 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 			children = (
 				DFD507A828CA2A40003570A4 /* Service */,
 				DFD507A728CA2A38003570A4 /* Protocols */,
+				DFD507A528CA29DA003570A4 /* Model */,
 				DFD507A328CA29A3003570A4 /* MovieView */,
 				DFD5079F28CA297B003570A4 /* Onboarding */,
 				DFD5079B28CA26CB003570A4 /* MainScreen */,
@@ -155,18 +158,10 @@
 		DFD5079B28CA26CB003570A4 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DFD5079C28CA26F1003570A4 /* Model */,
 				DFD5079D28CA26F9003570A4 /* View */,
 				DFD5079E28CA26FE003570A4 /* ViewModel */,
 			);
 			path = MainScreen;
-			sourceTree = "<group>";
-		};
-		DFD5079C28CA26F1003570A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DFD5079D28CA26F9003570A4 /* View */ = {
@@ -186,7 +181,6 @@
 		DFD5079F28CA297B003570A4 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DFD507A128CA2990003570A4 /* Model */,
 				DFD507A028CA2988003570A4 /* View */,
 				DFD507A228CA2994003570A4 /* ViewModel */,
 			);
@@ -201,13 +195,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DFD507A128CA2990003570A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DFD507A228CA2994003570A4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +205,6 @@
 		DFD507A328CA29A3003570A4 /* MovieView */ = {
 			isa = PBXGroup;
 			children = (
-				DFD507A528CA29DA003570A4 /* Model */,
 				DFD507A428CA29D4003570A4 /* View */,
 				DFD507A628CA29E0003570A4 /* ViewModel */,
 			);
@@ -235,6 +221,7 @@
 		DFD507A528CA29DA003570A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DF56CE6D28CB6486007AFC43 /* FilmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -414,6 +401,7 @@
 				DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */,
 				4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
+				DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
