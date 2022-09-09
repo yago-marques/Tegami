@@ -14,6 +14,7 @@
 		4B566DBD28CA15A3002728F4 /* GhibliAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */; };
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
+		D60415A928CB7C130075BE83 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60415A828CB7C130075BE83 /* API.swift */; };
 		DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF56CE6D28CB6486007AFC43 /* FilmModel.swift */; };
 		DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		4B566DC228CA15A3002728F4 /* GhibliAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITests.swift; sourceTree = "<group>"; };
 		4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D60415A828CB7C130075BE83 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		DF56CE6D28CB6486007AFC43 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +245,7 @@
 		DFD507A828CA2A40003570A4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D60415A828CB7C130075BE83 /* API.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
 				DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */,
+				D60415A928CB7C130075BE83 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
