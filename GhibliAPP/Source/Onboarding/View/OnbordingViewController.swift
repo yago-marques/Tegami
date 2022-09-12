@@ -19,6 +19,7 @@ final class OnbordingViewController: UIViewController {
 
             print(String(data: data, encoding: .utf8)!)
             print(status)
+
         }
 
     }
