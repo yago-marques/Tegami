@@ -29,7 +29,7 @@ final class APICall {
         request.httpMethod = "GET"
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await UrlSession.data(for: request)
             guard let status = statusCode(of: response) else { return nil }
 
             return (data, status)
