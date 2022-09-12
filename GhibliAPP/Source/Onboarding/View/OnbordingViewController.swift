@@ -12,9 +12,14 @@ final class OnbordingViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .red
-        Task{
-            let test = await APICall.getAllGhibliData()
+        view.backgroundColor = .blue
+        Task {
+            let api = APICall()
+            guard let (data, status) = await api.GET(at: "https://ghibliapi.herokuapp.com/films") else { return }
+
+            print(String(data: data, encoding: .utf8)!)
+            print(status)
+
         }
 
     }
