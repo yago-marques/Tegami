@@ -28,7 +28,11 @@ struct GhibliInfo: Decodable {
 }
 
 struct TmdbInfo: Decodable {
-    let id: String
+    let results: [TmdbResult]
+}
+
+struct TmdbResult: Decodable {
+    let id: Int
     let title: String
     let overview: String
     let popularity: Double

@@ -16,6 +16,7 @@
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
 		DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF56CE6D28CB6486007AFC43 /* FilmModel.swift */; };
+		DF6C4C9128CF6FFA0079BF54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */; };
 		DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		53B2069F28CB87EA004E805A /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		DF56CE6D28CB6486007AFC43 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,9 +136,26 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		DF6C4C8E28CF6FBC0079BF54 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DF6C4C8F28CF6FD30079BF54 /* ViewModel */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		DF6C4C8F28CF6FD30079BF54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFD5079828CA25E0003570A4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DF6C4C8E28CF6FBC0079BF54 /* MainScreen */,
 				53B2069E28CB8799004E805A /* Service */,
 				DFD507A528CA29DA003570A4 /* Model */,
 				DFD5079F28CA297B003570A4 /* Onboarding */,
@@ -342,6 +361,7 @@
 				53B206A028CB87EA004E805A /* APICall.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
 				DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */,
+				DF6C4C9128CF6FFA0079BF54 /* MainScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
