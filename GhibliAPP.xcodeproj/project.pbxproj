@@ -166,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				DFD507A028CA2988003570A4 /* View */,
-				DFD507A228CA2994003570A4 /* ViewModel */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -177,13 +176,6 @@
 				DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		DFD507A228CA2994003570A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DFD507A528CA29DA003570A4 /* Model */ = {
