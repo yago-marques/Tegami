@@ -59,7 +59,6 @@ final class APICall {
 
             return query
         }
-
         return myQueries
     }
 

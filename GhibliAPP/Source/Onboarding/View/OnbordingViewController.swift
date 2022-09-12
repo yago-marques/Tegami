@@ -15,9 +15,7 @@ final class OnbordingViewController: UIViewController {
         view.backgroundColor = .blue
         Task {
             let api = APICall()
-            guard let (data, status) = await api.GET(at: "https://ghibliapi.herokuapp.com/films") else {
-                return
-            }
+            guard let (data, status) = await api.GET(at: "https://ghibliapi.herokuapp.com/films") else { return }
 
             print(String(data: data, encoding: .utf8)!)
             print(status)
