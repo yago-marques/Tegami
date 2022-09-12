@@ -11,13 +11,18 @@ final class MainScreenViewModel {
     let apiService = APICall()
 
     func fetchFilms() async -> [FilmModel]? {
+        guard let ghibliInfo = await self.fetchGhibliInfo() else { return nil }
+        let films = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
+            let tmdbInfo = await fetchTmdbInfo(originalTitle: ghibliFilm.originalTitle)
+            let filmInfo = FilmModel(ghibli: ghibliFilm, tmdb: tmdbInfo ?? nil)
+            return filmInfo
+        }
 
-
-        return []
+        return films
     }
 
     func fetchGhibliInfo() async -> [GhibliInfo]? {
-        guard let apiInfo = await apiService.GET(at: "https://ghibliapi.herokuapp.com/films") else {
+        guard let apiInfo = await apiService.GET(at: UrlEnum.ghibliUrl.rawValue) else {
             return nil
         }
 
@@ -33,7 +38,7 @@ final class MainScreenViewModel {
 
     func fetchTmdbInfo(originalTitle: String) async -> TmdbResult? {
         guard let apiInfo = await apiService.GET(
-            at: "https://api.themoviedb.org/3/search/movie",
+            at: UrlEnum.tmbdMovie.rawValue,
             queries: [
                 ("api_key", "2fb0d7c0095f63e9c881bb4317a570a9"),
                 ("language", "pt-BR"),

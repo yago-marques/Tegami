@@ -8,8 +8,8 @@
 import Foundation
 
 struct FilmModel {
-    let ghibli: GhibliInfo
-    let tmdb: TmdbInfo
+    let ghibli: GhibliInfo?
+    let tmdb: TmdbResult?
 }
 
 struct GhibliInfo: Decodable {
@@ -31,7 +31,7 @@ struct TmdbInfo: Decodable {
     let results: [TmdbResult]
 }
 
-struct TmdbResult: Decodable {
+class TmdbResult: Decodable {
     let id: Int
     let title: String
     let overview: String
@@ -46,4 +46,16 @@ struct TmdbResult: Decodable {
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
     }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? 0
+        self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
+        self.overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
+        self.popularity = try container.decodeIfPresent(Double.self, forKey: .popularity) ?? 0
+        self.genreIds = try container.decodeIfPresent([Int].self, forKey: .genreIds) ?? []
+        self.backdropPath = try container.decodeIfPresent(String.self, forKey: .backdropPath) ?? ""
+        self.posterPath = try container.decodeIfPresent(String.self, forKey: .posterPath) ?? ""
+    }
+
 }

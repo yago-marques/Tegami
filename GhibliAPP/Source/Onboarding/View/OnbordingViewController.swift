@@ -15,8 +15,7 @@ final class OnbordingViewController: UIViewController {
         view.backgroundColor = .blue
         Task {
             let viewModel = MainScreenViewModel()
-            let filmList = await viewModel.fetchTmdbInfo(originalTitle: "天空の城ラピュタ")
-
+            guard let filmList = await viewModel.fetchFilms() else { return }
         }
 
     }
