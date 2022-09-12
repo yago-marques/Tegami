@@ -46,7 +46,7 @@ final class APICall {
         queries: [(String, String)] = []
     ) -> URL? {
         guard var component = URLComponents(string: url) else { return nil }
-        component.scheme = "HTTPS"
+        component.scheme = "https"
         component.queryItems = self.buildQueries(with: queries)
 
         return component.url
