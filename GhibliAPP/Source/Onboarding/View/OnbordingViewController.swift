@@ -13,10 +13,6 @@ final class OnbordingViewController: UIViewController {
         
         super.viewDidLoad()
         view.backgroundColor = .blue
-        Task {
-            let viewModel = MainScreenViewModel()
-            guard let filmList = await viewModel.fetchFilms() else { return }
-        }
 
     }
 }

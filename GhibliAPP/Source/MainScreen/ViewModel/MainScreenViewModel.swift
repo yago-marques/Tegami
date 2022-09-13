@@ -8,11 +8,16 @@
 import Foundation
 
 final class MainScreenViewModel {
-    let apiService = APICall()
+    let apiService: APICall
+
+    init(apiService: APICall) {
+        self.apiService = apiService
+    }
 
     func fetchFilms() async -> [FilmModel]? {
         guard let ghibliInfo = await self.fetchGhibliInfo() else { return nil }
-        let films = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
+
+        let films: [FilmModel] = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
             let tmdbInfo = await fetchTmdbInfo(originalTitle: ghibliFilm.originalTitle)
             let filmInfo = FilmModel(ghibli: ghibliFilm, tmdb: tmdbInfo ?? nil)
             return filmInfo
