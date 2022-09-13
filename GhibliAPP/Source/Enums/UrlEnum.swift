@@ -10,5 +10,5 @@ import Foundation
 enum UrlEnum: String {
     case ghibliUrl = "https://ghibliapi.herokuapp.com/films"
     case tmbdMovie = "https://api.themoviedb.org/3/search/movie"
-    case tmdbGenre = "https://api.themoviedb.org/3/genre/movie/lis"
+    case tmdbGenre = "https://api.themoviedb.org/3/genre/movie/list"
 }

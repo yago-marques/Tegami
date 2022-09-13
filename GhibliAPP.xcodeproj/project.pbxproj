@@ -19,6 +19,7 @@
 		DF6C4C9128CF6FFA0079BF54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */; };
 		DF6C4CA728CFA8A70079BF54 /* UrlEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CA628CFA8A70079BF54 /* UrlEnum.swift */; };
 		DF6C4CAA28CFAD700079BF54 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CA928CFAD700079BF54 /* Sequence.swift */; };
+		DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */; };
 		DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		DF6C4CA628CFA8A70079BF54 /* UrlEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEnum.swift; sourceTree = "<group>"; };
 		DF6C4CA928CFAD700079BF54 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 		DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				DF56CE6D28CB6486007AFC43 /* FilmModel.swift */,
+				DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				DF6C4CA728CFA8A70079BF54 /* UrlEnum.swift in Sources */,
 				DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */,
 				DF6C4CAA28CFAD700079BF54 /* Sequence.swift in Sources */,
+				DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */,
 				4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */,
 				53B206A028CB87EA004E805A /* APICall.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,

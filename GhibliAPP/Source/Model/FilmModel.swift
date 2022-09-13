@@ -37,6 +37,7 @@ class TmdbResult: Decodable {
     let overview: String
     let popularity: Double
     let genreIds: [Int]
+    let genresNames: [String] = []
     let backdropPath: String
     let posterPath: String
 
