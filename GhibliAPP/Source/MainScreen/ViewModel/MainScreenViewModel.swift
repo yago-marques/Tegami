@@ -54,9 +54,13 @@ final class MainScreenViewModel {
         ) else {
             return nil
         }
-
+        
         do {
             let tmdbInfo = try JSONDecoder().decode(TmdbInfo.self, from: apiInfo.data)
+            guard let stringGenreList = await transformGenres(ids: tmdbInfo.results.first?.genreIds ?? []) else {
+                return nil
+            }
+            tmdbInfo.results.first?.genreNames = stringGenreList
             return tmdbInfo.results.first
         } catch {
             print(error)
@@ -85,22 +89,19 @@ final class MainScreenViewModel {
         return nil
     }
 
-    func transformGeneres(ids: [Int]) async -> [String]? {
+    func transformGenres(ids: [Int]) async -> [String]? {
         guard let genreTable = await fetchGenres() else { return nil }
-        var idsToTransform: [Int] = []
-        var genreNames: [String] = []
-
-        if ids.count >= 2{
-            idsToTransform = [ids[0], ids[1]]
-        }else{
-            idsToTransform = [ids[0]]
+        let idsToTransform: [Int] = ids.count >= 2 ? [ids[0], ids[1]] : [ids[0]]
+        
+        let genreNames: [String] = idsToTransform.map { id in
+            var genreName = "unknow"
+            for genre in genreTable where genre.id == id {
+                genreName = genre.name
+            }
+            return genreName
         }
 
-        for genre in genreTable {
-
-        }
-
-        return nil
+        return genreNames
     }
 
 }
