@@ -11,6 +11,7 @@ final class MainScreenViewModel {
     let apiService: APICall
 
     init(apiService: APICall) {
+        
         self.apiService = apiService
     }
 
