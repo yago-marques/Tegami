@@ -14,12 +14,8 @@ final class OnbordingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         Task {
-            let api = APICall()
-            guard let (data, status) = await api.GET(at: "https://ghibliapi.herokuapp.com/films") else { return }
-
-            print(String(data: data, encoding: .utf8)!)
-            print(status)
-
+            let viewModel = MainScreenViewModel(apiService: APICall())
+            await viewModel.fetchFilms()
         }
 
     }
