@@ -9,7 +9,6 @@ import XCTest
 @testable import GhibliAPP
 
 class FilmModelTests: XCTestCase {
-    
-    
+
     
 }
