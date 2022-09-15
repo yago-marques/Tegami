@@ -24,6 +24,15 @@ struct GhibliInfo: Codable {
         case runningTime = "running_time"
         case originalTitle = "original_title"
     }
+    
+    init(id: String, releaseDate: String, runningTime: String, originalTitle: String) {
+        
+        self.id = id
+        self.releaseDate = releaseDate
+        self.runningTime = runningTime
+        self.originalTitle = originalTitle
+        
+    }
 
 }
 
