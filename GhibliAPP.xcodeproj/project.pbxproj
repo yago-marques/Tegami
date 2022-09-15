@@ -11,7 +11,7 @@
 		4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DA728CA15A2002728F4 /* SceneDelegate.swift */; };
 		4B566DAF28CA15A3002728F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B566DAE28CA15A3002728F4 /* Assets.xcassets */; };
 		4B566DB228CA15A3002728F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B566DB028CA15A3002728F4 /* LaunchScreen.storyboard */; };
-		4B566DBD28CA15A3002728F4 /* GhibliAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */; };
+		4B566DBD28CA15A3002728F4 /* MainScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* MainScreenViewModelTests.swift */; };
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
@@ -48,7 +48,7 @@
 		4B566DB128CA15A3002728F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B566DB328CA15A3002728F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B566DB828CA15A3002728F4 /* GhibliAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPTests.swift; sourceTree = "<group>"; };
+		4B566DBC28CA15A3002728F4 /* MainScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelTests.swift; sourceTree = "<group>"; };
 		4B566DC228CA15A3002728F4 /* GhibliAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITests.swift; sourceTree = "<group>"; };
 		4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		4B566DBB28CA15A3002728F4 /* GhibliAPPTests */ = {
 			isa = PBXGroup;
 			children = (
-				4B566DBC28CA15A3002728F4 /* GhibliAPPTests.swift */,
+				DF27784828D276AF0036DF4A /* ViewModels */,
 			);
 			path = GhibliAPPTests;
 			sourceTree = "<group>";
@@ -140,6 +140,14 @@
 				53B2069F28CB87EA004E805A /* APICall.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DF27784828D276AF0036DF4A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4B566DBC28CA15A3002728F4 /* MainScreenViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		DF6C4C8E28CF6FBC0079BF54 /* MainScreen */ = {
@@ -177,11 +185,11 @@
 		DFD5079828CA25E0003570A4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				53B2069E28CB8799004E805A /* Service */,
 				DF6C4CA828CFAD5E0079BF54 /* Extensions */,
 				DF6C4CA528CFA8900079BF54 /* Enums */,
-				DF6C4C8E28CF6FBC0079BF54 /* MainScreen */,
-				53B2069E28CB8799004E805A /* Service */,
 				DFD507A528CA29DA003570A4 /* Model */,
+				DF6C4C8E28CF6FBC0079BF54 /* MainScreen */,
 				DFD5079F28CA297B003570A4 /* Onboarding */,
 			);
 			path = Source;
@@ -397,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B566DBD28CA15A3002728F4 /* GhibliAPPTests.swift in Sources */,
+				4B566DBD28CA15A3002728F4 /* MainScreenViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,9 +564,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 826U5T47TW;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -572,6 +581,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.stephanegirao.GhibliAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,9 +593,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 826U5T47TW;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,6 +610,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.stephanegirao.GhibliAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -5,6 +5,8 @@
 //  Created by Stephane Girão Linhares on 08/09/22.
 //
 
+/*
+
 import XCTest
 
 class GhibliAPPUITestsLaunchTests: XCTestCase {
@@ -30,3 +32,5 @@ class GhibliAPPUITestsLaunchTests: XCTestCase {
         add(attachment)
     }
 }
+
+*/

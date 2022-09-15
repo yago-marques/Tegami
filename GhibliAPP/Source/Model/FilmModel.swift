@@ -38,12 +38,14 @@ class TmdbResult: Decodable {
     let popularity: Double
     let genreIds: [Int]
     var genreNames: [String] = []
+    let originalTitle: String
     let backdropPath: String
     let posterPath: String
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview, popularity
         case genreIds = "genre_ids"
+        case originalTitle = "original_title"
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
     }
@@ -53,6 +55,7 @@ class TmdbResult: Decodable {
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? 0
         self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
         self.overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
+        self.originalTitle = try container.decodeIfPresent(String.self, forKey: .originalTitle) ?? ""
         self.popularity = try container.decodeIfPresent(Double.self, forKey: .popularity) ?? 0
         self.genreIds = try container.decodeIfPresent([Int].self, forKey: .genreIds) ?? []
         self.backdropPath = try container.decodeIfPresent(String.self, forKey: .backdropPath) ?? ""
