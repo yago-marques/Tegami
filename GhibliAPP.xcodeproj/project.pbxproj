@@ -140,6 +140,7 @@
 		4B566DBB28CA15A3002728F4 /* GhibliAPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				D6A0923428D35D980071F14E /* Model */,
 				DF27784828D276AF0036DF4A /* ViewModels */,
 			);
 			path = GhibliAPPTests;
@@ -160,6 +161,14 @@
 				53B2069F28CB87EA004E805A /* APICall.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D6A0923428D35D980071F14E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6A0923528D35DD10071F14E /* FilmModelTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DF27784828D276AF0036DF4A /* ViewModels */ = {
@@ -482,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B566DBD28CA15A3002728F4 /* MainScreenViewModelTests.swift in Sources */,
+				D6A0923628D35DD10071F14E /* FilmModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
