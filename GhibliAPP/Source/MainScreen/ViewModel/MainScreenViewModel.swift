@@ -100,7 +100,7 @@ final class MainScreenViewModel {
         let idsToTransform: [Int] = ids.count >= 2 ? [ids[0], ids[1]] : [ids[0]]
         
         let genreNames: [String] = idsToTransform.map { id in
-            var genreName = "unknow"
+            var genreName = "unknown"
             for genre in genreTable where genre.id == id {
                 genreName = genre.name
             }
