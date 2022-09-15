@@ -55,6 +55,28 @@ class TmdbResult: Codable {
     let originalTitle: String
     let backdropPath: String
     let posterPath: String
+    
+    init(
+        id: Int,
+        title: String,
+        overview: String,
+        popularity: Double,
+        genreIds: [Int],
+        genreNames: [String] = [],
+        originalTitle: String,
+        backdropPath: String,
+        posterPath: String
+    ) {
+        self.id = id
+        self.title = title
+        self.overview = overview
+        self.popularity = popularity
+        self.genreIds = genreIds
+        self.genreNames = genreNames
+        self.originalTitle = originalTitle
+        self.backdropPath = backdropPath
+        self.posterPath = posterPath
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview, popularity
