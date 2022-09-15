@@ -38,6 +38,11 @@ struct GhibliInfo: Codable {
 
 struct TmdbInfo: Codable {
     let results: [TmdbResult]
+    
+    init(results: [TmdbResult]) {
+        self.results = results
+    }
+    
 }
 
 class TmdbResult: Codable {
