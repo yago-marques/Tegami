@@ -8,14 +8,23 @@
 import Foundation
 
 final class MainScreenViewModel {
-    let apiService: APICall
+    private let apiService: APICall
+    weak var delegate: MainScreenViewModelDelegate?
 
-    init(apiService: APICall) {
+    var films: [FilmModel] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.reloadTable()
+            }
+        }
+    }
+
+    init(apiService: APICall, delegate: MainScreenViewModelDelegate? = nil) {
         self.apiService = apiService
     }
 
-    func fetchFilms(requestException: Bool = false) async -> [FilmModel]? {
-        guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return nil }
+    func fetchFilms(requestException: Bool = false) async {
+        guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return }
 
         let films: [FilmModel] = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
             let tmdbInfo = await fetchTmdbInfo(originalTitle: ghibliFilm.originalTitle)
@@ -23,7 +32,8 @@ final class MainScreenViewModel {
             return filmInfo
         }
 
-        return films
+        self.films = films
+
     }
 
     func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {

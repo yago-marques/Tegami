@@ -62,4 +62,16 @@ class TmdbResult: Decodable {
         self.posterPath = try container.decodeIfPresent(String.self, forKey: .posterPath) ?? ""
     }
 
+    func getGenres() -> String {
+        var result = ""
+
+        if genreNames.count == 2 {
+            result = "\(genreNames[0]) - \(genreNames[1])"
+        } else {
+            result = genreNames[0]
+        }
+
+        return result
+    }
+
 }
