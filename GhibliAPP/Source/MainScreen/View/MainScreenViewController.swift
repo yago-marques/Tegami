@@ -27,6 +27,7 @@ class MainScreenViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(filmTable)
         setupLayout()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
