@@ -9,21 +9,28 @@ import Foundation
 
 final class MainScreenViewModel {
     let apiService: APICall
-
-    init(apiService: APICall) {
+    let delegate: MainScreenViewControllerDelegate
+    var films: [FilmModel] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.delegate.updateTable()
+            }
+        }
+    }
+    init(apiService: APICall, delegate: MainScreenViewControllerDelegate) {
         self.apiService = apiService
+        self.delegate = delegate
     }
 
-    func fetchFilms(requestException: Bool = false) async -> [FilmModel]? {
-        guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return nil }
+    func fetchFilms(requestException: Bool = false) async {
+        guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return }
 
         let films: [FilmModel] = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
             let tmdbInfo = await fetchTmdbInfo(originalTitle: ghibliFilm.originalTitle)
             let filmInfo = FilmModel(ghibli: ghibliFilm, tmdb: tmdbInfo)
             return filmInfo
         }
-
-        return films
+        self.films = films
     }
 
     func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {

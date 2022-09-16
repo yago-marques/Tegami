@@ -16,10 +16,6 @@ final class OnbordingViewController: UIViewController {
         view.addSubview(FilmCell())
         
         view.backgroundColor = .blue
-        Task {
-            let viewModel = MainScreenViewModel(apiService: APICall())
-            await viewModel.fetchFilms()
-        }
 
     }
 }
