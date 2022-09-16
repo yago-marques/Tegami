@@ -14,6 +14,7 @@
 		4B566DBD28CA15A3002728F4 /* MainScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DBC28CA15A3002728F4 /* MainScreenViewModelTests.swift */; };
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
+		4B566DD728D49AEC002728F4 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DD628D49AEC002728F4 /* CardsView.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
 		DF287A0A28DA2EC600EF9333 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */; };
 		DF34BEBC28D39C2B00ABEB10 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */; };
@@ -62,6 +63,7 @@
 		4B566DC228CA15A3002728F4 /* GhibliAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITests.swift; sourceTree = "<group>"; };
 		4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4B566DD628D49AEC002728F4 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		53B2069F28CB87EA004E805A /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewController.swift; sourceTree = "<group>"; };
 		DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 				4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */,
 			);
 			path = GhibliAPPUITests;
+			sourceTree = "<group>";
+		};
+		4B566DD528D49A5B002728F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B566DD628D49AEC002728F4 /* CardsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		53B2069E28CB8799004E805A /* Service */ = {
