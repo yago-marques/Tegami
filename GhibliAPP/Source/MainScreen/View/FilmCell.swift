@@ -68,6 +68,14 @@ class FilmCell: UITableViewCell {
         filmTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive            = true
     }
     
+    func constraintsFilmDescription() {
+        filmDescription.translatesAutoresizingMaskIntoConstraints                                             = false
+        filmDescription.centerYAnchor.constraint(equalTo: centerYAnchor).isActive                             = true
+        filmDescription.leadingAnchor.constraint(equalTo: filmPoster.trailingAnchor, constant: 20).isActive   = true
+        filmDescription.heightAnchor.constraint(equalToConstant: -80).isActive                                 = true
+        filmDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive            = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
