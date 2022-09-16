@@ -12,6 +12,9 @@ final class OnbordingViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        view.addSubview(FilmCell())
+        
         view.backgroundColor = .blue
         Task {
             let viewModel = MainScreenViewModel(apiService: APICall())
