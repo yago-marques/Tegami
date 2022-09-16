@@ -8,6 +8,7 @@
 import UIKit
 
 class FilmCell: UITableViewCell {
+    
     var filmPoster = UIImageView()
     var filmTitle = UILabel()
     var filmDescription = UILabel()
@@ -38,7 +39,7 @@ class FilmCell: UITableViewCell {
         filmDescription.font = UIFont.systemFont(ofSize: 17)
     }
     
-    func constrainsPorter() {
+    func constrainsPoster() {
         filmPoster.translatesAutoresizingMaskIntoConstraints = false
         filmPoster.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
