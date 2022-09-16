@@ -173,6 +173,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		53F8A2DE28D49B9C00D1EF2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53F8A2DF28D49BD600D1EF2D /* MainScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D6A0923428D35D980071F14E /* Model */ = {
 			isa = PBXGroup;
 			children = (
