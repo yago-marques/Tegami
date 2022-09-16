@@ -10,6 +10,12 @@ import Foundation
 struct FilmModel {
     let ghibli: GhibliInfo?
     let tmdb: TmdbResult?
+    
+    init(ghibli: GhibliInfo?, tmdb: TmdbResult?) {
+        self.ghibli = ghibli
+        self.tmdb = tmdb
+    }
+    
 }
 
 struct GhibliInfo: Decodable {
@@ -23,6 +29,15 @@ struct GhibliInfo: Decodable {
         case releaseDate = "release_date"
         case runningTime = "running_time"
         case originalTitle = "original_title"
+    }
+    
+    init(id: String, releaseDate: String, runningTime: String, originalTitle: String) {
+        
+        self.id = id
+        self.releaseDate = releaseDate
+        self.runningTime = runningTime
+        self.originalTitle = originalTitle
+        
     }
 
 }
