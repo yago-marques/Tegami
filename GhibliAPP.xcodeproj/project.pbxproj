@@ -115,6 +115,7 @@
 				4B566DBB28CA15A3002728F4 /* GhibliAPPTests */,
 				4B566DC528CA15A3002728F4 /* GhibliAPPUITests */,
 				4B566DA328CA15A2002728F4 /* Products */,
+				DF7259EF28D4C5A300332E54 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +161,7 @@
 		4B566DD528D49A5B002728F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF7259F028D4C5D400332E54 /* MainScreenViewController.swift */,
 				4B566DD628D49AEC002728F4 /* FilmCell.swift */,
 			);
 			path = View;
@@ -171,14 +173,6 @@
 				53B2069F28CB87EA004E805A /* APICall.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		53F8A2DE28D49B9C00D1EF2D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				53F8A2DF28D49BD600D1EF2D /* MainScreenViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D6A0923428D35D980071F14E /* Model */ = {
