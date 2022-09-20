@@ -75,7 +75,7 @@ final class MainScreenViewModel {
         guard let data = defaults.object(forKey: "filmList") else { return }
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
 
-        let filmsToWatch = filmList.map { position in
+        let filmsToWatch = filmList.map { position -> FilmModel in
             let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
 
             return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
