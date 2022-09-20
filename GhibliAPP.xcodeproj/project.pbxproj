@@ -15,6 +15,7 @@
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
+		DF287A0A28DA2EC600EF9333 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */; };
 		DF34BEBC28D39C2B00ABEB10 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBB28D39C2B00ABEB10 /* MainScreenViewController.swift */; };
 		DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */; };
 		DF34BEC128D3A3FA00ABEB10 /* MainScreenViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEC028D3A3FA00ABEB10 /* MainScreenViewModelDelegate.swift */; };
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF287A0A28DA2EC600EF9333 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +316,9 @@
 			dependencies = (
 			);
 			name = GhibliAPP;
+			packageProductDependencies = (
+				DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */,
+			);
 			productName = GhibliAPP;
 			productReference = 4B566DA228CA15A2002728F4 /* GhibliAPP.app */;
 			productType = "com.apple.product-type.application";
@@ -386,6 +391,9 @@
 				Base,
 			);
 			mainGroup = 4B566D9928CA15A2002728F4;
+			packageReferences = (
+				DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 4B566DA328CA15A2002728F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -801,6 +809,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B566D9A28CA15A2002728F4 /* Project object */;
 }

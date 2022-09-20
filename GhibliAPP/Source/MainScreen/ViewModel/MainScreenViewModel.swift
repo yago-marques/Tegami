@@ -8,10 +8,19 @@
 import Foundation
 
 final class MainScreenViewModel {
+    weak var delegate: MainScreenViewModelDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
     var filmsBackup: [FilmModel] = []
-    weak var delegate: MainScreenViewModelDelegate?
+    var filmsToSearch = [FilmModel]()
+
+    var isSearch: Bool = false {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.reloadTable()
+            }
+        }
+    }
 
     var films: [FilmModel] = [] {
         didSet {
@@ -20,10 +29,10 @@ final class MainScreenViewModel {
             }
         }
     }
+
     var filteredFilms = [FilmModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                self?.films = self!.filteredFilms
                 self?.delegate?.reloadTable()
             }
         }
@@ -62,6 +71,8 @@ final class MainScreenViewModel {
             createInitialListFilm(films: films)
         }
 
+        self.filteredFilms = films
+        self.filmsToSearch = films
         self.films = films
     }
 
