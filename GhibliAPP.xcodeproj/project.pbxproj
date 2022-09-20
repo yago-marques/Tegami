@@ -16,7 +16,6 @@
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
 		4B566DD728D49AEC002728F4 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DD628D49AEC002728F4 /* FilmCell.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
-		53F8A2E028D49BD600D1EF2D /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8A2DF28D49BD600D1EF2D /* MainScreenViewController.swift */; };
 		D6A0923628D35DD10071F14E /* FilmModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0923528D35DD10071F14E /* FilmModelTests.swift */; };
 		DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF56CE6D28CB6486007AFC43 /* FilmModel.swift */; };
 		DF6C4C9128CF6FFA0079BF54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4C9028CF6FFA0079BF54 /* MainScreenViewModel.swift */; };
@@ -431,7 +430,6 @@
 				DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */,
 				4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */,
 				DF7259F128D4C5D400332E54 /* MainScreenViewController.swift in Sources */,
-				53F8A2E028D49BD600D1EF2D /* MainScreenViewController.swift in Sources */,
 				53B206A028CB87EA004E805A /* APICall.swift in Sources */,
 				4B566DD728D49AEC002728F4 /* FilmCell.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
