@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct FilmModel {
+struct FilmModel: Codable {
     let ghibli: GhibliInfo?
     let tmdb: TmdbResult?
 }
 
-struct GhibliInfo: Decodable {
+struct GhibliInfo: Codable {
     let id: String
     let releaseDate: String
     let runningTime: String
@@ -27,11 +27,11 @@ struct GhibliInfo: Decodable {
 
 }
 
-struct TmdbInfo: Decodable {
+struct TmdbInfo: Codable {
     let results: [TmdbResult]
 }
 
-class TmdbResult: Decodable {
+class TmdbResult: Codable {
     let id: Int
     let title: String
     let overview: String

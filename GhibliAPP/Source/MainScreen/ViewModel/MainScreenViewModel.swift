@@ -9,6 +9,8 @@ import Foundation
 
 final class MainScreenViewModel {
     private let apiService: APICall
+    private let defaults = UserDefaults.standard
+    var filmsBackup: [FilmModel] = []
     weak var delegate: MainScreenViewModelDelegate?
 
     var films: [FilmModel] = [] {
@@ -18,9 +20,33 @@ final class MainScreenViewModel {
             }
         }
     }
+    var filteredFilms = [FilmModel]() {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.films = self!.filteredFilms
+                self?.delegate?.reloadTable()
+            }
+        }
+    }
 
     init(apiService: APICall, delegate: MainScreenViewModelDelegate? = nil) {
         self.apiService = apiService
+    }
+
+    func createInitialListFilm(films: [FilmModel]) {
+        let sortedFilms = films.sorted { $0.tmdb!.popularity > $1.tmdb!.popularity }
+        let fiveFilms = sortedFilms[0...4]
+        var filmList: [FilmPosition] = []
+
+        for i in 0..<fiveFilms.count {
+            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli!.id, position: i)
+
+            filmList.append(newFilm)
+        }
+
+        if let data = try? JSONEncoder().encode(filmList) {
+            defaults.set(data, forKey: "filmList")
+        }
     }
 
     func fetchFilms(requestException: Bool = false) async {
@@ -32,8 +58,30 @@ final class MainScreenViewModel {
             return filmInfo
         }
 
-        self.films = films
+        if defaults.object(forKey: "filmList") == nil {
+            createInitialListFilm(films: films)
+        }
 
+        self.films = films
+    }
+
+    func showAllMovies() {
+        let filmsTemp: [FilmModel] = self.films
+        self.films = self.filmsBackup
+        self.filmsBackup = filmsTemp
+    }
+
+    func showMoviesToWatch() {
+        guard let data = defaults.object(forKey: "filmList") else { return }
+        guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
+
+        let filmsToWatch = filmList.map { position in
+            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+
+            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+        }
+        self.filmsBackup = self.films
+        self.films = filmsToWatch
     }
 
     func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {

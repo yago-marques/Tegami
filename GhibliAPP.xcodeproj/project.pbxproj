@@ -25,6 +25,10 @@
 		DF6C4CA728CFA8A70079BF54 /* UrlEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CA628CFA8A70079BF54 /* UrlEnum.swift */; };
 		DF6C4CAA28CFAD700079BF54 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CA928CFAD700079BF54 /* Sequence.swift */; };
 		DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */; };
+		DF884A7C28D8D4BB00F96059 /* FilmTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF884A7B28D8D4BB00F96059 /* FilmTableHeader.swift */; };
+		DF884A7F28D8EAB400F96059 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF884A7E28D8EAB400F96059 /* OnboardingViewModel.swift */; };
+		DF884A8128D8F45000F96059 /* FilmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF884A8028D8F45000F96059 /* FilmPosition.swift */; };
+		DF884A8328D922A000F96059 /* FilmTableHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF884A8228D922A000F96059 /* FilmTableHeaderDelegate.swift */; };
 		DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		DF6C4CA628CFA8A70079BF54 /* UrlEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEnum.swift; sourceTree = "<group>"; };
 		DF6C4CA928CFAD700079BF54 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		DF884A7B28D8D4BB00F96059 /* FilmTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableHeader.swift; sourceTree = "<group>"; };
+		DF884A7E28D8EAB400F96059 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		DF884A8028D8F45000F96059 /* FilmPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPosition.swift; sourceTree = "<group>"; };
+		DF884A8228D922A000F96059 /* FilmTableHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableHeaderDelegate.swift; sourceTree = "<group>"; };
 		DFD507AA28CA2DD8003570A4 /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +182,7 @@
 			children = (
 				DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */,
 				DF34BEC028D3A3FA00ABEB10 /* MainScreenViewModelDelegate.swift */,
+				DF884A8228D922A000F96059 /* FilmTableHeaderDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				DF34BEC328D3AF3D00ABEB10 /* FilmCardCell.swift */,
+				DF884A7B28D8D4BB00F96059 /* FilmTableHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -220,6 +230,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DF884A7D28D8EA8100F96059 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF884A7E28D8EAB400F96059 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFD5079828CA25E0003570A4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +273,7 @@
 		DFD5079F28CA297B003570A4 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				DF884A7D28D8EA8100F96059 /* ViewModel */,
 				DFD507A028CA2988003570A4 /* View */,
 			);
 			path = Onboarding;
@@ -273,6 +292,7 @@
 			children = (
 				DF56CE6D28CB6486007AFC43 /* FilmModel.swift */,
 				DF6C4CAB28D0BE510079BF54 /* GenreModel.swift */,
+				DF884A8028D8F45000F96059 /* FilmPosition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,9 +449,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF6C4CA728CFA8A70079BF54 /* UrlEnum.swift in Sources */,
+				DF884A8128D8F45000F96059 /* FilmPosition.swift in Sources */,
 				DF34BEC428D3AF3D00ABEB10 /* FilmCardCell.swift in Sources */,
 				DF34BEC628D3B15500ABEB10 /* UIImageView.swift in Sources */,
+				DF884A7C28D8D4BB00F96059 /* FilmTableHeader.swift in Sources */,
 				DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */,
+				DF884A8328D922A000F96059 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */,
 				DF6C4CAA28CFAD700079BF54 /* Sequence.swift in Sources */,
 				DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */,
@@ -441,6 +464,7 @@
 				DF34BEC128D3A3FA00ABEB10 /* MainScreenViewModelDelegate.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
 				DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */,
+				DF884A7F28D8EAB400F96059 /* OnboardingViewModel.swift in Sources */,
 				DF6C4C9128CF6FFA0079BF54 /* MainScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,16 +7,12 @@
 
 import UIKit
 
-final class OnbordingViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        Task {
-            let viewModel = MainScreenViewModel(apiService: APICall())
-            await viewModel.fetchFilms()
-        }
+        navigationController?.pushViewController(MainScreenViewController(viewModel: MainScreenViewModel(apiService: APICall())), animated: true)
 
     }
 }
