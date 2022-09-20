@@ -59,7 +59,6 @@ final class MainScreenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         Task.detached {
             await self.viewModel.fetchFilms()
         }
