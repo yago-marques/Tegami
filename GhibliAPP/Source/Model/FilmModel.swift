@@ -10,6 +10,12 @@ import Foundation
 struct FilmModel: Codable {
     let ghibli: GhibliInfo?
     let tmdb: TmdbResult?
+    
+    init(ghibli: GhibliInfo?, tmdb: TmdbResult?) {
+        self.ghibli = ghibli
+        self.tmdb = tmdb
+    }
+    
 }
 
 struct GhibliInfo: Codable {
@@ -23,6 +29,15 @@ struct GhibliInfo: Codable {
         case releaseDate = "release_date"
         case runningTime = "running_time"
         case originalTitle = "original_title"
+    }
+    
+    init(id: String, releaseDate: String, runningTime: String, originalTitle: String) {
+        
+        self.id = id
+        self.releaseDate = releaseDate
+        self.runningTime = runningTime
+        self.originalTitle = originalTitle
+        
     }
 
 }
@@ -41,6 +56,28 @@ class TmdbResult: Codable {
     let originalTitle: String
     let backdropPath: String
     let posterPath: String
+    
+    init(
+        id: Int,
+        title: String,
+        overview: String,
+        popularity: Double,
+        genreIds: [Int],
+        genreNames: [String] = [],
+        originalTitle: String,
+        backdropPath: String,
+        posterPath: String
+    ) {
+        self.id = id
+        self.title = title
+        self.overview = overview
+        self.popularity = popularity
+        self.genreIds = genreIds
+        self.genreNames = genreNames
+        self.originalTitle = originalTitle
+        self.backdropPath = backdropPath
+        self.posterPath = posterPath
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview, popularity

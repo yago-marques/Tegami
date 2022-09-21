@@ -15,7 +15,6 @@
 		4B566DC728CA15A3002728F4 /* GhibliAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC628CA15A3002728F4 /* GhibliAPPUITests.swift */; };
 		4B566DC928CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B566DC828CA15A3002728F4 /* GhibliAPPUITestsLaunchTests.swift */; };
 		53B206A028CB87EA004E805A /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2069F28CB87EA004E805A /* APICall.swift */; };
-		DF287A0A28DA2EC600EF9333 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */; };
 		DF34BEBC28D39C2B00ABEB10 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */; };
 		DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */; };
 		DF34BEC128D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */; };
@@ -85,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF287A0A28DA2EC600EF9333 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +138,7 @@
 		4B566DBB28CA15A3002728F4 /* GhibliAPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				D6A0923428D35D980071F14E /* Model */,
 				DF27784828D276AF0036DF4A /* ViewModels */,
 			);
 			path = GhibliAPPTests;
@@ -160,6 +159,13 @@
 				53B2069F28CB87EA004E805A /* APICall.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D6A0923428D35D980071F14E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DF27784828D276AF0036DF4A /* ViewModels */ = {
@@ -317,7 +323,6 @@
 			);
 			name = GhibliAPP;
 			packageProductDependencies = (
-				DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */,
 			);
 			productName = GhibliAPP;
 			productReference = 4B566DA228CA15A2002728F4 /* GhibliAPP.app */;
@@ -392,7 +397,6 @@
 			);
 			mainGroup = 4B566D9928CA15A2002728F4;
 			packageReferences = (
-				DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 4B566DA328CA15A2002728F4 /* Products */;
 			projectDirPath = "";
@@ -643,7 +647,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -672,7 +676,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GhibliAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -700,7 +704,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -720,7 +724,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -739,7 +743,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.stephanegirao.GhibliAPPUITests;
@@ -809,25 +813,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DF287A0928DA2EC600EF9333 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DF287A0828DA2EC600EF9333 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B566D9A28CA15A2002728F4 /* Project object */;
 }
