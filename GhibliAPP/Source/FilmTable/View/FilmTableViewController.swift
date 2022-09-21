@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class MainScreenViewController: UIViewController {
+final class FilmTableViewController: UIViewController {
 
-    private let viewModel: MainScreenViewModel
+    private let viewModel: FilmTableViewModel
 
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: .zero)
@@ -43,7 +43,7 @@ final class MainScreenViewController: UIViewController {
         return table
     }()
 
-    init(viewModel: MainScreenViewModel) {
+    init(viewModel: FilmTableViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -68,7 +68,7 @@ final class MainScreenViewController: UIViewController {
 
 }
 
-extension MainScreenViewController: MainScreenViewModelDelegate {
+extension FilmTableViewController: FilmTableViewModelDelegate {
     func reloadTable() {
         UIView.transition(
             with: filmsTableView,
@@ -81,7 +81,7 @@ extension MainScreenViewController: MainScreenViewModelDelegate {
     }
 }
 
-extension MainScreenViewController: FilmTableHeaderDelegate {
+extension FilmTableViewController: FilmTableHeaderDelegate {
     func allFilms() {
         viewModel.showAllMovies()
     }
@@ -91,7 +91,7 @@ extension MainScreenViewController: FilmTableHeaderDelegate {
     }
 }
 
-extension MainScreenViewController: UISearchBarDelegate {
+extension FilmTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
         viewModel.filterContentForSearchText(searchText: textSearched)
     }
@@ -105,9 +105,9 @@ extension MainScreenViewController: UISearchBarDelegate {
     }
 }
 
-extension MainScreenViewController: UITableViewDelegate { }
+extension FilmTableViewController: UITableViewDelegate { }
 
-extension MainScreenViewController: UITableViewDataSource {
+extension FilmTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return !viewModel.isSearch ? viewModel.films.count : viewModel.filteredFilms.count
     }
@@ -124,7 +124,7 @@ extension MainScreenViewController: UITableViewDataSource {
     }
 }
 
-extension MainScreenViewController: ViewCoding {
+extension FilmTableViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .systemBackground
         navigationItem.hidesBackButton = true

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MainScreenViewModelDelegate: AnyObject {
+protocol FilmTableViewModelDelegate: AnyObject {
     func reloadTable()
 }
