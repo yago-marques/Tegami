@@ -12,7 +12,7 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationController?.pushViewController(FilmTableViewController(viewModel: FilmTableViewModel(apiService: APICall())), animated: true)
+        navigationController?.pushViewController(LetterViewController(), animated: true)
 
     }
 }
