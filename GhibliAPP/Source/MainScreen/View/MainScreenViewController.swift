@@ -66,19 +66,6 @@ final class MainScreenViewController: UIViewController {
         }
     }
 
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-
-        if searchText.isEmpty {
-            viewModel.isSearch = false
-        } else {
-            viewModel.isSearch = true
-            viewModel.filteredFilms = viewModel.filmsToSearch.filter { film in
-                return film.tmdb!.title.lowercased().contains(searchText.lowercased())
-            }
-        }
-
-    }
-
 }
 
 extension MainScreenViewController: MainScreenViewModelDelegate {
@@ -106,7 +93,7 @@ extension MainScreenViewController: FilmTableHeaderDelegate {
 
 extension MainScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
-        self.filterContentForSearchText(searchText: textSearched)
+        viewModel.filterContentForSearchText(searchText: textSearched)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -179,4 +179,15 @@ final class MainScreenViewModel {
         return genreNames
     }
 
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        if searchText.isEmpty {
+            self.isSearch = false
+        } else {
+            self.isSearch = true
+            self.filteredFilms = self.filmsToSearch.filter { film in
+                return film.tmdb!.title.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+
 }
