@@ -38,6 +38,7 @@ final class MainScreenViewController: UIViewController {
         table.allowsSelection = false
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.showsVerticalScrollIndicator = false
 
         return table
     }()
@@ -62,12 +63,6 @@ final class MainScreenViewController: UIViewController {
 
         Task.detached {
             await self.viewModel.fetchFilms()
-        }
-    }
-
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        viewModel.filteredFilms = viewModel.films.filter { film in
-            return film.tmdb!.title.lowercased().contains(searchText.lowercased())
         }
     }
 
@@ -98,16 +93,23 @@ extension MainScreenViewController: FilmTableHeaderDelegate {
 
 extension MainScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
-        self.filterContentForSearchText(searchText: textSearched)
+        viewModel.filterContentForSearchText(searchText: textSearched)
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    @objc override func dismissKeyboard() {
+        self.searchBar.endEditing(true)
+    }
 }
 
 extension MainScreenViewController: UITableViewDelegate { }
 
 extension MainScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.films.count
+        return !viewModel.isSearch ? viewModel.films.count : viewModel.filteredFilms.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,7 +118,7 @@ extension MainScreenViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCardCell", for: indexPath) as! FilmCardCell
-        cell.film = viewModel.films[indexPath.row]
+        cell.film = !viewModel.isSearch ? viewModel.films[indexPath.row] : viewModel.filteredFilms[indexPath.row]
 
         return cell
     }
@@ -128,6 +130,8 @@ extension MainScreenViewController: ViewCoding {
         navigationItem.hidesBackButton = true
         viewModel.delegate = self
         navigationItem.titleView = searchBar
+        let tapGestureToHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGestureToHideKeyboard)
     }
 
     func setupHierarchy() {
