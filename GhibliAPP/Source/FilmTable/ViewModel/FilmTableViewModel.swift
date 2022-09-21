@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class MainScreenViewModel {
-    weak var delegate: MainScreenViewModelDelegate?
+final class FilmTableViewModel {
+    weak var delegate: FilmTableViewModelDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
     var filmsBackup: [FilmModel] = []
@@ -38,7 +38,7 @@ final class MainScreenViewModel {
         }
     }
 
-    init(apiService: APICall, delegate: MainScreenViewModelDelegate? = nil) {
+    init(apiService: APICall, delegate: FilmTableViewModelDelegate? = nil) {
         self.apiService = apiService
     }
 
