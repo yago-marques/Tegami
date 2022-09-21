@@ -9,6 +9,13 @@ import UIKit
 
 final class LetterViewController: UIViewController {
 
+    private let sceneView: SceneView = {
+        let scene = SceneView()
+        scene.translatesAutoresizingMaskIntoConstraints = false
+
+        return scene
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +30,16 @@ extension LetterViewController: ViewCoding {
         navigationItem.hidesBackButton = true
     }
 
-    func setupHierarchy() { }
+    func setupHierarchy() {
+        view.addSubview(sceneView)
+    }
 
-    func setupConstraints() { }
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            sceneView.topAnchor.constraint(equalTo: view.topAnchor),
+            sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            sceneView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
 }

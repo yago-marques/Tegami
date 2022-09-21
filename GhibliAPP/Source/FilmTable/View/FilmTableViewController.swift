@@ -100,7 +100,7 @@ extension FilmTableViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 
-    @objc override func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.searchBar.endEditing(true)
     }
 }
