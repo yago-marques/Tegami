@@ -9,12 +9,6 @@ import UIKit
 
 final class EnvelopView: UIView {
 
-    private var isInAnimation = false {
-        didSet {
-            animateLetter()
-        }
-    }
-
     private lazy var letterImage: UIImageView = {
         let image = self.makeImageView(named: "Cartas/1", contentMode: .scaleAspectFit)
         image.transform = image.transform.rotated(by: CGFloat(Double.pi/15))
@@ -48,17 +42,15 @@ extension EnvelopView {
     }
 
     func animateLetter() {
-        if isInAnimation {
-            UIView.animate(withDuration: 1.5, delay: 0.6, animations: {}, completion: { _ in
-                UIView.animate(withDuration: 1, delay: 0.3, options: [.repeat, .autoreverse, .curveEaseOut], animations: {
-                    self.letterImage.frame.origin.y += 10
-                })
+        UIView.animate(withDuration: 1.5, delay: 0.6, animations: {}, completion: { _ in
+            UIView.animate(withDuration: 1, delay: 0.3, options: [.curveEaseOut], animations: {
+                self.letterImage.frame.origin.x -= 300
+                self.letterImage.frame.origin.y += 150
             })
-        }
+        })
     }
 
     @objc func openLetter() {
-        self.isInAnimation = false
         openLetterAnimation()
     }
 
@@ -79,7 +71,7 @@ extension EnvelopView {
 
 extension EnvelopView: ViewCoding {
     func setupView() {
-        self.isInAnimation = true
+        animateLetter()
     }
 
     func setupHierarchy() {
