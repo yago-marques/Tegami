@@ -9,9 +9,18 @@ import UIKit
 
 final class EnvelopView: UIView {
 
+    private var isInAnimation = false {
+        didSet {
+            animateLetter()
+        }
+    }
+
     private lazy var letterImage: UIImageView = {
         let image = self.makeImageView(named: "Cartas/1", contentMode: .scaleAspectFit)
-        image.transform = image.transform.rotated(by: CGFloat(Double.pi/12))
+        image.transform = image.transform.rotated(by: CGFloat(Double.pi/15))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLetter))
+        image.addGestureRecognizer(tapGesture)
+        image.isUserInteractionEnabled = true
 
         return image
     }()
@@ -39,29 +48,38 @@ extension EnvelopView {
     }
 
     func animateLetter() {
-        UIView.animateKeyframes(withDuration: 4, delay: 0, animations: {
+        if isInAnimation {
+            UIView.animate(withDuration: 1.5, delay: 0.6, animations: {}, completion: { _ in
+                UIView.animate(withDuration: 1, delay: 0.3, options: [.repeat, .autoreverse, .curveEaseOut], animations: {
+                    self.letterImage.frame.origin.y += 10
+                })
+            })
+        }
+    }
 
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
-                self.letterImage.backgroundColor = .magenta
-            })
+    @objc func openLetter() {
+        self.isInAnimation = false
+        openLetterAnimation()
+    }
 
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
-                self.letterImage.alpha = 0.5
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.25, animations: {
-                self.letterImage.center.x = self.bounds.width - 100
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-                self.letterImage.center.x = self.bounds.width - 200
+    func openLetterAnimation() {
+        UIView.animate(withDuration: 1.5, delay: 0.6, animations: {}, completion: { _ in
+            UIView.animate(withDuration: 1, delay: 0.3, options: [.curveEaseOut], animations: {
+                self.letterImage.transform = self.transform.rotated(by: CGFloat(0))
+            }, completion: { _ in
+                UIView.animate(withDuration: 1, delay: 0.3, animations: {
+                    self.letterImage.frame.origin.y += 10
+                })
             })
         })
+
     }
 
 }
 
 extension EnvelopView: ViewCoding {
     func setupView() {
-        animateLetter()
+        self.isInAnimation = true
     }
 
     func setupHierarchy() {
