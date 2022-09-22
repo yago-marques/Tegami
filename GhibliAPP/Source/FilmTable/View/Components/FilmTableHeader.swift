@@ -12,7 +12,7 @@ final class FilmTableHeader: UIView {
     weak var delegate: FilmTableHeaderDelegate?
 
     private lazy var filmSegmentedControl: UIView = {
-        let control = UISegmentedControl(items: ["Todos", "Minha lista"])
+        let control = UISegmentedControl(items: ["Todos os filmes", "Minha lista"])
         control.translatesAutoresizingMaskIntoConstraints = false
         control.selectedSegmentIndex = 0
         control.addTarget(self, action: #selector(swapTable), for: .valueChanged)

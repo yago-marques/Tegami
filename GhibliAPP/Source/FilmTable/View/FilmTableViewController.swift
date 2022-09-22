@@ -11,9 +11,19 @@ final class FilmTableViewController: UIViewController {
 
     private let viewModel: FilmTableViewModel
 
+    private let backgroundImage: UIImageView = {
+        let background = UIImageView(frame: .zero)
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.image = UIImage(named: "Elementos/fundoA-list")
+        background.contentMode = .scaleAspectFill
+
+        return background
+    }()
+
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.searchBarStyle = .minimal
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "Pesquisar filme"
         searchBar.sizeToFit()
         searchBar.delegate = self
@@ -129,24 +139,34 @@ extension FilmTableViewController: ViewCoding {
         view.backgroundColor = .systemBackground
         navigationItem.hidesBackButton = true
         viewModel.delegate = self
-        navigationItem.titleView = searchBar
         let tapGestureToHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGestureToHideKeyboard)
     }
 
     func setupHierarchy() {
+        view.addSubview(backgroundImage)
+        view.addSubview(searchBar)
         view.addSubview(tableHeaderView)
         view.addSubview(filmsTableView)
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            tableHeaderView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableHeaderView.widthAnchor.constraint(equalTo: view.widthAnchor),
             tableHeaderView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.05),
             tableHeaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            filmsTableView.topAnchor.constraint(equalToSystemSpacingBelow: tableHeaderView.bottomAnchor, multiplier: 2),
+            filmsTableView.topAnchor.constraint(equalToSystemSpacingBelow: tableHeaderView.bottomAnchor, multiplier: 1),
             filmsTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65),
             filmsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             filmsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
