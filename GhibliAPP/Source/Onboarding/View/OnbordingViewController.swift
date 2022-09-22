@@ -11,6 +11,6 @@ final class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.pushViewController(MainScreenViewController(), animated: true)
+        navigationController?.pushViewController(FilmOverviewController(), animated: true)
     }
 }
