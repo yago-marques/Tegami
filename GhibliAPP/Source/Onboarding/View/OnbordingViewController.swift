@@ -10,9 +10,7 @@ import UIKit
 final class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        navigationController?.pushViewController(LetterViewController(), animated: true)
-
+        navigationController?.pushViewController(MainScreenViewController(), animated: true)
     }
 }
