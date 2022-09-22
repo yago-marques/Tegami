@@ -16,6 +16,13 @@ final class LetterViewController: UIViewController {
         return scene
     }()
 
+    private let envelopView: EnvelopView = {
+        let envelop = EnvelopView()
+        envelop.translatesAutoresizingMaskIntoConstraints = false
+
+        return envelop
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +39,7 @@ extension LetterViewController: ViewCoding {
 
     func setupHierarchy() {
         view.addSubview(sceneView)
+        view.addSubview(envelopView)
     }
 
     func setupConstraints() {
@@ -39,7 +47,12 @@ extension LetterViewController: ViewCoding {
             sceneView.topAnchor.constraint(equalTo: view.topAnchor),
             sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             sceneView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            sceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            sceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            envelopView.centerXAnchor.constraint(equalTo: sceneView.cloudImage.centerXAnchor),
+            envelopView.centerYAnchor.constraint(equalTo: sceneView.cloudImage.centerYAnchor),
+            envelopView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            envelopView.heightAnchor.constraint(equalTo: envelopView.widthAnchor, multiplier: 0.8)
         ])
     }
 }

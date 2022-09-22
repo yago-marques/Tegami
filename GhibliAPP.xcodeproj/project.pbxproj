@@ -19,6 +19,7 @@
 		DF287A1128DB4AFF00EF9333 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1028DB4AFF00EF9333 /* SceneView.swift */; };
 		DF287A1728DBA6A200EF9333 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1628DBA6A200EF9333 /* MainScreenViewController.swift */; };
 		DF287A1928DBCD7600EF9333 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1828DBCD7600EF9333 /* UIScrollView.swift */; };
+		DF287A1B28DC861900EF9333 /* EnvelopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1A28DC861900EF9333 /* EnvelopView.swift */; };
 		DF34BEBC28D39C2B00ABEB10 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */; };
 		DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */; };
 		DF34BEC128D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */; };
@@ -70,6 +71,7 @@
 		DF287A1028DB4AFF00EF9333 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
 		DF287A1628DBA6A200EF9333 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		DF287A1828DBCD7600EF9333 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		DF287A1A28DC861900EF9333 /* EnvelopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvelopView.swift; sourceTree = "<group>"; };
 		DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewController.swift; sourceTree = "<group>"; };
 		DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				DF287A1028DB4AFF00EF9333 /* SceneView.swift */,
+				DF287A1A28DC861900EF9333 /* EnvelopView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			files = (
 				DF6C4CA728CFA8A70079BF54 /* UrlEnum.swift in Sources */,
 				DF884A8128D8F45000F96059 /* FilmPosition.swift in Sources */,
+				DF287A1B28DC861900EF9333 /* EnvelopView.swift in Sources */,
 				DF287A1728DBA6A200EF9333 /* MainScreenViewController.swift in Sources */,
 				DF34BEC428D3AF3D00ABEB10 /* FilmCardCell.swift in Sources */,
 				DF34BEC628D3B15500ABEB10 /* UIImageView.swift in Sources */,
