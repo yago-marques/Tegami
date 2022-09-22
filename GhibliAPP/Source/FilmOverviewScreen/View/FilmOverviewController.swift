@@ -27,7 +27,7 @@ final class FilmOverviewController: UIViewController {
 extension FilmOverviewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .white
-        navigationItem.hidesBackButton = false
+        navigationItem.hidesBackButton = true
     }
     
     func setupHierarchy() {
