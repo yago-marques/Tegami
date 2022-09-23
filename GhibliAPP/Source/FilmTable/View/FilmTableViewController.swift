@@ -20,6 +20,15 @@ final class FilmTableViewController: UIViewController {
         return background
     }()
 
+    lazy var bottomCloudImage: UIImageView = {
+        let image = UIImageView(frame: .zero)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "Elementos/aCloud")
+        image.contentMode = .scaleAspectFit
+
+        return image
+    }()
+
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.searchBarStyle = .minimal
@@ -145,6 +154,7 @@ extension FilmTableViewController: ViewCoding {
 
     func setupHierarchy() {
         view.addSubview(backgroundImage)
+        view.addSubview(bottomCloudImage)
         view.addSubview(searchBar)
         view.addSubview(tableHeaderView)
         view.addSubview(filmsTableView)
@@ -169,7 +179,12 @@ extension FilmTableViewController: ViewCoding {
             filmsTableView.topAnchor.constraint(equalToSystemSpacingBelow: tableHeaderView.bottomAnchor, multiplier: 1),
             filmsTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65),
             filmsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            filmsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            filmsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            bottomCloudImage.centerYAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomCloudImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bottomCloudImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
+            bottomCloudImage.heightAnchor.constraint(equalTo: bottomCloudImage.widthAnchor, multiplier: 0.58)
         ])
     }
 }

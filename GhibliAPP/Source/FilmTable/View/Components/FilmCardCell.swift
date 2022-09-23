@@ -11,14 +11,14 @@ final class FilmCardCell: UITableViewCell {
 
     var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
         didSet {
-            DispatchQueue.main.async {
-                if let posterPath = self.film.tmdb?.posterPath {
-                    self.titleLabel.text = self.film.tmdb?.title
+            DispatchQueue.main.async { [weak self] in
+                if let posterPath = self?.film.tmdb?.posterPath {
+                    self?.titleLabel.text = self?.film.tmdb?.title
                     let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(posterPath))!
-                    self.filmImageView.downloaded(from: imageUrl)
-                    self.runningTimeLabel.text = "\(self.film.ghibli?.runningTime ?? "--") minutos |"
-                    self.releaseDateLabel.text = self.film.ghibli?.releaseDate
-                    self.genresLabel.text = self.film.tmdb?.getGenres()
+                    self?.filmImageView.downloaded(from: imageUrl)
+                    self?.runningTimeLabel.text = "\(self?.film.ghibli?.runningTime ?? "--") minutos |"
+                    self?.releaseDateLabel.text = self?.film.ghibli?.releaseDate
+                    self?.genresLabel.text = self?.film.tmdb?.getGenres()
                 }
             }
         }

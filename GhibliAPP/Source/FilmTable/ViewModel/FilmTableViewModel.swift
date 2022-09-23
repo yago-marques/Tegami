@@ -191,3 +191,19 @@ final class FilmTableViewModel {
     }
 
 }
+
+extension FilmTableViewModel: LetterViewModelDelegate {
+    func getMoviesToWatch() async -> [FilmModel]? {
+        guard let data = defaults.object(forKey: "filmList") else { return nil }
+        guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return nil }
+
+        await self.fetchFilms()
+        let filmsToWatch = filmList.map { position -> FilmModel in
+            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+
+            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+        }
+
+        return filmsToWatch
+    }
+}

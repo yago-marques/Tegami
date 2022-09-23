@@ -20,6 +20,11 @@
 		DF287A1728DBA6A200EF9333 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1628DBA6A200EF9333 /* MainScreenViewController.swift */; };
 		DF287A1928DBCD7600EF9333 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1828DBCD7600EF9333 /* UIScrollView.swift */; };
 		DF287A1B28DC861900EF9333 /* EnvelopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1A28DC861900EF9333 /* EnvelopView.swift */; };
+		DF287A1D28DCE00700EF9333 /* NextFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1C28DCE00700EF9333 /* NextFilmView.swift */; };
+		DF287A2028DCE64B00EF9333 /* LetterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A1F28DCE64B00EF9333 /* LetterViewModel.swift */; };
+		DF287A2428DCF36400EF9333 /* LetterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A2328DCF36400EF9333 /* LetterViewControllerDelegate.swift */; };
+		DF287A2628DD383000EF9333 /* EnvelopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A2528DD383000EF9333 /* EnvelopViewDelegate.swift */; };
+		DF287A2828DD3A6500EF9333 /* LetterViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A2728DD3A6500EF9333 /* LetterViewModelDelegate.swift */; };
 		DF34BEBC28D39C2B00ABEB10 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */; };
 		DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */; };
 		DF34BEC128D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */; };
@@ -72,6 +77,11 @@
 		DF287A1628DBA6A200EF9333 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		DF287A1828DBCD7600EF9333 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		DF287A1A28DC861900EF9333 /* EnvelopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvelopView.swift; sourceTree = "<group>"; };
+		DF287A1C28DCE00700EF9333 /* NextFilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextFilmView.swift; sourceTree = "<group>"; };
+		DF287A1F28DCE64B00EF9333 /* LetterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModel.swift; sourceTree = "<group>"; };
+		DF287A2328DCF36400EF9333 /* LetterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DF287A2528DD383000EF9333 /* EnvelopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvelopViewDelegate.swift; sourceTree = "<group>"; };
+		DF287A2728DD3A6500EF9333 /* LetterViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelDelegate.swift; sourceTree = "<group>"; };
 		DF34BEBB28D39C2B00ABEB10 /* FilmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewController.swift; sourceTree = "<group>"; };
 		DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DF287A0C28DB349600EF9333 /* View */,
+				DF287A1E28DCE62900EF9333 /* ViewModel */,
 			);
 			path = LetterView;
 			sourceTree = "<group>";
@@ -208,6 +219,7 @@
 			children = (
 				DF287A1028DB4AFF00EF9333 /* SceneView.swift */,
 				DF287A1A28DC861900EF9333 /* EnvelopView.swift */,
+				DF287A1C28DCE00700EF9333 /* NextFilmView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -228,6 +240,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DF287A1E28DCE62900EF9333 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF287A1F28DCE64B00EF9333 /* LetterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DF34BEBA28D39C1800ABEB10 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +263,9 @@
 				DF34BEBE28D39CAD00ABEB10 /* ViewCoding.swift */,
 				DF34BEC028D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift */,
 				DF884A8228D922A000F96059 /* FilmTableHeaderDelegate.swift */,
+				DF287A2328DCF36400EF9333 /* LetterViewControllerDelegate.swift */,
+				DF287A2528DD383000EF9333 /* EnvelopViewDelegate.swift */,
+				DF287A2728DD3A6500EF9333 /* LetterViewModelDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -522,19 +545,24 @@
 				DF34BEC428D3AF3D00ABEB10 /* FilmCardCell.swift in Sources */,
 				DF34BEC628D3B15500ABEB10 /* UIImageView.swift in Sources */,
 				DF884A7C28D8D4BB00F96059 /* FilmTableHeader.swift in Sources */,
+				DF287A1D28DCE00700EF9333 /* NextFilmView.swift in Sources */,
 				DFD507AB28CA2DD8003570A4 /* OnbordingViewController.swift in Sources */,
 				DF884A8328D922A000F96059 /* FilmTableHeaderDelegate.swift in Sources */,
+				DF287A2628DD383000EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF34BEBF28D39CAD00ABEB10 /* ViewCoding.swift in Sources */,
 				DF287A1928DBCD7600EF9333 /* UIScrollView.swift in Sources */,
 				DF6C4CAA28CFAD700079BF54 /* Sequence.swift in Sources */,
 				DF6C4CAC28D0BE510079BF54 /* GenreModel.swift in Sources */,
 				4B566DA628CA15A2002728F4 /* AppDelegate.swift in Sources */,
+				DF287A2428DCF36400EF9333 /* LetterViewControllerDelegate.swift in Sources */,
 				DF287A1128DB4AFF00EF9333 /* SceneView.swift in Sources */,
 				DF34BEBC28D39C2B00ABEB10 /* FilmTableViewController.swift in Sources */,
 				53B206A028CB87EA004E805A /* APICall.swift in Sources */,
 				DF34BEC128D3A3FA00ABEB10 /* FilmTableViewModelDelegate.swift in Sources */,
 				4B566DA828CA15A2002728F4 /* SceneDelegate.swift in Sources */,
 				DF287A0E28DB34B100EF9333 /* LetterViewController.swift in Sources */,
+				DF287A2828DD3A6500EF9333 /* LetterViewModelDelegate.swift in Sources */,
+				DF287A2028DCE64B00EF9333 /* LetterViewModel.swift in Sources */,
 				DF56CE6E28CB6486007AFC43 /* FilmModel.swift in Sources */,
 				DF884A7F28D8EAB400F96059 /* OnboardingViewModel.swift in Sources */,
 				DF6C4C9128CF6FFA0079BF54 /* FilmTableViewModel.swift in Sources */,
