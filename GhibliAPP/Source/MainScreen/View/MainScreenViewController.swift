@@ -9,8 +9,9 @@ import UIKit
 
 final class MainScreenViewController: UIViewController {
 
-    private let filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: APICall())
+    private lazy var filmTable = FilmTableViewController(
+        viewModel: FilmTableViewModel(apiService: APICall()),
+        letterViewModel: self.letterView.viewModel
     )
 
     private let letterView = LetterViewController(

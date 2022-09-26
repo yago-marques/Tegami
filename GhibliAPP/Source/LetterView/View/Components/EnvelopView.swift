@@ -71,9 +71,10 @@ final class EnvelopView: UIView {
         return stack
     }()
 
-    private lazy var nextFilmCard: NextFilmView = {
+    lazy var nextFilmCard: NextFilmView = {
         let nextFilm = NextFilmView()
         nextFilm.translatesAutoresizingMaskIntoConstraints = false
+        nextFilm.isUserInteractionEnabled = true
 
         return nextFilm
     }()

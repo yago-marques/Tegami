@@ -21,6 +21,14 @@ final class NextFilmView: UIView {
         }
     }
 
+    var labelText: String = "" {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.nextFilmLabel.text = self?.labelText
+            }
+        }
+    }
+
     private let filmImageView: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +57,6 @@ final class NextFilmView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.text = "Seu próximo filme:"
 
         return label
     }()

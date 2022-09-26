@@ -82,6 +82,10 @@ final class FilmCardCell: UITableViewCell {
         return label
     }()
 
+    @objc func tester() {
+        print("hello")
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -142,7 +146,6 @@ extension FilmCardCell: ViewCoding {
 
             genresLabel.bottomAnchor.constraint(equalTo: infoStack.bottomAnchor),
             genresLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor)
-
         ])
     }
 }

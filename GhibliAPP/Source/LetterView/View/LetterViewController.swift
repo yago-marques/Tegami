@@ -9,7 +9,7 @@ import UIKit
 
 final class LetterViewController: UIViewController {
 
-    private let viewModel: LetterViewModel
+    private(set) var viewModel: LetterViewModel
 
     init(viewModel: LetterViewModel) {
         self.viewModel = viewModel
@@ -61,8 +61,23 @@ extension LetterViewController: EnvelopViewDelegate {
 }
 
 extension LetterViewController: LetterViewControllerDelegate {
-    func addFilmToStack(film: FilmModel) {
+    func addFilmToStack(film: FilmModel, counter: Int) {
         self.envelopView.film = film
+        var labelText: String = "Seu próximo filme"
+
+        if counter == 0, film.ghibli == nil {
+            labelText = "Lista vazia"
+        }
+
+        if counter > 0, film.ghibli == nil {
+            labelText = "Último filme removido da lista"
+        }
+
+        self.modifyTitleLabel(labelTitle: labelText)
+    }
+
+    func modifyTitleLabel(labelTitle: String) {
+        self.envelopView.nextFilmCard.labelText = labelTitle
     }
 }
 

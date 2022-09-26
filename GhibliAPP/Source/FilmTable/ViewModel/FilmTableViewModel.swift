@@ -8,11 +8,13 @@
 import Foundation
 
 final class FilmTableViewModel {
+    weak var letterDelegate: UpdateNextFilmDelegate?
     weak var delegate: FilmTableViewModelDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
+    var tableState: TableState = .all
 
     var isSearch: Bool = false {
         didSet {
@@ -38,7 +40,12 @@ final class FilmTableViewModel {
         }
     }
 
-    init(apiService: APICall, delegate: FilmTableViewModelDelegate? = nil) {
+    init(
+        apiService: APICall,
+        delegate: FilmTableViewModelDelegate? = nil,
+        letterDelegate: UpdateNextFilmDelegate? = nil
+    ) {
+        self.letterDelegate = letterDelegate
         self.apiService = apiService
     }
 
@@ -48,7 +55,7 @@ final class FilmTableViewModel {
         var filmList: [FilmPosition] = []
 
         for i in 0..<fiveFilms.count {
-            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli!.id, position: i)
+            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli!.id)
 
             filmList.append(newFilm)
         }
@@ -80,6 +87,7 @@ final class FilmTableViewModel {
         let filmsTemp: [FilmModel] = self.films
         self.films = self.filmsBackup
         self.filmsBackup = filmsTemp
+        self.tableState = .all
     }
 
     func showMoviesToWatch() {
@@ -91,8 +99,10 @@ final class FilmTableViewModel {
 
             return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
         }
+
         self.filmsBackup = self.films
         self.films = filmsToWatch
+        self.tableState = .toWatch
     }
 
     func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {
@@ -190,6 +200,44 @@ final class FilmTableViewModel {
         }
     }
 
+    func getActions(state: TableState, isFirst: Bool = false) -> [(String, String)] {
+        switch tableState {
+        case .all:
+            return [
+                ("Adicionar na minha lista", "plus.square.on.square.fill"),
+                ("Ver detalhes", "info.circle.fill")
+            ]
+        case .toWatch:
+            if !isFirst {
+                return [
+                    ("Marcar como assistido", "video.fill.badge.checkmark"),
+                    ("Tornar o primeiro da lista", "square.3.stack.3d.top.filled"),
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
+                    ("Ver detalhes", "info.circle.fill")
+                ]
+            } else {
+                return [
+                    ("Marcar como assistido", "video.fill.badge.checkmark"),
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
+                    ("Ver detalhes", "info.circle.fill")
+                ]
+            }
+        }
+    }
+
+    func updateFilmsToWatch(filmList: [FilmPosition]) {
+        if let dataToStore = try? JSONEncoder().encode(filmList) {
+            defaults.set(dataToStore, forKey: "filmList")
+
+            let filmsToWatch = filmList.map { position -> FilmModel in
+                let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+
+                return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+            }
+
+            self.films = filmsToWatch
+        }
+    }
 }
 
 extension FilmTableViewModel: LetterViewModelDelegate {
@@ -205,5 +253,53 @@ extension FilmTableViewModel: LetterViewModelDelegate {
         }
 
         return filmsToWatch
+    }
+}
+
+extension FilmTableViewModel: ActionSheetDelegate {
+    func addNewFilmToList(id: String) {
+        guard let data = defaults.object(forKey: "filmList") else { return }
+        guard var filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
+
+        filmList.append(FilmPosition(filmId: id))
+
+        let filmsToWatch = filmList.map { position -> FilmModel in
+            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+
+            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+        }
+
+        if let dataToStore = try? JSONEncoder().encode(filmList) {
+            defaults.set(dataToStore, forKey: "filmList")
+        }
+
+        self.letterDelegate?.updateNextFilm(newFilm: filmsToWatch[0])
+
+    }
+
+    func removeFilmOfList(id: String) {
+        guard let data = defaults.object(forKey: "filmList") else { return }
+        guard var filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
+
+        if let index = filmList.firstIndex(of: FilmPosition(filmId: id)) {
+            filmList.remove(at: index)
+        }
+
+        self.updateFilmsToWatch(filmList: filmList)
+
+        self.letterDelegate?.updateNextFilm(newFilm: !self.films.isEmpty ? self.films[0] : FilmModel(ghibli: nil, tmdb: nil))
+    }
+
+    func turnFirstOfList(id: String) {
+        guard let data = defaults.object(forKey: "filmList") else { return }
+        guard var filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
+
+        if let index = filmList.firstIndex(of: FilmPosition(filmId: id)) {
+            filmList.move(filmList[index], to: 0)
+        }
+
+        self.updateFilmsToWatch(filmList: filmList)
+
+        self.letterDelegate?.updateNextFilm(newFilm: self.films[0])
     }
 }
