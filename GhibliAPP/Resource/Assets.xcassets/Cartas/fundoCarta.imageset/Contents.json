@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "fundo carta.png",
       "idiom" : "universal"
     }
   ],

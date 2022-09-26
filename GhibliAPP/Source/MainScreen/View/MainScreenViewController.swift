@@ -9,11 +9,15 @@ import UIKit
 
 final class MainScreenViewController: UIViewController {
 
-    private let filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: APICall())
+    private lazy var filmTable = FilmTableViewController(
+        viewModel: FilmTableViewModel(apiService: APICall()),
+        letterViewModel: self.letterView.viewModel
     )
 
-    private let letterView = LetterViewController()
+    private let letterView = LetterViewController(
+        viewModel: LetterViewModel(
+            table: FilmTableViewModel(apiService: APICall()) as LetterViewModelDelegate)
+    )
 
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
