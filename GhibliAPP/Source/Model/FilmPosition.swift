@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct FilmPosition: Codable {
+struct FilmPosition: Codable, Equatable {
     let filmId: String
-    let position: Int
 }

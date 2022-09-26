@@ -10,6 +10,7 @@ import UIKit
 final class FilmTableViewController: UIViewController {
 
     private let viewModel: FilmTableViewModel
+    weak var letterViewModel: LetterViewModel?
 
     private let backgroundImage: UIImageView = {
         let background = UIImageView(frame: .zero)
@@ -18,6 +19,15 @@ final class FilmTableViewController: UIViewController {
         background.contentMode = .scaleAspectFill
 
         return background
+    }()
+
+    lazy var bottomCloudImage: UIImageView = {
+        let image = UIImageView(frame: .zero)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "Elementos/aCloud")
+        image.contentMode = .scaleAspectFit
+
+        return image
     }()
 
     private lazy var searchBar: UISearchBar = {
@@ -45,7 +55,8 @@ final class FilmTableViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         table.backgroundColor = .clear
-        table.allowsSelection = false
+        table.allowsSelection = true
+        table.isUserInteractionEnabled = true
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         table.showsVerticalScrollIndicator = false
@@ -53,8 +64,9 @@ final class FilmTableViewController: UIViewController {
         return table
     }()
 
-    init(viewModel: FilmTableViewModel) {
+    init(viewModel: FilmTableViewModel, letterViewModel: LetterViewModel) {
         self.viewModel = viewModel
+        self.letterViewModel = letterViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -106,6 +118,19 @@ extension FilmTableViewController: UISearchBarDelegate {
         viewModel.filterContentForSearchText(searchText: textSearched)
     }
 
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let tapGestureToHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGestureToHideKeyboard)
+
+        return true
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        view.gestureRecognizers = []
+
+        return true
+    }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
@@ -115,7 +140,12 @@ extension FilmTableViewController: UISearchBarDelegate {
     }
 }
 
-extension FilmTableViewController: UITableViewDelegate { }
+extension FilmTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // overView is open here
+        print("toOverview")
+    }
+}
 
 extension FilmTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,9 +158,54 @@ extension FilmTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCardCell", for: indexPath) as! FilmCardCell
-        cell.film = !viewModel.isSearch ? viewModel.films[indexPath.row] : viewModel.filteredFilms[indexPath.row]
+        let film = !viewModel.isSearch ? viewModel.films[indexPath.row] : viewModel.filteredFilms[indexPath.row]
+        cell.film = film
+        cell.selectionStyle = .none
+        let longPressGesture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(LongPresshandler)
+        )
+        cell.addGestureRecognizer(longPressGesture)
 
         return cell
+    }
+
+    @objc func LongPresshandler(_ sender: UILongPressGestureRecognizer) {
+        let cell = sender.view as! UITableViewCell
+        guard let indexPath = filmsTableView.indexPath(for: cell) else { return }
+        let mySheet = ActionSheet(delegate: self.viewModel)
+
+        if sender.state == .began, !viewModel.isSearch {
+            let film = viewModel.films[indexPath.row]
+            mySheet.film = film
+            switch viewModel.tableState {
+            case .all:
+                mySheet.contentOfRowAt = viewModel.getActions(state: .all)
+            case .toWatch:
+                if indexPath.row == 0 {
+                    mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch, isFirst: true)
+                } else {
+                    mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch)
+                }
+            }
+
+            let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
+            let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
+
+            hapticSoft.impactOccurred(intensity: 1.00)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                hapticRigid.impactOccurred(intensity: 1.00)
+            }
+
+            if let sheet = mySheet.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.selectedDetentIdentifier = .medium
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 20
+                present(mySheet, animated: true)
+            }
+        }
     }
 }
 
@@ -139,12 +214,12 @@ extension FilmTableViewController: ViewCoding {
         view.backgroundColor = .systemBackground
         navigationItem.hidesBackButton = true
         viewModel.delegate = self
-        let tapGestureToHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGestureToHideKeyboard)
+        viewModel.letterDelegate = letterViewModel
     }
 
     func setupHierarchy() {
         view.addSubview(backgroundImage)
+        view.addSubview(bottomCloudImage)
         view.addSubview(searchBar)
         view.addSubview(tableHeaderView)
         view.addSubview(filmsTableView)
@@ -169,7 +244,12 @@ extension FilmTableViewController: ViewCoding {
             filmsTableView.topAnchor.constraint(equalToSystemSpacingBelow: tableHeaderView.bottomAnchor, multiplier: 1),
             filmsTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65),
             filmsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            filmsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            filmsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            bottomCloudImage.centerYAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomCloudImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bottomCloudImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
+            bottomCloudImage.heightAnchor.constraint(equalTo: bottomCloudImage.widthAnchor, multiplier: 0.58)
         ])
     }
 }

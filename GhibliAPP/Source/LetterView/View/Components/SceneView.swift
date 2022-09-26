@@ -13,7 +13,7 @@ final class SceneView: UIView {
         self.makeImageView(named: "Elementos/fundoB-tree", contentMode: .scaleAspectFill)
     }()
 
-    private lazy var cloudImage: UIImageView = {
+    lazy var cloudImage: UIImageView = {
         self.makeImageView(named: "Elementos/aCloud", contentMode: .scaleAspectFit)
     }()
 
