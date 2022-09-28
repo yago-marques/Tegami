@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class FilmOverView: UIView {
+final class BackgroundView: UIView {
 
     private lazy var backgroundOverview: UIImageView = {
-        self.makeBackground(name: "SceneOverview", contentMode: .scaleAspectFill)
+        self.makeBackground(name: "Elementos/aBackground", contentMode: .scaleAspectFill)
     }()
     
     init () {
@@ -24,7 +24,7 @@ final class FilmOverView: UIView {
     }
 }
 
-extension FilmOverView {
+extension BackgroundView {
     
     func makeBackground(name: String, contentMode: UIView.ContentMode) -> UIImageView {
         let image = UIImageView(frame: .zero)
@@ -36,7 +36,7 @@ extension FilmOverView {
     
 }
 
-extension FilmOverView: ViewCoding {
+extension BackgroundView: ViewCoding {
     func setupView() { }
     
     func setupHierarchy() {
@@ -51,5 +51,5 @@ extension FilmOverView: ViewCoding {
             backgroundOverview.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
-
+        
 }

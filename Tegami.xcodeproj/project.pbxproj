@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BE10E6628E4787F0023104E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE10E6528E4787F0023104E /* Lottie */; };
+		4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6928E47A040023104E /* FilmOverviewController.swift */; };
+		4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6C28E47AE20023104E /* BackgroundView.swift */; };
+		4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* ImageGroupView.swift */; };
+		4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
 		DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */; };
@@ -19,8 +24,6 @@
 		DF287ADB28E4669B00EF9333 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD728E4669B00EF9333 /* Array.swift */; };
 		DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD828E4669B00EF9333 /* UIScrollView.swift */; };
 		DF287ADD28E4669B00EF9333 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD928E4669B00EF9333 /* Sequence.swift */; };
-		DF287AE128E466BB00EF9333 /* FilmOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287ADF28E466BB00EF9333 /* FilmOverView.swift */; };
-		DF287AE228E466BB00EF9333 /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */; };
 		DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE528E466E000EF9333 /* FilmTableViewController.swift */; };
 		DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE728E466E700EF9333 /* FilmTableViewModel.swift */; };
 		DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */; };
@@ -48,7 +51,6 @@
 		DF287B1A28E4677F00EF9333 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B1928E4677F00EF9333 /* APICall.swift */; };
 		DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B1E28E467BA00EF9333 /* OnbordingViewController.swift */; };
 		DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */; };
-		DF287B2428E467E800EF9333 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DF287B2328E467E800EF9333 /* Lottie */; };
 		DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2628E4682800EF9333 /* LetterViewModel.swift */; };
 		DF287B2A28E46B0600EF9333 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DF287B2928E46B0600EF9333 /* arrow.json */; };
 		DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */; };
@@ -73,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BE10E6928E47A040023104E /* FilmOverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOverviewController.swift; sourceTree = "<group>"; };
+		4BE10E6C28E47AE20023104E /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		4BE10E6D28E47AE20023104E /* ImageGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGroupView.swift; sourceTree = "<group>"; };
+		4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionFilmView.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,8 +95,6 @@
 		DF287AD728E4669B00EF9333 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		DF287AD828E4669B00EF9333 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		DF287AD928E4669B00EF9333 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
-		DF287ADF28E466BB00EF9333 /* FilmOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmOverView.swift; sourceTree = "<group>"; };
-		DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmOverviewController.swift; sourceTree = "<group>"; };
 		DF287AE528E466E000EF9333 /* FilmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewController.swift; sourceTree = "<group>"; };
 		DF287AE728E466E700EF9333 /* FilmTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewModel.swift; sourceTree = "<group>"; };
 		DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableHeader.swift; sourceTree = "<group>"; };
@@ -129,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF287B2428E467E800EF9333 /* Lottie in Frameworks */,
+				4BE10E6628E4787F0023104E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +154,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BE10E6B28E47A890023104E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4BE10E6C28E47AE20023104E /* BackgroundView.swift */,
+				4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */,
+				4BE10E6D28E47AE20023104E /* ImageGroupView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DF287A7C28E45F3D00EF9333 = {
 			isa = PBXGroup;
 			children = (
@@ -326,8 +340,8 @@
 		DF287ADE28E466AA00EF9333 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DF287ADF28E466BB00EF9333 /* FilmOverView.swift */,
-				DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */,
+				4BE10E6B28E47A890023104E /* Components */,
+				4BE10E6928E47A040023104E /* FilmOverviewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -462,7 +476,7 @@
 			);
 			name = Tegami;
 			packageProductDependencies = (
-				DF287B2328E467E800EF9333 /* Lottie */,
+				4BE10E6528E4787F0023104E /* Lottie */,
 			);
 			productName = Tegami;
 			productReference = DF287A8528E45F3D00EF9333 /* Tegami.app */;
@@ -539,7 +553,7 @@
 			);
 			mainGroup = DF287A7C28E45F3D00EF9333;
 			packageReferences = (
-				DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = DF287A8628E45F3D00EF9333 /* Products */;
 			projectDirPath = "";
@@ -587,6 +601,7 @@
 				DF287AD528E4669000EF9333 /* TableState.swift in Sources */,
 				DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */,
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
+				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
@@ -598,11 +613,13 @@
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
 				DF287ADD28E4669B00EF9333 /* Sequence.swift in Sources */,
 				DF287B0428E4675A00EF9333 /* FilmModel.swift in Sources */,
+				4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */,
 				DF287AC728E465CE00EF9333 /* AppDelegate.swift in Sources */,
 				DF287B1A28E4677F00EF9333 /* APICall.swift in Sources */,
 				DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */,
 				DF287ADB28E4669B00EF9333 /* Array.swift in Sources */,
 				DF287AFA28E4672E00EF9333 /* NextFilmView.swift in Sources */,
+				4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */,
 				DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */,
 				DF287B1428E4676E00EF9333 /* UpdateNextFilmDelegate.swift in Sources */,
 				DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */,
@@ -613,14 +630,13 @@
 				DF287AD428E4669000EF9333 /* UrlEnum.swift in Sources */,
 				DF287AF428E4671800EF9333 /* LetterViewController.swift in Sources */,
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
-				DF287AE228E466BB00EF9333 /* FilmOverviewController.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
-				DF287AE128E466BB00EF9333 /* FilmOverView.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
 				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
 				DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */,
 				DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */,
+				4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */,
 				DF287AF128E466FB00EF9333 /* FilmCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -980,9 +996,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -991,9 +1007,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DF287B2328E467E800EF9333 /* Lottie */ = {
+		4BE10E6528E4787F0023104E /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
