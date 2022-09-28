@@ -39,9 +39,7 @@ final class ImageGroupView: UIView {
 }
 
 extension ImageGroupView: ViewCoding {
-    func setupView() {
-        
-    }
+    func setupView() { }
     
     func setupHierarchy() {
         
