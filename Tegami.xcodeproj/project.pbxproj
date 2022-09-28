@@ -7,15 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF287A8928E45F3D00EF9333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A8828E45F3D00EF9333 /* AppDelegate.swift */; };
-		DF287A8B28E45F3D00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A8A28E45F3D00EF9333 /* SceneDelegate.swift */; };
-		DF287A8D28E45F3D00EF9333 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A8C28E45F3D00EF9333 /* ViewController.swift */; };
-		DF287A9028E45F3D00EF9333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A8E28E45F3D00EF9333 /* Main.storyboard */; };
-		DF287A9228E45F3E00EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9128E45F3E00EF9333 /* Assets.xcassets */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
-		DF287AA028E45F3E00EF9333 /* TegamiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287A9F28E45F3E00EF9333 /* TegamiTests.swift */; };
 		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
 		DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */; };
+		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
+		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
+		DF287AC728E465CE00EF9333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC528E465CE00EF9333 /* AppDelegate.swift */; };
+		DF287AD428E4669000EF9333 /* UrlEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD228E4669000EF9333 /* UrlEnum.swift */; };
+		DF287AD528E4669000EF9333 /* TableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD328E4669000EF9333 /* TableState.swift */; };
+		DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD628E4669B00EF9333 /* UIImageView.swift */; };
+		DF287ADB28E4669B00EF9333 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD728E4669B00EF9333 /* Array.swift */; };
+		DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD828E4669B00EF9333 /* UIScrollView.swift */; };
+		DF287ADD28E4669B00EF9333 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AD928E4669B00EF9333 /* Sequence.swift */; };
+		DF287AE128E466BB00EF9333 /* FilmOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287ADF28E466BB00EF9333 /* FilmOverView.swift */; };
+		DF287AE228E466BB00EF9333 /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */; };
+		DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE528E466E000EF9333 /* FilmTableViewController.swift */; };
+		DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AE728E466E700EF9333 /* FilmTableViewModel.swift */; };
+		DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */; };
+		DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AEB28E466FB00EF9333 /* ActionsSheet.swift */; };
+		DF287AF028E466FB00EF9333 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AEC28E466FB00EF9333 /* ActionSheetCell.swift */; };
+		DF287AF128E466FB00EF9333 /* FilmCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AED28E466FB00EF9333 /* FilmCardCell.swift */; };
+		DF287AF428E4671800EF9333 /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AF328E4671800EF9333 /* LetterViewController.swift */; };
+		DF287AFA28E4672E00EF9333 /* NextFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AF628E4672E00EF9333 /* NextFilmView.swift */; };
+		DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AF728E4672E00EF9333 /* SceneView.swift */; };
+		DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AF828E4672E00EF9333 /* ProgressBar.swift */; };
+		DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AF928E4672E00EF9333 /* EnvelopView.swift */; };
+		DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AFF28E4674900EF9333 /* MainScreenViewController.swift */; };
+		DF287B0428E4675A00EF9333 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0128E4675A00EF9333 /* FilmModel.swift */; };
+		DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0228E4675A00EF9333 /* FilmPosition.swift */; };
+		DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0328E4675A00EF9333 /* GenreModel.swift */; };
+		DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0728E4676E00EF9333 /* LetterViewControllerDelegate.swift */; };
+		DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0828E4676E00EF9333 /* FilmTableViewModelDelegate.swift */; };
+		DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0928E4676E00EF9333 /* EnvelopViewDelegate.swift */; };
+		DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0A28E4676E00EF9333 /* LetterViewModelDelegate.swift */; };
+		DF287B1428E4676E00EF9333 /* UpdateNextFilmDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0B28E4676E00EF9333 /* UpdateNextFilmDelegate.swift */; };
+		DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0C28E4676E00EF9333 /* ProgressBarDelegate.swift */; };
+		DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0D28E4676E00EF9333 /* ViewCoding.swift */; };
+		DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0E28E4676E00EF9333 /* FilmTableHeaderDelegate.swift */; };
+		DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B0F28E4676E00EF9333 /* ActionSheetDelegate.swift */; };
+		DF287B1A28E4677F00EF9333 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B1928E4677F00EF9333 /* APICall.swift */; };
+		DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B1E28E467BA00EF9333 /* OnbordingViewController.swift */; };
+		DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */; };
+		DF287B2428E467E800EF9333 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DF287B2328E467E800EF9333 /* Lottie */; };
+		DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2628E4682800EF9333 /* LetterViewModel.swift */; };
+		DF287B2A28E46B0600EF9333 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DF287B2928E46B0600EF9333 /* arrow.json */; };
+		DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */; };
+		DF287B3128E46C5F00EF9333 /* MainScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B3028E46C5F00EF9333 /* MainScreenViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,18 +74,54 @@
 
 /* Begin PBXFileReference section */
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF287A8828E45F3D00EF9333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF287A8A28E45F3D00EF9333 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DF287A8C28E45F3D00EF9333 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DF287A8F28E45F3D00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DF287A9128E45F3E00EF9333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF287A9B28E45F3E00EF9333 /* TegamiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TegamiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF287A9F28E45F3E00EF9333 /* TegamiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TegamiTests.swift; sourceTree = "<group>"; };
 		DF287AA528E45F3E00EF9333 /* TegamiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TegamiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TegamiUITests.swift; sourceTree = "<group>"; };
 		DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TegamiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF287ABE28E4645400EF9333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF287AC428E465CE00EF9333 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DF287AC528E465CE00EF9333 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF287AD228E4669000EF9333 /* UrlEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlEnum.swift; sourceTree = "<group>"; };
+		DF287AD328E4669000EF9333 /* TableState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableState.swift; sourceTree = "<group>"; };
+		DF287AD628E4669B00EF9333 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		DF287AD728E4669B00EF9333 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		DF287AD828E4669B00EF9333 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		DF287AD928E4669B00EF9333 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		DF287ADF28E466BB00EF9333 /* FilmOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmOverView.swift; sourceTree = "<group>"; };
+		DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmOverviewController.swift; sourceTree = "<group>"; };
+		DF287AE528E466E000EF9333 /* FilmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewController.swift; sourceTree = "<group>"; };
+		DF287AE728E466E700EF9333 /* FilmTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewModel.swift; sourceTree = "<group>"; };
+		DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableHeader.swift; sourceTree = "<group>"; };
+		DF287AEB28E466FB00EF9333 /* ActionsSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsSheet.swift; sourceTree = "<group>"; };
+		DF287AEC28E466FB00EF9333 /* ActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
+		DF287AED28E466FB00EF9333 /* FilmCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmCardCell.swift; sourceTree = "<group>"; };
+		DF287AF328E4671800EF9333 /* LetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewController.swift; sourceTree = "<group>"; };
+		DF287AF628E4672E00EF9333 /* NextFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextFilmView.swift; sourceTree = "<group>"; };
+		DF287AF728E4672E00EF9333 /* SceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
+		DF287AF828E4672E00EF9333 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		DF287AF928E4672E00EF9333 /* EnvelopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvelopView.swift; sourceTree = "<group>"; };
+		DF287AFF28E4674900EF9333 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		DF287B0128E4675A00EF9333 /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		DF287B0228E4675A00EF9333 /* FilmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmPosition.swift; sourceTree = "<group>"; };
+		DF287B0328E4675A00EF9333 /* GenreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		DF287B0728E4676E00EF9333 /* LetterViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DF287B0828E4676E00EF9333 /* FilmTableViewModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewModelDelegate.swift; sourceTree = "<group>"; };
+		DF287B0928E4676E00EF9333 /* EnvelopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvelopViewDelegate.swift; sourceTree = "<group>"; };
+		DF287B0A28E4676E00EF9333 /* LetterViewModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewModelDelegate.swift; sourceTree = "<group>"; };
+		DF287B0B28E4676E00EF9333 /* UpdateNextFilmDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNextFilmDelegate.swift; sourceTree = "<group>"; };
+		DF287B0C28E4676E00EF9333 /* ProgressBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarDelegate.swift; sourceTree = "<group>"; };
+		DF287B0D28E4676E00EF9333 /* ViewCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		DF287B0E28E4676E00EF9333 /* FilmTableHeaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableHeaderDelegate.swift; sourceTree = "<group>"; };
+		DF287B0F28E4676E00EF9333 /* ActionSheetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetDelegate.swift; sourceTree = "<group>"; };
+		DF287B1928E4677F00EF9333 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		DF287B1E28E467BA00EF9333 /* OnbordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
+		DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		DF287B2628E4682800EF9333 /* LetterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewModel.swift; sourceTree = "<group>"; };
+		DF287B2928E46B0600EF9333 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModelTests.swift; sourceTree = "<group>"; };
+		DF287B3028E46C5F00EF9333 /* MainScreenViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF287B2428E467E800EF9333 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +173,9 @@
 		DF287A8728E45F3D00EF9333 /* Tegami */ = {
 			isa = PBXGroup;
 			children = (
-				DF287A8828E45F3D00EF9333 /* AppDelegate.swift */,
-				DF287A8A28E45F3D00EF9333 /* SceneDelegate.swift */,
-				DF287A8C28E45F3D00EF9333 /* ViewController.swift */,
-				DF287A8E28E45F3D00EF9333 /* Main.storyboard */,
-				DF287A9128E45F3E00EF9333 /* Assets.xcassets */,
-				DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */,
+				DF287AB828E4621C00EF9333 /* Application */,
+				DF287ABD28E4643500EF9333 /* Resource */,
+				DF287AC828E4660200EF9333 /* Source */,
 				DF287A9628E45F3E00EF9333 /* Info.plist */,
 			);
 			path = Tegami;
@@ -113,7 +184,8 @@
 		DF287A9E28E45F3E00EF9333 /* TegamiTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF287A9F28E45F3E00EF9333 /* TegamiTests.swift */,
+				DF287B2B28E46C1200EF9333 /* Model */,
+				DF287B2C28E46C1800EF9333 /* ViewModel */,
 			);
 			path = TegamiTests;
 			sourceTree = "<group>";
@@ -125,6 +197,252 @@
 				DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */,
 			);
 			path = TegamiUITests;
+			sourceTree = "<group>";
+		};
+		DF287AB828E4621C00EF9333 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AC528E465CE00EF9333 /* AppDelegate.swift */,
+				DF287AC428E465CE00EF9333 /* SceneDelegate.swift */,
+				DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DF287ABD28E4643500EF9333 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2828E46AD700EF9333 /* LottieFiles */,
+				DF287ABE28E4645400EF9333 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DF287AC828E4660200EF9333 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AD128E4667D00EF9333 /* Service */,
+				DF287AD028E4667000EF9333 /* Protocols */,
+				DF287ACA28E4661600EF9333 /* Extensions */,
+				DF287AC928E4660D00EF9333 /* Enums */,
+				DF287ACF28E4666600EF9333 /* Model */,
+				DF287B1B28E4679A00EF9333 /* Onboarding */,
+				DF287ACE28E4665500EF9333 /* MainScreen */,
+				DF287ACD28E4664700EF9333 /* LetterView */,
+				DF287ACC28E4663D00EF9333 /* FilmTable */,
+				DF287ACB28E4662400EF9333 /* FilmOverviewScreen */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		DF287AC928E4660D00EF9333 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AD328E4669000EF9333 /* TableState.swift */,
+				DF287AD228E4669000EF9333 /* UrlEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		DF287ACA28E4661600EF9333 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AD728E4669B00EF9333 /* Array.swift */,
+				DF287AD928E4669B00EF9333 /* Sequence.swift */,
+				DF287AD628E4669B00EF9333 /* UIImageView.swift */,
+				DF287AD828E4669B00EF9333 /* UIScrollView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DF287ACB28E4662400EF9333 /* FilmOverviewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DF287ADE28E466AA00EF9333 /* View */,
+			);
+			path = FilmOverviewScreen;
+			sourceTree = "<group>";
+		};
+		DF287ACC28E4663D00EF9333 /* FilmTable */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AE328E466C800EF9333 /* View */,
+				DF287AE428E466D400EF9333 /* ViewModel */,
+			);
+			path = FilmTable;
+			sourceTree = "<group>";
+		};
+		DF287ACD28E4664700EF9333 /* LetterView */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AF228E4671000EF9333 /* View */,
+				DF287B2528E4680E00EF9333 /* ViewModel */,
+			);
+			path = LetterView;
+			sourceTree = "<group>";
+		};
+		DF287ACE28E4665500EF9333 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AFE28E4673C00EF9333 /* View */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		DF287ACF28E4666600EF9333 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B0128E4675A00EF9333 /* FilmModel.swift */,
+				DF287B0228E4675A00EF9333 /* FilmPosition.swift */,
+				DF287B0328E4675A00EF9333 /* GenreModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF287AD028E4667000EF9333 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B0F28E4676E00EF9333 /* ActionSheetDelegate.swift */,
+				DF287B0928E4676E00EF9333 /* EnvelopViewDelegate.swift */,
+				DF287B0E28E4676E00EF9333 /* FilmTableHeaderDelegate.swift */,
+				DF287B0828E4676E00EF9333 /* FilmTableViewModelDelegate.swift */,
+				DF287B0728E4676E00EF9333 /* LetterViewControllerDelegate.swift */,
+				DF287B0A28E4676E00EF9333 /* LetterViewModelDelegate.swift */,
+				DF287B0C28E4676E00EF9333 /* ProgressBarDelegate.swift */,
+				DF287B0B28E4676E00EF9333 /* UpdateNextFilmDelegate.swift */,
+				DF287B0D28E4676E00EF9333 /* ViewCoding.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DF287AD128E4667D00EF9333 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B1928E4677F00EF9333 /* APICall.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DF287ADE28E466AA00EF9333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF287ADF28E466BB00EF9333 /* FilmOverView.swift */,
+				DF287AE028E466BB00EF9333 /* FilmOverviewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF287AE328E466C800EF9333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AE928E466EE00EF9333 /* Components */,
+				DF287AE528E466E000EF9333 /* FilmTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF287AE428E466D400EF9333 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AE728E466E700EF9333 /* FilmTableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DF287AE928E466EE00EF9333 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AEC28E466FB00EF9333 /* ActionSheetCell.swift */,
+				DF287AEB28E466FB00EF9333 /* ActionsSheet.swift */,
+				DF287AED28E466FB00EF9333 /* FilmCardCell.swift */,
+				DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DF287AF228E4671000EF9333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AF528E4671D00EF9333 /* Components */,
+				DF287AF328E4671800EF9333 /* LetterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF287AF528E4671D00EF9333 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AF928E4672E00EF9333 /* EnvelopView.swift */,
+				DF287AF628E4672E00EF9333 /* NextFilmView.swift */,
+				DF287AF828E4672E00EF9333 /* ProgressBar.swift */,
+				DF287AF728E4672E00EF9333 /* SceneView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DF287AFE28E4673C00EF9333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF287AFF28E4674900EF9333 /* MainScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF287B1B28E4679A00EF9333 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B1C28E467A600EF9333 /* View */,
+				DF287B1D28E467AC00EF9333 /* ViewModel */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DF287B1C28E467A600EF9333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B1E28E467BA00EF9333 /* OnbordingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF287B1D28E467AC00EF9333 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DF287B2528E4680E00EF9333 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2628E4682800EF9333 /* LetterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DF287B2828E46AD700EF9333 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2928E46B0600EF9333 /* arrow.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		DF287B2B28E46C1200EF9333 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF287B2C28E46C1800EF9333 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B3028E46C5F00EF9333 /* MainScreenViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +461,9 @@
 			dependencies = (
 			);
 			name = Tegami;
+			packageProductDependencies = (
+				DF287B2328E467E800EF9333 /* Lottie */,
+			);
 			productName = Tegami;
 			productReference = DF287A8528E45F3D00EF9333 /* Tegami.app */;
 			productType = "com.apple.product-type.application";
@@ -195,9 +516,11 @@
 				TargetAttributes = {
 					DF287A8428E45F3D00EF9333 = {
 						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1400;
 					};
 					DF287A9A28E45F3E00EF9333 = {
 						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1400;
 						TestTargetID = DF287A8428E45F3D00EF9333;
 					};
 					DF287AA428E45F3E00EF9333 = {
@@ -215,6 +538,9 @@
 				Base,
 			);
 			mainGroup = DF287A7C28E45F3D00EF9333;
+			packageReferences = (
+				DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = DF287A8628E45F3D00EF9333 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +557,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */,
 				DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */,
-				DF287A9228E45F3E00EF9333 /* Assets.xcassets in Resources */,
-				DF287A9028E45F3D00EF9333 /* Main.storyboard in Resources */,
+				DF287B2A28E46B0600EF9333 /* arrow.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +584,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF287A8D28E45F3D00EF9333 /* ViewController.swift in Sources */,
-				DF287A8928E45F3D00EF9333 /* AppDelegate.swift in Sources */,
-				DF287A8B28E45F3D00EF9333 /* SceneDelegate.swift in Sources */,
+				DF287AD528E4669000EF9333 /* TableState.swift in Sources */,
+				DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */,
+				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
+				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
+				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
+				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
+				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,
+				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
+				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
+				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
+				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
+				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
+				DF287ADD28E4669B00EF9333 /* Sequence.swift in Sources */,
+				DF287B0428E4675A00EF9333 /* FilmModel.swift in Sources */,
+				DF287AC728E465CE00EF9333 /* AppDelegate.swift in Sources */,
+				DF287B1A28E4677F00EF9333 /* APICall.swift in Sources */,
+				DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */,
+				DF287ADB28E4669B00EF9333 /* Array.swift in Sources */,
+				DF287AFA28E4672E00EF9333 /* NextFilmView.swift in Sources */,
+				DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */,
+				DF287B1428E4676E00EF9333 /* UpdateNextFilmDelegate.swift in Sources */,
+				DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */,
+				DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */,
+				DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */,
+				DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */,
+				DF287AF028E466FB00EF9333 /* ActionSheetCell.swift in Sources */,
+				DF287AD428E4669000EF9333 /* UrlEnum.swift in Sources */,
+				DF287AF428E4671800EF9333 /* LetterViewController.swift in Sources */,
+				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
+				DF287AE228E466BB00EF9333 /* FilmOverviewController.swift in Sources */,
+				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
+				DF287AE128E466BB00EF9333 /* FilmOverView.swift in Sources */,
+				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
+				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
+				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
+				DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */,
+				DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */,
+				DF287AF128E466FB00EF9333 /* FilmCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +629,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF287AA028E45F3E00EF9333 /* TegamiTests.swift in Sources */,
+				DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */,
+				DF287B3128E46C5F00EF9333 /* MainScreenViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +659,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DF287A8E28E45F3D00EF9333 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF287A8F28E45F3D00EF9333 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -435,6 +789,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
@@ -442,9 +797,8 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +806,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.Tegami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,6 +821,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
@@ -470,9 +829,8 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +838,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.Tegami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,15 +852,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "TegamiTests/Model/TegamiTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tegami";
@@ -511,15 +880,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "TegamiTests/Model/TegamiTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tegami";
@@ -602,6 +978,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF287B2328E467E800EF9333 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF287B2228E467E800EF9333 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF287A7D28E45F3D00EF9333 /* Project object */;
 }

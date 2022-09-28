@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "fundo carta.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
