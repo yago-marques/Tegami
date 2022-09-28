@@ -148,8 +148,10 @@ extension FilmTableViewController: UISearchBarDelegate {
 
 extension FilmTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // overView is open here
-        print("toOverview")
+        let film = !viewModel.isSearch ? self.viewModel.films[indexPath.row] : self.viewModel.filteredFilms[indexPath.row]
+
+        navigationController?.pushViewController(
+            FilmOverviewController(film: film), animated: true)
     }
 }
 
