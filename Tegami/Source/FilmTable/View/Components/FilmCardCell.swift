@@ -82,10 +82,6 @@ final class FilmCardCell: UITableViewCell {
         return label
     }()
 
-    @objc func tester() {
-        print("hello")
-    }
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -95,10 +91,6 @@ final class FilmCardCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("error FilmCardCell")
     }
-
-}
-
-extension FilmModel {
 
 }
 

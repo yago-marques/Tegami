@@ -11,6 +11,7 @@ final class LetterViewModel {
 
     private let table: LetterViewModelDelegate?
     weak var delegate: LetterViewControllerDelegate?
+    weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private var counter: Int = -1
     
     var nextFilm: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
@@ -26,8 +27,10 @@ final class LetterViewModel {
 
     init(
         table: LetterViewModelDelegate,
-        delegate: LetterViewControllerDelegate? = nil
+        delegate: LetterViewControllerDelegate? = nil,
+        mainScreenDelegate: MainScreenViewControllerDelegate?
     ) {
+        self.mainScreenDelegate = mainScreenDelegate
         self.table = table
     }
 
