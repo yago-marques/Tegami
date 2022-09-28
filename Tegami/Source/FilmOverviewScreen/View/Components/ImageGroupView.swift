@@ -12,18 +12,19 @@ final class ImageGroupView: UIView {
     var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
         didSet {
             DispatchQueue.main.async {
-                self.titleLabel.text = self.film.tmdb?.title
+                if let backdropPath = self.film.tmdb?.backdropPath {
+                    let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
+                    self.backdropImage.downloaded(from: imageUrl)
+                }
             }
         }
     }
     
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-
-        return label
+    private let backdropImage: UIImageView = {
+        let image = UIImageView(frame: .zero)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
     }()
     
     init () {

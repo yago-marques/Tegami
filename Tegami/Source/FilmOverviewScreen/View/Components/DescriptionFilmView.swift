@@ -24,7 +24,7 @@ final class DescriptionFilmView: UIView {
     private let cardView: UIView = {
         let card = UIView(frame: .zero)
         card.translatesAutoresizingMaskIntoConstraints = false
-        card.backgroundColor = UIColor(named: "Cores/cSky")
+        card.backgroundColor = UIColor(named: "cSky")
         
         return card
     }()
@@ -89,30 +89,31 @@ extension DescriptionFilmView: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            cardView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            cardView.bottomAnchor.constraint(equalTo: overviewLabel.bottomAnchor),
-            cardView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            cardView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            cardView.topAnchor.constraint(equalTo: self.centerYAnchor, constant: -125),
+            cardView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6),
+            cardView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
+            cardView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: cardView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: runningTimeLabel.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
-            runningTimeLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.topAnchor, multiplier: 7),
-            runningTimeLabel.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor),
-            runningTimeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            runningTimeLabel.topAnchor.constraint(equalTo: releaseDateLabel.topAnchor),
+            runningTimeLabel.bottomAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor),
+            runningTimeLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
             runningTimeLabel.trailingAnchor.constraint(equalTo: releaseDateLabel.leadingAnchor),
-
+            
             releaseDateLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.topAnchor, multiplier: 7),
-            releaseDateLabel.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor),
+//            releaseDateLabel.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor),
             releaseDateLabel.leadingAnchor.constraint(equalTo: runningTimeLabel.trailingAnchor),
             releaseDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
-            overviewLabel.topAnchor.constraint(equalToSystemSpacingBelow: runningTimeLabel.bottomAnchor, multiplier: 7),
-//            overviewLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            overviewLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            overviewLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            overviewLabel.topAnchor.constraint(equalToSystemSpacingBelow: releaseDateLabel.topAnchor, multiplier: 5),
+//            overviewLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            overviewLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
+            overviewLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10)
         ])
     }
 }
