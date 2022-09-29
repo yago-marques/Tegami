@@ -26,6 +26,14 @@ final class FilmOverviewController: UIViewController {
         return background
     }()
     
+    private lazy var imageGroupView : ImageGroupView = {
+        let image = ImageGroupView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.film = self.film
+        
+        return image
+    }()
+    
     private lazy var descriptionFilmView : DescriptionFilmView = {
         let description = DescriptionFilmView()
         description.translatesAutoresizingMaskIntoConstraints = false
@@ -51,12 +59,18 @@ extension FilmOverviewController: ViewCoding {
     
     func setupHierarchy() {
         view.addSubview(backgroundView)
+        view.addSubview(imageGroupView)
         view.addSubview(descriptionFilmView)
         view.sendSubviewToBack(backgroundView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             descriptionFilmView.topAnchor.constraint(equalTo: view.topAnchor),
             descriptionFilmView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             descriptionFilmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
