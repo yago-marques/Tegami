@@ -45,7 +45,6 @@ final class FilmOverviewController: UIViewController {
     private lazy var descriptionFilmView : DescriptionFilmView = {
         let description = DescriptionFilmView()
         description.translatesAutoresizingMaskIntoConstraints = false
-//        description.backgroundColor = .white
         description.filmTeste = self.film
 
         return description
@@ -69,8 +68,8 @@ extension FilmOverviewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(descriptionFilmView)
-//        view.addSubview(posterPathView)
         view.addSubview(backdropPathView)
+        view.addSubview(posterPathView)
         
         view.sendSubviewToBack(backgroundView)
     }
@@ -91,9 +90,9 @@ extension FilmOverviewController: ViewCoding {
             backdropPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
             backdropPathView.heightAnchor.constraint(equalTo: backdropPathView.widthAnchor, multiplier: 0.5),
             
-//            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-//            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 0.5)
+            posterPathView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            posterPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            posterPathView.heightAnchor.constraint(equalTo: posterPathView.widthAnchor, multiplier: 0.5)
         ])
     }
 }

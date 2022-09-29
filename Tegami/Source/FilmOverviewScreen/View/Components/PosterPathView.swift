@@ -24,6 +24,10 @@ final class PosterPathView: UIView {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
+        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowOpacity = 1
+        image.layer.shadowOffset = .zero
+        image.layer.shadowRadius = 5
         
         return image
     }()
@@ -49,10 +53,12 @@ extension PosterPathView: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            posterPath.topAnchor.constraint(equalTo: self.topAnchor),
-            posterPath.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            posterPath.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
-            posterPath.heightAnchor.constraint(equalTo: self.heightAnchor)
+//            posterPath.topAnchor.constraint(equalTo: self.topAnchor),
+            
+//            posterPath.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            posterPath.topAnchor.constraint(equalToSystemSpacingBelow: self.topAnchor, multiplier: 2),
+            posterPath.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.45),
+            posterPath.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.15)
         ])
         
     }

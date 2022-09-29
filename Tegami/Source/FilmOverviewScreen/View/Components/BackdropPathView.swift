@@ -24,6 +24,10 @@ final class BackdropPathView: UIView {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
+        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowOpacity = 1
+        image.layer.shadowOffset = .zero
+        image.layer.shadowRadius = 5
         
         return image
     }()

@@ -25,7 +25,11 @@ final class DescriptionFilmView: UIView {
         let card = UIView(frame: .zero)
         card.translatesAutoresizingMaskIntoConstraints = false
         card.backgroundColor = UIColor(named: "cSky")
-        
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOpacity = 1
+        card.layer.shadowOffset = .zero
+        card.layer.shadowRadius = 5
+      
         return card
     }()
     
@@ -110,7 +114,7 @@ extension DescriptionFilmView: ViewCoding {
             releaseDateLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.topAnchor, multiplier: 7),
 //            releaseDateLabel.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor),
             releaseDateLabel.leadingAnchor.constraint(equalTo: runningTimeLabel.trailingAnchor),
-            releaseDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            releaseDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
             overviewLabel.topAnchor.constraint(equalToSystemSpacingBelow: releaseDateLabel.topAnchor, multiplier: 5),
 //            overviewLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
