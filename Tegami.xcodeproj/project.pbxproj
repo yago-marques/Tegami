@@ -10,8 +10,9 @@
 		4BE10E6628E4787F0023104E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE10E6528E4787F0023104E /* Lottie */; };
 		4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6928E47A040023104E /* FilmOverviewController.swift */; };
 		4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6C28E47AE20023104E /* BackgroundView.swift */; };
-		4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* ImageGroupView.swift */; };
+		4BE10E7028E47AE20023104E /* BackdropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* BackdropImageView.swift */; };
 		4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */; };
+		4BE10E7328E5E7300023104E /* PosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E7228E5E7300023104E /* PosterImageView.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
 		DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */; };
@@ -77,8 +78,9 @@
 /* Begin PBXFileReference section */
 		4BE10E6928E47A040023104E /* FilmOverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOverviewController.swift; sourceTree = "<group>"; };
 		4BE10E6C28E47AE20023104E /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		4BE10E6D28E47AE20023104E /* ImageGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGroupView.swift; sourceTree = "<group>"; };
+		4BE10E6D28E47AE20023104E /* BackdropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackdropImageView.swift; sourceTree = "<group>"; };
 		4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionFilmView.swift; sourceTree = "<group>"; };
+		4BE10E7228E5E7300023104E /* PosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterImageView.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,7 +161,8 @@
 			children = (
 				4BE10E6C28E47AE20023104E /* BackgroundView.swift */,
 				4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */,
-				4BE10E6D28E47AE20023104E /* ImageGroupView.swift */,
+				4BE10E6D28E47AE20023104E /* BackdropImageView.swift */,
+				4BE10E7228E5E7300023104E /* PosterImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -619,10 +622,11 @@
 				DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */,
 				DF287ADB28E4669B00EF9333 /* Array.swift in Sources */,
 				DF287AFA28E4672E00EF9333 /* NextFilmView.swift in Sources */,
-				4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */,
+				4BE10E7028E47AE20023104E /* BackdropImageView.swift in Sources */,
 				DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */,
 				DF287B1428E4676E00EF9333 /* UpdateNextFilmDelegate.swift in Sources */,
 				DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */,
+				4BE10E7328E5E7300023104E /* PosterImageView.swift in Sources */,
 				DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */,
 				DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */,
 				DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */,
@@ -808,7 +812,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = 826U5T47TW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -840,7 +844,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
+				DEVELOPMENT_TEAM = 826U5T47TW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

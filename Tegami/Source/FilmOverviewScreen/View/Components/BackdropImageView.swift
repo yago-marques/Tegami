@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ImageGroupView: UIView {
+final class BackdropImageView: UIView {
     
     var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
         didSet {
@@ -23,16 +23,10 @@ final class ImageGroupView: UIView {
     private let backdropImage: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
         
         return image
     }()
-    
-//    private let backdropImage: UIImageView = {
-//        let image = UIImageView(frame: .zero)
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        return image
-//    }()
     
     init () {
         super.init(frame: .zero)
@@ -46,7 +40,7 @@ final class ImageGroupView: UIView {
     
 }
 
-extension ImageGroupView: ViewCoding {
+extension BackdropImageView: ViewCoding {
     func setupView() { }
     
     func setupHierarchy() {
@@ -55,14 +49,10 @@ extension ImageGroupView: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            backdropImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            backdropImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            backdropImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backdropImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            backdropImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1),
-//            backdropImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.94),
-//
-//            backdropImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor)
+            backdropImage.topAnchor.constraint(equalTo: self.topAnchor),
+            backdropImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            backdropImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
+            backdropImage.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
         
     }
