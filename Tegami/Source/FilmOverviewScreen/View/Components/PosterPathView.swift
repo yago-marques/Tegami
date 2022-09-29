@@ -53,9 +53,6 @@ extension PosterPathView: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-//            posterPath.topAnchor.constraint(equalTo: self.topAnchor),
-            
-//            posterPath.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             posterPath.topAnchor.constraint(equalToSystemSpacingBelow: self.topAnchor, multiplier: 2),
             posterPath.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.45),
             posterPath.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.15)
