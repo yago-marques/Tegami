@@ -26,10 +26,25 @@ final class FilmOverviewController: UIViewController {
         return background
     }()
     
+    private lazy var backdropPathView : BackdropPathView = {
+        let image = BackdropPathView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.film = self.film
+        
+        return image
+    }()
+    
+    private lazy var posterPathView : PosterPathView = {
+        let imagePoster = PosterPathView()
+        imagePoster.translatesAutoresizingMaskIntoConstraints = false
+        imagePoster.film = self.film
+        
+        return imagePoster
+    }()
+    
     private lazy var descriptionFilmView : DescriptionFilmView = {
         let description = DescriptionFilmView()
         description.translatesAutoresizingMaskIntoConstraints = false
-//        description.backgroundColor = .white
         description.filmTeste = self.film
 
         return description
@@ -47,25 +62,37 @@ extension FilmOverviewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = false
+        UINavigationBar.appearance().tintColor = .white
     }
     
     func setupHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(descriptionFilmView)
+        view.addSubview(backdropPathView)
+        view.addSubview(posterPathView)
+        
         view.sendSubviewToBack(backgroundView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             descriptionFilmView.topAnchor.constraint(equalTo: view.topAnchor),
             descriptionFilmView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             descriptionFilmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             descriptionFilmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            backdropPathView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backdropPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            backdropPathView.heightAnchor.constraint(equalTo: backdropPathView.widthAnchor, multiplier: 0.5),
+            
+            posterPathView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            posterPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            posterPathView.heightAnchor.constraint(equalTo: posterPathView.widthAnchor, multiplier: 0.5)
         ])
     }
 }
