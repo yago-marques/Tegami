@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class FilmTableViewController: UIViewController {
 
@@ -52,6 +53,7 @@ final class FilmTableViewController: UIViewController {
     private lazy var filmsTableView: UITableView = {
         let table = UITableView(frame: .zero)
         table.register(FilmCardCell.self, forCellReuseIdentifier: "FilmCardCell")
+        table.register(AnimatedCell.self, forCellReuseIdentifier: "AnimatedCell")
         table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         table.delegate = self
         table.dataSource = self
@@ -63,6 +65,19 @@ final class FilmTableViewController: UIViewController {
         table.showsVerticalScrollIndicator = false
 
         return table
+    }()
+
+    private lazy var arrowView: AnimationView = {
+        var lottie = AnimationView(name: "arrow")
+        lottie.frame = self.view.bounds
+        lottie.loopMode = .loop
+        lottie.animationSpeed = 0.5
+        lottie.translatesAutoresizingMaskIntoConstraints = false
+        let tap = UITapGestureRecognizer(target: self, action: #selector(scrollToBottom))
+        lottie.addGestureRecognizer(tap)
+
+        return lottie
+
     }()
 
     init(
@@ -94,6 +109,14 @@ final class FilmTableViewController: UIViewController {
         }
     }
 
+    @objc func scrollToBottom() {
+        DispatchQueue.main.async { [weak self] in
+            if let self {
+                self.viewModel.mainScreenDelegate?.move(to: .bottom)
+            }
+        }
+    }
+
 }
 
 extension FilmTableViewController: FilmTableViewModelDelegate {
@@ -106,6 +129,14 @@ extension FilmTableViewController: FilmTableViewModelDelegate {
                 self.filmsTableView.reloadData()
             }
         )
+    }
+
+    func isInterective(_ option: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            if let self {
+                self.view.isUserInteractionEnabled = option
+            }
+        }
     }
 }
 
@@ -125,6 +156,7 @@ extension FilmTableViewController: UISearchBarDelegate {
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        viewModel.TableIsEmpty = false
         let tapGestureToHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGestureToHideKeyboard)
 
@@ -157,14 +189,34 @@ extension FilmTableViewController: UITableViewDelegate {
 
 extension FilmTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return !viewModel.isSearch ? viewModel.films.count : viewModel.filteredFilms.count
+        let rows = !viewModel.isSearch ? viewModel.films.count : viewModel.filteredFilms.count
+
+        if !viewModel.isSearch, viewModel.tableState == .toWatch, rows == 0 {
+            viewModel.TableIsEmpty = true
+            return 1
+        }
+
+        if !viewModel.isSearch, viewModel.tableState == .all, rows == 0 {
+            viewModel.loadingFilms = true
+            return 1
+        }
+
+        return rows
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UIScreen.main.bounds.height/4
+        viewModel.TableIsEmpty || viewModel.loadingFilms ? UIScreen.main.bounds.height/1.5 : UIScreen.main.bounds.height/4
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if viewModel.TableIsEmpty || viewModel.loadingFilms {
+            let config = viewModel.TableIsEmpty ? AnimationConfig(lottieName: "EmptyList", message: "Lista vazia") : AnimationConfig(lottieName: "loading", message: "Carregando filmes")
+            let animatedCell = tableView.dequeueReusableCell(withIdentifier: "AnimatedCell", for: indexPath) as! AnimatedCell
+            animatedCell.animationConfig = config
+
+            return animatedCell
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCardCell", for: indexPath) as! FilmCardCell
         let film = !viewModel.isSearch ? viewModel.films[indexPath.row] : viewModel.filteredFilms[indexPath.row]
         cell.film = film
@@ -176,6 +228,7 @@ extension FilmTableViewController: UITableViewDataSource {
         cell.addGestureRecognizer(longPressGesture)
 
         return cell
+
     }
 
     @objc func LongPresshandler(_ sender: UILongPressGestureRecognizer) {
@@ -224,6 +277,7 @@ extension FilmTableViewController: ViewCoding {
         viewModel.delegate = self
         viewModel.letterDelegate = letterViewModel
         viewModel.progressBarDelegate = progressBar
+        arrowView.play()
     }
 
     func setupHierarchy() {
@@ -232,6 +286,7 @@ extension FilmTableViewController: ViewCoding {
         view.addSubview(searchBar)
         view.addSubview(tableHeaderView)
         view.addSubview(filmsTableView)
+        view.addSubview(arrowView)
     }
 
     func setupConstraints() {
@@ -258,7 +313,12 @@ extension FilmTableViewController: ViewCoding {
             bottomCloudImage.centerYAnchor.constraint(equalTo: view.bottomAnchor),
             bottomCloudImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomCloudImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
-            bottomCloudImage.heightAnchor.constraint(equalTo: bottomCloudImage.widthAnchor, multiplier: 0.58)
+            bottomCloudImage.heightAnchor.constraint(equalTo: bottomCloudImage.widthAnchor, multiplier: 0.58),
+
+            arrowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            arrowView.topAnchor.constraint(equalToSystemSpacingBelow: bottomCloudImage.topAnchor, multiplier: 5),
+            arrowView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
+            arrowView.heightAnchor.constraint(equalTo: arrowView.widthAnchor, multiplier: 0.9)
         ])
     }
 }

@@ -11,11 +11,14 @@ final class FilmTableViewModel {
     weak var letterDelegate: UpdateNextFilmDelegate?
     weak var progressBarDelegate: ProgressBarDelegate?
     weak var delegate: FilmTableViewModelDelegate?
+    weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
     var tableState: TableState = .all
+    var TableIsEmpty: Bool = false
+    var loadingFilms: Bool = false
 
     var isSearch: Bool = false {
         didSet {
@@ -45,8 +48,10 @@ final class FilmTableViewModel {
         apiService: APICall,
         delegate: FilmTableViewModelDelegate? = nil,
         letterDelegate: UpdateNextFilmDelegate? = nil,
-        progressBarDelegate: ProgressBarDelegate? = nil
+        progressBarDelegate: ProgressBarDelegate? = nil,
+        mainScreenDelegate: MainScreenViewControllerDelegate?
     ) {
+        self.mainScreenDelegate = mainScreenDelegate
         self.progressBarDelegate = progressBarDelegate
         self.letterDelegate = letterDelegate
         self.apiService = apiService
@@ -70,6 +75,8 @@ final class FilmTableViewModel {
         {
             defaults.set(listData, forKey: "filmList")
             defaults.set(watchedData, forKey: "watchedFilms")
+
+            letterDelegate?.updateNextFilm(newFilm: fiveFilms[0])
         }
     }
 
@@ -89,13 +96,16 @@ final class FilmTableViewModel {
         self.filteredFilms = films
         self.filmsToSearch = films
         self.films = films
+        self.loadingFilms = false
     }
 
     func showAllMovies() {
+        self.TableIsEmpty = false
         let filmsTemp: [FilmModel] = self.films
         self.films = self.filmsBackup
         self.filmsBackup = filmsTemp
         self.tableState = .all
+        self.loadingFilms = false
     }
 
     func showMoviesToWatch() {
@@ -114,6 +124,7 @@ final class FilmTableViewModel {
     }
 
     func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {
+        delegate?.isInterective(false)
         guard let apiInfo = !requestException ? await apiService.GET(at: UrlEnum.ghibliUrl.rawValue) : nil else {
             return nil
         }
@@ -121,6 +132,7 @@ final class FilmTableViewModel {
         do {
             let data = !decoderException ? apiInfo.data : Data("decoderException".utf8)
             let ghibliInfo = try JSONDecoder().decode([GhibliInfo].self, from: data)
+            delegate?.isInterective(true)
             return ghibliInfo
         } catch {
             print(error)
