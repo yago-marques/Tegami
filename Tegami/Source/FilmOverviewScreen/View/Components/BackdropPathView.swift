@@ -1,26 +1,26 @@
 //
-//  PosterImageView.swift
-//  Tegami
+//  ImageGroupView.swift
+//  GhibliAPP
 //
-//  Created by Stephane Girão Linhares on 29/09/22.
+//  Created by Stephane Girão Linhares on 26/09/22.
 //
 
 import UIKit
 
-final class PosterImageView: UIView {
+final class BackdropPathView: UIView {
     
     var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
         didSet {
             DispatchQueue.main.async {
-                if let backdropPath = self.film.tmdb?.posterPath {
+                if let backdropPath = self.film.tmdb?.backdropPath {
                     let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
-                    self.posterImage.downloaded(from: imageUrl)
+                    self.backdropPath.downloaded(from: imageUrl)
                 }
             }
         }
     }
     
-    private let posterImage: UIImageView = {
+    private let backdropPath: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
@@ -40,19 +40,19 @@ final class PosterImageView: UIView {
     
 }
 
-extension PosterImageView: ViewCoding {
+extension BackdropPathView: ViewCoding {
     func setupView() { }
     
     func setupHierarchy() {
-        self.addSubview(posterImage)
+        self.addSubview(backdropPath)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            posterImage.topAnchor.constraint(equalTo: self.topAnchor),
-            posterImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            posterImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
-            posterImage.heightAnchor.constraint(equalTo: self.heightAnchor)
+            backdropPath.topAnchor.constraint(equalTo: self.topAnchor),
+            backdropPath.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            backdropPath.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
+            backdropPath.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
         
     }

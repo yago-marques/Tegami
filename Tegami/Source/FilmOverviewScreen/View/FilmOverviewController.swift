@@ -26,16 +26,16 @@ final class FilmOverviewController: UIViewController {
         return background
     }()
     
-    private lazy var imageGroupView : BackdropImageView = {
-        let image = BackdropImageView()
+    private lazy var backdropPathView : BackdropPathView = {
+        let image = BackdropPathView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.film = self.film
         
         return image
     }()
     
-    private lazy var posterImageView : PosterImageView = {
-        let imagePoster = PosterImageView()
+    private lazy var posterPathView : PosterPathView = {
+        let imagePoster = PosterPathView()
         imagePoster.translatesAutoresizingMaskIntoConstraints = false
         imagePoster.film = self.film
         
@@ -69,8 +69,8 @@ extension FilmOverviewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(descriptionFilmView)
-        view.addSubview(posterImageView)
-        view.addSubview(imageGroupView)
+//        view.addSubview(posterPathView)
+        view.addSubview(backdropPathView)
         
         view.sendSubviewToBack(backgroundView)
     }
@@ -87,13 +87,13 @@ extension FilmOverviewController: ViewCoding {
             descriptionFilmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             descriptionFilmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            imageGroupView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageGroupView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            imageGroupView.heightAnchor.constraint(equalTo: imageGroupView.widthAnchor, multiplier: 0.5),
+            backdropPathView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backdropPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            backdropPathView.heightAnchor.constraint(equalTo: backdropPathView.widthAnchor, multiplier: 0.5),
             
-            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 0.5)
+//            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+//            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 0.5)
         ])
     }
 }
