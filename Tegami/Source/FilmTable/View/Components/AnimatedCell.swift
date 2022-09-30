@@ -10,12 +10,12 @@ import Lottie
 
 final class AnimatedCell: UITableViewCell {
 
-    var animationConfig: AnimationConfig? = nil {
+    var animationConfig: AnimationConfig = AnimationConfig(lottieName: "", message: "") {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self, let lottieName = self.animationConfig?.lottieName {
-                    self.messageLabel.text = self.animationConfig?.message
-                    self.showAnimation(of: lottieName)
+                if let self {
+                    self.messageLabel.text = self.animationConfig.message
+                    self.showAnimation(of: self.animationConfig.lottieName)
                 }
             }
         }
@@ -74,7 +74,7 @@ final class AnimatedCell: UITableViewCell {
             NSLayoutConstraint.activate([
                 loadingAnimation.topAnchor.constraint(equalTo: cardStack.topAnchor),
                 loadingAnimation.heightAnchor.constraint(equalTo: cardStack.widthAnchor, multiplier: 0.8),
-                loadingAnimation.centerXAnchor.constraint(equalTo: cardStack.centerXAnchor),
+                loadingAnimation.centerXAnchor.constraint(equalTo: cardStack.centerXAnchor)
             ])
         } else {
             cardStack.addSubview(emptyAnimation)
@@ -110,7 +110,7 @@ extension AnimatedCell: ViewCoding {
             cardStack.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
 
             messageLabel.topAnchor.constraint(equalTo: cardStack.topAnchor),
-            messageLabel.centerXAnchor.constraint(equalTo: cardStack.centerXAnchor),
+            messageLabel.centerXAnchor.constraint(equalTo: cardStack.centerXAnchor)
         ])
     }
 }

@@ -14,6 +14,7 @@ final class FilmTableViewModel {
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
+    var firstWillAppear: Bool = true
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
     var tableState: TableState = .all
@@ -97,6 +98,7 @@ final class FilmTableViewModel {
         self.filmsToSearch = films
         self.films = films
         self.loadingFilms = false
+        self.firstWillAppear = false
     }
 
     func showAllMovies() {
@@ -224,22 +226,19 @@ final class FilmTableViewModel {
         switch tableState {
         case .all:
             return [
-                ("Adicionar na minha lista", "plus.square.on.square.fill"),
-                ("Ver detalhes", "info.circle.fill")
+                ("Adicionar na minha lista", "plus.square.on.square.fill")
             ]
         case .toWatch:
             if !isFirst {
                 return [
                     ("Marcar como assistido", "video.fill.badge.checkmark"),
                     ("Tornar o primeiro da lista", "square.3.stack.3d.top.filled"),
-                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
-                    ("Ver detalhes", "info.circle.fill")
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus")
                 ]
             } else {
                 return [
                     ("Marcar como assistido", "video.fill.badge.checkmark"),
-                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
-                    ("Ver detalhes", "info.circle.fill")
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus")
                 ]
             }
         }

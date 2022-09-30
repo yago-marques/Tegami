@@ -103,10 +103,14 @@ final class FilmTableViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        arrowView.play()
 
-        Task.detached {
-            await self.viewModel.fetchFilms()
+        if viewModel.firstWillAppear {
+            Task.detached {
+                await self.viewModel.fetchFilms()
+            }
         }
+
     }
 
     @objc func scrollToBottom() {
@@ -183,7 +187,7 @@ extension FilmTableViewController: UITableViewDelegate {
         let film = !viewModel.isSearch ? self.viewModel.films[indexPath.row] : self.viewModel.filteredFilms[indexPath.row]
 
         navigationController?.pushViewController(
-            FilmOverviewController(film: film), animated: true)
+            FilmOverviewController(film: film, tableViewModel: self.viewModel, indexPath: indexPath.row), animated: true)
     }
 }
 
@@ -277,7 +281,6 @@ extension FilmTableViewController: ViewCoding {
         viewModel.delegate = self
         viewModel.letterDelegate = letterViewModel
         viewModel.progressBarDelegate = progressBar
-        arrowView.play()
     }
 
     func setupHierarchy() {

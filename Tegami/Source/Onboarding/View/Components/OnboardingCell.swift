@@ -10,11 +10,11 @@ import Lottie
 
 final class OnboardingCell: UICollectionViewCell {
 
-    var cellOption: Int? = nil {
+    var cellOption: Int = 1 {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 if let self {
-                    self.showCell(at: self.cellOption ?? 1)
+                    self.showCell(at: self.cellOption)
                 }
             }
         }

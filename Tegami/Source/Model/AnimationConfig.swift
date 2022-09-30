@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct AnimationConfig {
     let lottieName: String
     let message: String
