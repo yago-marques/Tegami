@@ -10,7 +10,7 @@ import UIKit
 final class BackgroundView: UIView {
 
     private lazy var backgroundOverview: UIImageView = {
-        self.makeBackground(name: "Elementos/aBackground", contentMode: .scaleAspectFill)
+        self.makeBackground(name: "SceneOverview", contentMode: .scaleAspectFill)
     }()
     
     init () {

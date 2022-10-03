@@ -50,6 +50,8 @@ final class LetterViewController: UIViewController {
         lottie.animationSpeed = 0.5
         lottie.transform = lottie.transform.rotated(by: CGFloat(Double.pi/1))
         lottie.translatesAutoresizingMaskIntoConstraints = false
+        let tap = UITapGestureRecognizer(target: self, action: #selector(scrollToTop))
+        lottie.addGestureRecognizer(tap)
 
         return lottie
 
@@ -63,9 +65,18 @@ final class LetterViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        arrowView.play()
 
         Task.detached {
             await self.viewModel.fetchNextMovieToWatch()
+        }
+    }
+
+    @objc func scrollToTop() {
+        DispatchQueue.main.async { [weak self] in
+            if let self {
+                self.viewModel.mainScreenDelegate?.move(to: .top)
+            }
         }
     }
 
@@ -106,8 +117,6 @@ extension LetterViewController: ViewCoding {
     func setupView() {
         navigationItem.hidesBackButton = true
         viewModel.delegate = self
-
-        arrowView.play()
     }
 
     func setupHierarchy() {

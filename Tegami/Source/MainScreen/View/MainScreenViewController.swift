@@ -10,14 +10,15 @@ import UIKit
 final class MainScreenViewController: UIViewController {
 
     private lazy var filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: APICall()),
+        viewModel: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self),
         letterViewModel: self.letterView.viewModel,
         progressBar: self.letterView.progressBar
     )
 
-    private let letterView = LetterViewController(
+    private lazy var letterView = LetterViewController(
         viewModel: LetterViewModel(
-            table: FilmTableViewModel(apiService: APICall()) as LetterViewModelDelegate)
+            table: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self) as LetterViewModelDelegate,
+            mainScreenDelegate: self)
     )
 
     private lazy var scrollView: UIScrollView = {
@@ -48,6 +49,17 @@ final class MainScreenViewController: UIViewController {
 
 }
 
+extension MainScreenViewController: MainScreenViewControllerDelegate {
+    func move(to option: ScrollMovement) {
+        switch option {
+        case .bottom:
+            scrollView.scrollToBottom()
+        case .top:
+            scrollView.moveToTop()
+        }
+    }
+}
+
 extension MainScreenViewController: ViewCoding {
     func setupView() {
         scrollView.contentInsetAdjustmentBehavior = .never
@@ -55,7 +67,7 @@ extension MainScreenViewController: ViewCoding {
             width:view.frame.width,
             height: 2 * view.frame.height
         )
-        scrollView.scrollToBottom()
+        self.scrollView.scrollToBottom()
     }
 
     func setupHierarchy() {

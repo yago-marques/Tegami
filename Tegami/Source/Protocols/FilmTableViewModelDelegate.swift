@@ -9,4 +9,5 @@ import Foundation
 
 protocol FilmTableViewModelDelegate: AnyObject {
     func reloadTable()
+    func isInterective(_ option: Bool)
 }

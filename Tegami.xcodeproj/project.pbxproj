@@ -10,8 +10,9 @@
 		4BE10E6628E4787F0023104E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE10E6528E4787F0023104E /* Lottie */; };
 		4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6928E47A040023104E /* FilmOverviewController.swift */; };
 		4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6C28E47AE20023104E /* BackgroundView.swift */; };
-		4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* ImageGroupView.swift */; };
+		4BE10E7028E47AE20023104E /* BackdropPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* BackdropPathView.swift */; };
 		4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */; };
+		4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E7228E5E7300023104E /* PosterPathView.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
 		DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */; };
@@ -55,6 +56,16 @@
 		DF287B2A28E46B0600EF9333 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DF287B2928E46B0600EF9333 /* arrow.json */; };
 		DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */; };
 		DF287B3128E46C5F00EF9333 /* MainScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B3028E46C5F00EF9333 /* MainScreenViewModelTests.swift */; };
+		DFD827F528E4BDDE00A57A75 /* emptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD827F428E4BDDE00A57A75 /* emptyList.json */; };
+		DFD827F728E4BE1F00A57A75 /* AnimatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */; };
+		DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F828E4C11200A57A75 /* AnimationConfig.swift */; };
+		DFD827FB28E4CC6700A57A75 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD827FA28E4CC6700A57A75 /* loading.json */; };
+		DFD827FD28E4DCBB00A57A75 /* ScrollMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827FC28E4DCBB00A57A75 /* ScrollMovement.swift */; };
+		DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827FE28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift */; };
+		DFD8280228E5C38E00A57A75 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD8280128E5C38E00A57A75 /* OnboardingCell.swift */; };
+		DFD8280428E6318B00A57A75 /* progress.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD8280328E6318B00A57A75 /* progress.json */; };
+		DFD8280628E640FF00A57A75 /* filmList.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD8280528E640FF00A57A75 /* filmList.json */; };
+		DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +88,9 @@
 /* Begin PBXFileReference section */
 		4BE10E6928E47A040023104E /* FilmOverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOverviewController.swift; sourceTree = "<group>"; };
 		4BE10E6C28E47AE20023104E /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		4BE10E6D28E47AE20023104E /* ImageGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGroupView.swift; sourceTree = "<group>"; };
+		4BE10E6D28E47AE20023104E /* BackdropPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackdropPathView.swift; sourceTree = "<group>"; };
 		4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionFilmView.swift; sourceTree = "<group>"; };
+		4BE10E7228E5E7300023104E /* PosterPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPathView.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +138,16 @@
 		DF287B2928E46B0600EF9333 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
 		DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModelTests.swift; sourceTree = "<group>"; };
 		DF287B3028E46C5F00EF9333 /* MainScreenViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelTests.swift; sourceTree = "<group>"; };
+		DFD827F428E4BDDE00A57A75 /* emptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyList.json; sourceTree = "<group>"; };
+		DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCell.swift; sourceTree = "<group>"; };
+		DFD827F828E4C11200A57A75 /* AnimationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConfig.swift; sourceTree = "<group>"; };
+		DFD827FA28E4CC6700A57A75 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		DFD827FC28E4DCBB00A57A75 /* ScrollMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovement.swift; sourceTree = "<group>"; };
+		DFD827FE28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DFD8280128E5C38E00A57A75 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		DFD8280328E6318B00A57A75 /* progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress.json; sourceTree = "<group>"; };
+		DFD8280528E640FF00A57A75 /* filmList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = filmList.json; sourceTree = "<group>"; };
+		DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +181,8 @@
 			children = (
 				4BE10E6C28E47AE20023104E /* BackgroundView.swift */,
 				4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */,
-				4BE10E6D28E47AE20023104E /* ImageGroupView.swift */,
+				4BE10E6D28E47AE20023104E /* BackdropPathView.swift */,
+				4BE10E7228E5E7300023104E /* PosterPathView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -254,6 +277,7 @@
 			children = (
 				DF287AD328E4669000EF9333 /* TableState.swift */,
 				DF287AD228E4669000EF9333 /* UrlEnum.swift */,
+				DFD827FC28E4DCBB00A57A75 /* ScrollMovement.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -309,6 +333,7 @@
 				DF287B0128E4675A00EF9333 /* FilmModel.swift */,
 				DF287B0228E4675A00EF9333 /* FilmPosition.swift */,
 				DF287B0328E4675A00EF9333 /* GenreModel.swift */,
+				DFD827F828E4C11200A57A75 /* AnimationConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +350,8 @@
 				DF287B0C28E4676E00EF9333 /* ProgressBarDelegate.swift */,
 				DF287B0B28E4676E00EF9333 /* UpdateNextFilmDelegate.swift */,
 				DF287B0D28E4676E00EF9333 /* ViewCoding.swift */,
+				DFD827FE28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift */,
+				DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -370,6 +397,7 @@
 				DF287AEB28E466FB00EF9333 /* ActionsSheet.swift */,
 				DF287AED28E466FB00EF9333 /* FilmCardCell.swift */,
 				DF287AEA28E466FB00EF9333 /* FilmTableHeader.swift */,
+				DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -414,6 +442,7 @@
 		DF287B1C28E467A600EF9333 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DFD8280028E5C37500A57A75 /* Components */,
 				DF287B1E28E467BA00EF9333 /* OnbordingViewController.swift */,
 			);
 			path = View;
@@ -438,6 +467,10 @@
 		DF287B2828E46AD700EF9333 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				DFD8280528E640FF00A57A75 /* filmList.json */,
+				DFD8280328E6318B00A57A75 /* progress.json */,
+				DFD827FA28E4CC6700A57A75 /* loading.json */,
+				DFD827F428E4BDDE00A57A75 /* emptyList.json */,
 				DF287B2928E46B0600EF9333 /* arrow.json */,
 			);
 			path = LottieFiles;
@@ -459,6 +492,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DFD8280028E5C37500A57A75 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DFD8280128E5C38E00A57A75 /* OnboardingCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,6 +510,7 @@
 				DF287A8128E45F3D00EF9333 /* Sources */,
 				DF287A8228E45F3D00EF9333 /* Frameworks */,
 				DF287A8328E45F3D00EF9333 /* Resources */,
+				DFD8280728E655F100A57A75 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -571,8 +613,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFD8280628E640FF00A57A75 /* filmList.json in Resources */,
 				DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */,
 				DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */,
+				DFD827F528E4BDDE00A57A75 /* emptyList.json in Resources */,
+				DFD827FB28E4CC6700A57A75 /* loading.json in Resources */,
+				DFD8280428E6318B00A57A75 /* progress.json in Resources */,
 				DF287B2A28E46B0600EF9333 /* arrow.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +639,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DFD8280728E655F100A57A75 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DF287A8128E45F3D00EF9333 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -602,6 +669,7 @@
 				DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */,
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
 				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
+				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
@@ -611,6 +679,7 @@
 				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
 				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
+				DFD827F728E4BE1F00A57A75 /* AnimatedCell.swift in Sources */,
 				DF287ADD28E4669B00EF9333 /* Sequence.swift in Sources */,
 				DF287B0428E4675A00EF9333 /* FilmModel.swift in Sources */,
 				4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */,
@@ -619,22 +688,27 @@
 				DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */,
 				DF287ADB28E4669B00EF9333 /* Array.swift in Sources */,
 				DF287AFA28E4672E00EF9333 /* NextFilmView.swift in Sources */,
-				4BE10E7028E47AE20023104E /* ImageGroupView.swift in Sources */,
+				4BE10E7028E47AE20023104E /* BackdropPathView.swift in Sources */,
 				DF287AEE28E466FB00EF9333 /* FilmTableHeader.swift in Sources */,
 				DF287B1428E4676E00EF9333 /* UpdateNextFilmDelegate.swift in Sources */,
 				DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */,
+				DFD827FD28E4DCBB00A57A75 /* ScrollMovement.swift in Sources */,
+				4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */,
 				DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */,
 				DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */,
 				DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */,
 				DF287AF028E466FB00EF9333 /* ActionSheetCell.swift in Sources */,
 				DF287AD428E4669000EF9333 /* UrlEnum.swift in Sources */,
 				DF287AF428E4671800EF9333 /* LetterViewController.swift in Sources */,
+				DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */,
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
+				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
 				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
 				DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */,
+				DFD8280228E5C38E00A57A75 /* OnboardingCell.swift in Sources */,
 				DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */,
 				4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */,
 				DF287AF128E466FB00EF9333 /* FilmCardCell.swift in Sources */,
@@ -813,7 +887,7 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -845,7 +919,7 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,6 +1000,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -944,6 +1019,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
