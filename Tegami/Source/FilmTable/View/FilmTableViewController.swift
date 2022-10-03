@@ -265,13 +265,7 @@ extension FilmTableViewController: UITableViewDataSource {
         }
 
         let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
-        let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
-
         hapticSoft.impactOccurred(intensity: 1.00)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            hapticRigid.impactOccurred(intensity: 1.00)
-        }
 
         if let sheet = mySheet.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
