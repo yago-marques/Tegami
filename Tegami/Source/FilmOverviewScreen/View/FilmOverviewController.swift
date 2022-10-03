@@ -85,9 +85,9 @@ final class FilmOverviewController: UIViewController {
     @objc func TapPresshandler(_ sender: UITapGestureRecognizer) {
         guard let viewModel = self.tableViewModel else { return }
         let mySheet = ActionSheet(delegate: viewModel, overViewDelegate: self)
+        mySheet.film = self.film
 
         if !viewModel.isSearch {
-            mySheet.film = self.film
             switch viewModel.tableState {
             case .all:
                 mySheet.contentOfRowAt = viewModel.getActions(state: .all)
@@ -98,23 +98,30 @@ final class FilmOverviewController: UIViewController {
                     mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch)
                 }
             }
+        } else {
+            guard
+                let id = film.ghibli?.id,
+                let content = viewModel.findFilmOnList(id: id)
+            else { return }
 
-            let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
-            let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
+            mySheet.contentOfRowAt = content
+        }
 
-            hapticSoft.impactOccurred(intensity: 1.00)
+        let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
+        let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                hapticRigid.impactOccurred(intensity: 1.00)
-            }
+        hapticSoft.impactOccurred(intensity: 1.00)
 
-            if let sheet = mySheet.sheetPresentationController {
-                sheet.detents = [.medium(), .large()]
-                sheet.selectedDetentIdentifier = .medium
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 20
-                present(mySheet, animated: true)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            hapticRigid.impactOccurred(intensity: 1.00)
+        }
+
+        if let sheet = mySheet.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+            present(mySheet, animated: true)
         }
     }
 

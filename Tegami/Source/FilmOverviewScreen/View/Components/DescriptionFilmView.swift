@@ -71,6 +71,8 @@ final class DescriptionFilmView: UIView {
         overview.backgroundColor = .clear
         overview.textColor = .black
         overview.textAlignment = .justified
+        overview.isEditable = false
+        overview.showsVerticalScrollIndicator = false
         
         return overview
     }()
