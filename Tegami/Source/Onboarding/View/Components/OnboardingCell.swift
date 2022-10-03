@@ -10,11 +10,11 @@ import Lottie
 
 final class OnboardingCell: UICollectionViewCell {
 
-    var cellOption: Int? = nil {
+    var cellOption: Int = 1 {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 if let self {
-                    self.showCell(at: self.cellOption ?? 1)
+                    self.showCell(at: self.cellOption)
                 }
             }
         }
@@ -173,7 +173,7 @@ extension OnboardingCell: ViewCoding {
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.topAnchor, multiplier: 60),
+            titleLabel.topAnchor.constraint(equalTo: self.centerYAnchor, constant: self.frame.height * 0.06),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
 

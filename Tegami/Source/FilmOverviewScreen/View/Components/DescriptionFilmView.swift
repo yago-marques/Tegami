@@ -13,7 +13,6 @@ final class DescriptionFilmView: UIView {
         didSet {
             DispatchQueue.main.async {
                 self.titleLabel.text = self.filmTeste.tmdb?.title
-               // self.runningTimeLabel.text = self.filmTeste.ghibli?.runningTime
                 self.releaseDateLabel.text = self.filmTeste.ghibli?.releaseDate
                 self.overviewLabel.text = self.filmTeste.tmdb?.overview
                 self.runningTimeLabel.text = "\(self.filmTeste.ghibli?.runningTime ?? "--") minutos, "
@@ -21,7 +20,7 @@ final class DescriptionFilmView: UIView {
         }
     }
     
-    private let cardView: UIView = {
+    private(set) var cardView: UIView = {
         let card = UIView(frame: .zero)
         card.translatesAutoresizingMaskIntoConstraints = false
         card.backgroundColor = UIColor(named: "cSky")
@@ -37,6 +36,7 @@ final class DescriptionFilmView: UIView {
         let title = UILabel(frame: .zero)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.numberOfLines = 0
+        title.textColor = .black
         title.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
         return title
@@ -46,6 +46,7 @@ final class DescriptionFilmView: UIView {
         let duration = UILabel(frame: .zero)
         duration.translatesAutoresizingMaskIntoConstraints = false
         duration.numberOfLines = 0
+        duration.textColor = .black
         duration.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
         return duration
@@ -55,6 +56,7 @@ final class DescriptionFilmView: UIView {
         let date = UILabel(frame: .zero)
         date.translatesAutoresizingMaskIntoConstraints = false
         date.numberOfLines = 0
+        date.textColor = .black
         date.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
         return date
@@ -67,6 +69,10 @@ final class DescriptionFilmView: UIView {
         overview.translatesAutoresizingMaskIntoConstraints = false
         overview.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         overview.backgroundColor = .clear
+        overview.textColor = .black
+        overview.textAlignment = .justified
+        overview.isEditable = false
+        overview.showsVerticalScrollIndicator = false
         
         return overview
     }()
@@ -95,9 +101,9 @@ extension DescriptionFilmView: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            cardView.topAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
+            cardView.topAnchor.constraint(equalTo: self.topAnchor),
             cardView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45),
+            cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.9),
             cardView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
             cardView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
@@ -112,12 +118,9 @@ extension DescriptionFilmView: ViewCoding {
             runningTimeLabel.trailingAnchor.constraint(equalTo: releaseDateLabel.leadingAnchor),
             
             releaseDateLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.topAnchor, multiplier: 7),
-//            releaseDateLabel.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor),
             releaseDateLabel.leadingAnchor.constraint(equalTo: runningTimeLabel.trailingAnchor),
-//            releaseDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
             overviewLabel.topAnchor.constraint(equalToSystemSpacingBelow: releaseDateLabel.topAnchor, multiplier: 5),
-//            overviewLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+
             overviewLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
             overviewLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10),
             overviewLabel.heightAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 0.5)

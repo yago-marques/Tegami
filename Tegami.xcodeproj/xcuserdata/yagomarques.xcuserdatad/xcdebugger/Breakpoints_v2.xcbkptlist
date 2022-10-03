@@ -3,4 +3,166 @@
    uuid = "23590803-61D9-4A3D-B2D8-45F7D146694A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0903F8F2-1A62-4763-AE6A-B6CC6382CCE5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tegami/Source/FilmTable/View/Components/ActionsSheet.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E950688-9218-4CE8-A995-5AB0A75B8824"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tegami/Source/FilmOverviewScreen/View/FilmOverviewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "TapPresshandler(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E950688-9218-4CE8-A995-5AB0A75B8824 - cac9ed1f7c8ce503"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmOverviewController.TapPresshandler(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmOverviewScreen/View/FilmOverviewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "1268">
+               </Location>
+               <Location
+                  uuid = "7E950688-9218-4CE8-A995-5AB0A75B8824 - cac9ed1f7c8ce503"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmOverviewController.TapPresshandler(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmOverviewScreen/View/FilmOverviewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "1568">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "findFilmOnList(id:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC - 5bdb6b23b6f42d76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmTableViewModel.findFilmOnList(id: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;(Swift.String, Swift.String)&gt;&gt;"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "343"
+                  endingLineNumber = "343"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC - 5bdb6b23b6f42d76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmTableViewModel.findFilmOnList(id: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;(Swift.String, Swift.String)&gt;&gt;"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "343"
+                  endingLineNumber = "343"
+                  offsetFromSymbolStart = "912">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F539933A-2057-49E3-89F6-88A378F64F43"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tegami/Source/FilmTable/View/FilmTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "LongPresshandler(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F539933A-2057-49E3-89F6-88A378F64F43 - 3b926cb24b6f0fbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmTableViewController.LongPresshandler(__C.UILongPressGestureRecognizer) -&gt; ()"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/View/FilmTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "2328">
+               </Location>
+               <Location
+                  uuid = "F539933A-2057-49E3-89F6-88A378F64F43 - 3b926cb24b6f0fbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tegami.FilmTableViewController.LongPresshandler(__C.UILongPressGestureRecognizer) -&gt; ()"
+                  moduleName = "Tegami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/View/FilmTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "2480">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

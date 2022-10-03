@@ -65,6 +65,7 @@
 		DFD8280228E5C38E00A57A75 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD8280128E5C38E00A57A75 /* OnboardingCell.swift */; };
 		DFD8280428E6318B00A57A75 /* progress.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD8280328E6318B00A57A75 /* progress.json */; };
 		DFD8280628E640FF00A57A75 /* filmList.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD8280528E640FF00A57A75 /* filmList.json */; };
+		DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		DFD8280128E5C38E00A57A75 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		DFD8280328E6318B00A57A75 /* progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress.json; sourceTree = "<group>"; };
 		DFD8280528E640FF00A57A75 /* filmList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = filmList.json; sourceTree = "<group>"; };
+		DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +351,7 @@
 				DF287B0B28E4676E00EF9333 /* UpdateNextFilmDelegate.swift */,
 				DF287B0D28E4676E00EF9333 /* ViewCoding.swift */,
 				DFD827FE28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift */,
+				DFD8280A28E6779400A57A75 /* OverViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				DF287A8128E45F3D00EF9333 /* Sources */,
 				DF287A8228E45F3D00EF9333 /* Frameworks */,
 				DF287A8328E45F3D00EF9333 /* Resources */,
+				DFD8280728E655F100A57A75 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -635,6 +639,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DFD8280728E655F100A57A75 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DF287A8128E45F3D00EF9333 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -678,6 +703,7 @@
 				DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */,
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
+				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
 				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
@@ -856,7 +882,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 826U5T47TW;
+				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -888,7 +914,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 826U5T47TW;
+				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -974,6 +1000,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -992,6 +1019,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

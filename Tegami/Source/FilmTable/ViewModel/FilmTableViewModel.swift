@@ -14,6 +14,7 @@ final class FilmTableViewModel {
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private let apiService: APICall
     private let defaults = UserDefaults.standard
+    var firstWillAppear: Bool = true
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
     var tableState: TableState = .all
@@ -97,6 +98,7 @@ final class FilmTableViewModel {
         self.filmsToSearch = films
         self.films = films
         self.loadingFilms = false
+        self.firstWillAppear = false
     }
 
     func showAllMovies() {
@@ -221,25 +223,22 @@ final class FilmTableViewModel {
     }
 
     func getActions(state: TableState, isFirst: Bool = false) -> [(String, String)] {
-        switch tableState {
+        switch state {
         case .all:
             return [
-                ("Adicionar na minha lista", "plus.square.on.square.fill"),
-                ("Ver detalhes", "info.circle.fill")
+                ("Adicionar na minha lista", "plus.square.on.square.fill")
             ]
         case .toWatch:
             if !isFirst {
                 return [
                     ("Marcar como assistido", "video.fill.badge.checkmark"),
                     ("Tornar o primeiro da lista", "square.3.stack.3d.top.filled"),
-                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
-                    ("Ver detalhes", "info.circle.fill")
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus")
                 ]
             } else {
                 return [
                     ("Marcar como assistido", "video.fill.badge.checkmark"),
-                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus"),
-                    ("Ver detalhes", "info.circle.fill")
+                    ("Remover da minha lista", "rectangle.stack.fill.badge.minus")
                 ]
             }
         }
@@ -281,7 +280,9 @@ extension FilmTableViewModel: ActionSheetDelegate {
         guard let data = defaults.object(forKey: "filmList") else { return }
         guard var filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
 
-        filmList.append(FilmPosition(filmId: id))
+        if filmList.firstIndex(of: FilmPosition(filmId: id)) == nil {
+            filmList.append(FilmPosition(filmId: id))
+        }
 
         let filmsToWatch = filmList.map { position -> FilmModel in
             let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
@@ -338,5 +339,20 @@ extension FilmTableViewModel: ActionSheetDelegate {
         self.removeFilmOfList(id: id)
 
         self.progressBarDelegate?.updateBar(watchedFilms: Double(watchedFilms.count))
+    }
+
+    func findFilmOnList(id: String) -> [(String, String)]? {
+        guard let data = defaults.object(forKey: "filmList") else { return nil }
+        guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return nil }
+
+        if let index = filmList.firstIndex(of: FilmPosition(filmId: id)) {
+            if index == 0 {
+                return self.getActions(state: .toWatch, isFirst: true)
+            } else {
+                return self.getActions(state: .toWatch)
+            }
+        } else {
+            return self.getActions(state: .all)
+        }
     }
 }

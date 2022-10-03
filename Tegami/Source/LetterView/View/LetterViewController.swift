@@ -65,6 +65,7 @@ final class LetterViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        arrowView.play()
 
         Task.detached {
             await self.viewModel.fetchNextMovieToWatch()
@@ -116,8 +117,6 @@ extension LetterViewController: ViewCoding {
     func setupView() {
         navigationItem.hidesBackButton = true
         viewModel.delegate = self
-
-        arrowView.play()
     }
 
     func setupHierarchy() {

@@ -10,9 +10,11 @@ import UIKit
 final class ActionSheet: UIViewController {
 
     weak var delegate: ActionSheetDelegate?
+    weak var overViewDelegate: OverViewDelegate?
 
-    init(delegate: ActionSheetDelegate) {
+    init(delegate: ActionSheetDelegate, overViewDelegate: OverViewDelegate? = nil) {
         self.delegate = delegate
+        self.overViewDelegate = overViewDelegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -123,6 +125,9 @@ extension ActionSheet: UITableViewDelegate {
                 }
 
                 self?.dismiss(animated: true)
+                if let self {
+                    self.overViewDelegate?.popView()
+                }
             }
         }
     }

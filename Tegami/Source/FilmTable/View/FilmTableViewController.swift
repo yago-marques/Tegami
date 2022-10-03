@@ -103,10 +103,14 @@ final class FilmTableViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        arrowView.play()
 
-        Task.detached {
-            await self.viewModel.fetchFilms()
+        if viewModel.firstWillAppear {
+            Task.detached {
+                await self.viewModel.fetchFilms()
+            }
         }
+
     }
 
     @objc func scrollToBottom() {
@@ -183,7 +187,7 @@ extension FilmTableViewController: UITableViewDelegate {
         let film = !viewModel.isSearch ? self.viewModel.films[indexPath.row] : self.viewModel.filteredFilms[indexPath.row]
 
         navigationController?.pushViewController(
-            FilmOverviewController(film: film), animated: true)
+            FilmOverviewController(film: film, tableViewModel: self.viewModel, indexPath: indexPath.row), animated: true)
     }
 }
 
@@ -235,9 +239,10 @@ extension FilmTableViewController: UITableViewDataSource {
         let cell = sender.view as! UITableViewCell
         guard let indexPath = filmsTableView.indexPath(for: cell) else { return }
         let mySheet = ActionSheet(delegate: self.viewModel)
+        let film = viewModel.films[indexPath.row]
+        let filteredFilm = viewModel.filteredFilms[indexPath.row]
 
         if sender.state == .began, !viewModel.isSearch {
-            let film = viewModel.films[indexPath.row]
             mySheet.film = film
             switch viewModel.tableState {
             case .all:
@@ -249,23 +254,31 @@ extension FilmTableViewController: UITableViewDataSource {
                     mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch)
                 }
             }
+        } else if sender.state == .began {
+            mySheet.film = filteredFilm
+            guard
+                let id = filteredFilm.ghibli?.id,
+                let content = viewModel.findFilmOnList(id: id)
+            else { return }
 
-            let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
-            let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
+            mySheet.contentOfRowAt = content
+        }
 
-            hapticSoft.impactOccurred(intensity: 1.00)
+        let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
+        let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                hapticRigid.impactOccurred(intensity: 1.00)
-            }
+        hapticSoft.impactOccurred(intensity: 1.00)
 
-            if let sheet = mySheet.sheetPresentationController {
-                sheet.detents = [.medium(), .large()]
-                sheet.selectedDetentIdentifier = .medium
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 20
-                present(mySheet, animated: true)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            hapticRigid.impactOccurred(intensity: 1.00)
+        }
+
+        if let sheet = mySheet.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+            present(mySheet, animated: true)
         }
     }
 }
@@ -277,7 +290,6 @@ extension FilmTableViewController: ViewCoding {
         viewModel.delegate = self
         viewModel.letterDelegate = letterViewModel
         viewModel.progressBarDelegate = progressBar
-        arrowView.play()
     }
 
     func setupHierarchy() {

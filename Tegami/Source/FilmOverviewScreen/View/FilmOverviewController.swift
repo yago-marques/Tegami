@@ -5,13 +5,27 @@
 //  Created by Gabriela Souza Batista on 22/09/22.
 //
 import UIKit
+import Lottie
 
 final class FilmOverviewController: UIViewController {
-    
+
+    weak var tableViewModel: FilmTableViewModel?
     private var film: FilmModel
+    private var indexPath: Int
+    private var closeActions: Bool = false {
+        didSet {
+            self.popView()
+        }
+    }
     
-    init(film: FilmModel) {
+    init(
+        film: FilmModel,
+        tableViewModel: FilmTableViewModel,
+        indexPath: Int
+    ) {
+        self.tableViewModel = tableViewModel
         self.film = film
+        self.indexPath = indexPath
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,6 +63,18 @@ final class FilmOverviewController: UIViewController {
 
         return description
     }()
+
+    private lazy var optionsMenu: UIImageView = {
+        var image = UIImageView(frame: .zero)
+        image.image = UIImage(systemName: "ellipsis.circle.fill")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        image.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.TapPresshandler))
+        image.addGestureRecognizer(tap)
+
+        return image
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +82,60 @@ final class FilmOverviewController: UIViewController {
         buildLayout()
     }
 
+    @objc func TapPresshandler(_ sender: UITapGestureRecognizer) {
+        guard let viewModel = self.tableViewModel else { return }
+        let mySheet = ActionSheet(delegate: viewModel, overViewDelegate: self)
+        mySheet.film = self.film
+
+        if !viewModel.isSearch {
+            switch viewModel.tableState {
+            case .all:
+                mySheet.contentOfRowAt = viewModel.getActions(state: .all)
+            case .toWatch:
+                if indexPath == 0 {
+                    mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch, isFirst: true)
+                } else {
+                    mySheet.contentOfRowAt = viewModel.getActions(state: .toWatch)
+                }
+            }
+        } else {
+            guard
+                let id = film.ghibli?.id,
+                let content = viewModel.findFilmOnList(id: id)
+            else { return }
+
+            mySheet.contentOfRowAt = content
+        }
+
+        let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
+        let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
+
+        hapticSoft.impactOccurred(intensity: 1.00)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            hapticRigid.impactOccurred(intensity: 1.00)
+        }
+
+        if let sheet = mySheet.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+            present(mySheet, animated: true)
+        }
+    }
+
+}
+
+extension FilmOverviewController: OverViewDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension FilmOverviewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .white
-        navigationItem.hidesBackButton = false
         UINavigationBar.appearance().tintColor = .white
     }
     
@@ -70,6 +144,7 @@ extension FilmOverviewController: ViewCoding {
         view.addSubview(descriptionFilmView)
         view.addSubview(backdropPathView)
         view.addSubview(posterPathView)
+        view.addSubview(optionsMenu)
         
         view.sendSubviewToBack(backgroundView)
     }
@@ -81,10 +156,15 @@ extension FilmOverviewController: ViewCoding {
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            descriptionFilmView.topAnchor.constraint(equalTo: view.topAnchor),
+            descriptionFilmView.topAnchor.constraint(equalTo: backdropPathView.bottomAnchor),
             descriptionFilmView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             descriptionFilmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             descriptionFilmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            optionsMenu.topAnchor.constraint(equalToSystemSpacingBelow: descriptionFilmView.topAnchor, multiplier: 2),
+            optionsMenu.trailingAnchor.constraint(equalTo: descriptionFilmView.cardView.trailingAnchor, constant: -10),
+            optionsMenu.widthAnchor.constraint(equalTo: descriptionFilmView.widthAnchor, multiplier: 0.1),
+            optionsMenu.heightAnchor.constraint(equalTo: optionsMenu.widthAnchor),
             
             backdropPathView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             backdropPathView.widthAnchor.constraint(equalTo: view.widthAnchor),
