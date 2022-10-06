@@ -9,7 +9,11 @@ import UIKit
 
 final class OnboardingViewModel {
 
-    private let defaults = UserDefaults.standard
+    private let defaults: UserDefaults
+
+    init(defaults: UserDefaults) {
+        self.defaults = defaults
+    }
 
     var textContents = [
         ("Explore o vasto universo das animações do Studio Ghibli", ""),
@@ -18,12 +22,11 @@ final class OnboardingViewModel {
     ]
 
     func markOnboardAsWatched() {
-
         let data = try? JSONEncoder().encode(true)
         defaults.set(data, forKey: "onboard")
     }
 
-    func onboardWasSeen() -> Bool {
-        defaults.object(forKey: "onboard") == nil ? false : true
+    func onboardWasSeen(onboardKey: String = "onboard") -> Bool {
+        defaults.object(forKey: onboardKey) == nil ? false : true
     }
 }
