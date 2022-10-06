@@ -13,7 +13,7 @@ final class FilmTableViewModel {
     weak var delegate: FilmTableViewModelDelegate?
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private let apiService: APICall
-    private let defaults = UserDefaults.standard
+    private let defaults: UserDefaults
     var firstWillAppear: Bool = true
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
@@ -50,12 +50,14 @@ final class FilmTableViewModel {
         delegate: FilmTableViewModelDelegate? = nil,
         letterDelegate: UpdateNextFilmDelegate? = nil,
         progressBarDelegate: ProgressBarDelegate? = nil,
-        mainScreenDelegate: MainScreenViewControllerDelegate?
+        mainScreenDelegate: MainScreenViewControllerDelegate?,
+        userDefaults: UserDefaults
     ) {
         self.mainScreenDelegate = mainScreenDelegate
         self.progressBarDelegate = progressBarDelegate
         self.letterDelegate = letterDelegate
         self.apiService = apiService
+        self.defaults = userDefaults
     }
 
     func createInitialListFilm(films: [FilmModel]) {
@@ -81,7 +83,7 @@ final class FilmTableViewModel {
         }
     }
 
-    func fetchFilms(requestException: Bool = false) async {
+    func fetchFilms(requestException: Bool = false, filmKey: String = "filmList") async {
         guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return }
 
         let films: [FilmModel] = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
@@ -90,7 +92,7 @@ final class FilmTableViewModel {
             return filmInfo
         }
 
-        if defaults.object(forKey: "filmList") == nil {
+        if defaults.object(forKey: filmKey) == nil {
             createInitialListFilm(films: films)
         }
 
@@ -110,9 +112,9 @@ final class FilmTableViewModel {
         self.loadingFilms = false
     }
 
-    func showMoviesToWatch() {
-        guard let data = defaults.object(forKey: "filmList") else { return }
-        guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
+    func showMoviesToWatch(filmKey: String = "filmList", decoderException: Bool = false) {
+        guard let data = defaults.object(forKey: filmKey) else { return }
+        guard let filmList = !decoderException ? try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) : nil else { return }
 
         let filmsToWatch = filmList.map { position -> FilmModel in
             let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
