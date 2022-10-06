@@ -71,54 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "findFilmOnList(id:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC - 5bdb6b23b6f42d76"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tegami.FilmTableViewModel.findFilmOnList(id: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;(Swift.String, Swift.String)&gt;&gt;"
-                  moduleName = "Tegami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "343"
-                  endingLineNumber = "343"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "51A4F4EB-E305-444F-9E9F-594585624CEC - 5bdb6b23b6f42d76"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tegami.FilmTableViewModel.findFilmOnList(id: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;(Swift.String, Swift.String)&gt;&gt;"
-                  moduleName = "Tegami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yagomarques/Documents/Develop/Tegami/Tegami/Source/FilmTable/ViewModel/FilmTableViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "343"
-                  endingLineNumber = "343"
-                  offsetFromSymbolStart = "912">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F539933A-2057-49E3-89F6-88A378F64F43"
             shouldBeEnabled = "No"
             ignoreCount = "0"

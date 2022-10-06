@@ -18,7 +18,7 @@ struct FilmModel: Codable {
     
 }
 
-struct GhibliInfo: Codable {
+struct GhibliInfo: Codable, Equatable {
     let id: String
     let releaseDate: String
     let runningTime: String
@@ -32,12 +32,14 @@ struct GhibliInfo: Codable {
     }
     
     init(id: String, releaseDate: String, runningTime: String, originalTitle: String) {
-        
         self.id = id
         self.releaseDate = releaseDate
         self.runningTime = runningTime
         self.originalTitle = originalTitle
-        
+    }
+
+    static func MockGhibli(id: String) -> GhibliInfo {
+        return GhibliInfo(id: id, releaseDate: "mock", runningTime: "mock", originalTitle: "mock")
     }
 
 }
@@ -109,6 +111,10 @@ class TmdbResult: Codable {
         }
 
         return result
+    }
+
+    static func MockTmdb() -> TmdbResult {
+        return TmdbResult(id: 10, title: "mock", overview: "mock", popularity: 10.000, genreIds: [], originalTitle: "mock", backdropPath: "mock", posterPath: "mock")
     }
 
 }

@@ -10,14 +10,14 @@ import UIKit
 final class MainScreenViewController: UIViewController {
 
     private lazy var filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self),
+        viewModel: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self, userDefaults: UserDefaults.standard),
         letterViewModel: self.letterView.viewModel,
         progressBar: self.letterView.progressBar
     )
 
     private lazy var letterView = LetterViewController(
         viewModel: LetterViewModel(
-            table: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self) as LetterViewModelDelegate,
+            table: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self, userDefaults: UserDefaults.standard) as LetterViewModelDelegate,
             mainScreenDelegate: self)
     )
 
