@@ -4,7 +4,7 @@
 
 > An application focused on Studio Ghibli movies. It has never been so easy to watch all Studio Ghibli films
 
-https://user-images.githubusercontent.com/84297648/194324499-3aceef4d-e68f-450e-aea1-bb63c881f010.mp4
+https://user-images.githubusercontent.com/84297648/194336462-4d0a5153-b17f-4c3f-9d94-bccab5d75a4f.mp4
 
 ## 👩🏾‍💻 Technologies
 - [x] SPM - swift package manager
