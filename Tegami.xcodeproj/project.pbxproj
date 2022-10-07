@@ -15,6 +15,7 @@
 		4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E7228E5E7300023104E /* PosterPathView.swift */; };
 		CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33C28F0E963002F68FB /* OnboarginModel.swift */; };
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
+		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */; };
 		DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		4BE10E7228E5E7300023104E /* PosterPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPathView.swift; sourceTree = "<group>"; };
 		CE37D33C28F0E963002F68FB /* OnboarginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboarginModel.swift; sourceTree = "<group>"; };
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
+		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelTests.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,14 @@
 				CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */,
 			);
 			path = Factory;
+			sourceTree = "<group>";
+		};
+		CE37D34128F0ECAE002F68FB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DF287A7C28E45F3D00EF9333 = {
@@ -460,6 +470,7 @@
 		DF287B1B28E4679A00EF9333 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				CE37D34128F0ECAE002F68FB /* Helper */,
 				CE37D33E28F0E997002F68FB /* Factory */,
 				CE37D33B28F0E95A002F68FB /* Model */,
 				DF287B1C28E467A600EF9333 /* View */,
@@ -716,6 +727,7 @@
 				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,
 				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
 				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
+				CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */,
 				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
 				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,

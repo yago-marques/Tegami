@@ -9,9 +9,11 @@ import UIKit
 
 enum OnboardingFactory {
     static func make() -> UIViewController {
-        let viewModel = OnboardingViewModel(defaults: UserDefaults.standard)
+        let viewModel = OnboardingViewModel(defaults: UserDefaultsHelper())
         let viewController = OnboardingViewController(viewModel: viewModel)
         viewModel.delegate = viewController
         return viewController
     }
 }
+
+

@@ -20,7 +20,7 @@ protocol OnboardginViewModelDelegate: AnyObject {
 }
 
 final class OnboardingViewModel: OnboardingViewModeling {
-    private let defaults: UserDefaults
+    private let defaults: UserDefaultsProtocol
     private let models: [OnboardingModel] = [
         .init(
             title: "Explore o vasto universo das animações do Studio Ghibli",
@@ -38,12 +38,12 @@ final class OnboardingViewModel: OnboardingViewModeling {
 
     weak var delegate: OnboardginViewModelDelegate?
 
-    init(defaults: UserDefaults) {
+    init(defaults: UserDefaultsProtocol) {
         self.defaults = defaults
     }
 
     func markOnboardAsWatched() {
-        defaults.set(true, forKey: "onboard")
+        defaults.setBool(true, forKey: "onboard")
     }
     
     func getModel(at index: Int) -> OnboardingModel {
