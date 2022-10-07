@@ -9,9 +9,9 @@ import UIKit
 
 final class OnboardingViewController: UIViewController {
 
-    private let viewModel: OnboardingViewModel
+    private let viewModel: OnboardingViewModeling
 
-    init(viewModel: OnboardingViewModel) {
+    init(viewModel: OnboardingViewModeling) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -86,16 +86,7 @@ final class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if viewModel.onboardWasSeen() {
-            navigationController?.pushViewController(MainScreenViewController(), animated: true)
-        } else {
-            buildLayout()
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        viewModel.presentOnboardingIfNeeded()
     }
 
     @objc func pageControlSelectionAction(_ sender: UIPageControl) {
@@ -159,13 +150,14 @@ extension OnboardingViewController: UICollectionViewDelegate {
 
 extension OnboardingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfRows()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
+        let model = viewModel.getModel(at: indexPath.row)
         cell.cellOption = indexPath.row
-        cell.textContent = viewModel.textContents[indexPath.row]
+        cell.setup(with: model)
 
         return cell
     }
@@ -197,5 +189,15 @@ extension OnboardingViewController: ViewCoding {
             nextButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             nextButton.heightAnchor.constraint(equalTo: nextButton.widthAnchor, multiplier: 0.2)
         ])
+    }
+}
+
+extension OnboardingViewController: OnboardginViewModelDelegate {
+    func showOnboarding() {
+        buildLayout()
+    }
+    
+    func showMainScreen() {
+        navigationController?.pushViewController(MainScreenViewController(), animated: true)
     }
 }

@@ -13,6 +13,8 @@
 		4BE10E7028E47AE20023104E /* BackdropPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* BackdropPathView.swift */; };
 		4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */; };
 		4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E7228E5E7300023104E /* PosterPathView.swift */; };
+		CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33C28F0E963002F68FB /* OnboarginModel.swift */; };
+		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */; };
 		DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
@@ -94,6 +96,8 @@
 		4BE10E6D28E47AE20023104E /* BackdropPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackdropPathView.swift; sourceTree = "<group>"; };
 		4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionFilmView.swift; sourceTree = "<group>"; };
 		4BE10E7228E5E7300023104E /* PosterPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPathView.swift; sourceTree = "<group>"; };
+		CE37D33C28F0E963002F68FB /* OnboarginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboarginModel.swift; sourceTree = "<group>"; };
+		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelTests.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +195,22 @@
 				4BE10E7228E5E7300023104E /* PosterPathView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CE37D33B28F0E95A002F68FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D33C28F0E963002F68FB /* OnboarginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE37D33E28F0E997002F68FB /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		DF287A7C28E45F3D00EF9333 = {
@@ -440,6 +460,8 @@
 		DF287B1B28E4679A00EF9333 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				CE37D33E28F0E997002F68FB /* Factory */,
+				CE37D33B28F0E95A002F68FB /* Model */,
 				DF287B1C28E467A600EF9333 /* View */,
 				DF287B1D28E467AC00EF9333 /* ViewModel */,
 			);
@@ -721,10 +743,12 @@
 				DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */,
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
+				CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */,
 				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
 				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
+				CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */,
 				DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */,
 				DFD8280228E5C38E00A57A75 /* OnboardingCell.swift in Sources */,
 				DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */,
