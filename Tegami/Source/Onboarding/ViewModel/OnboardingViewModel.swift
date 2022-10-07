@@ -22,11 +22,10 @@ final class OnboardingViewModel {
     ]
 
     func markOnboardAsWatched() {
-        let data = try? JSONEncoder().encode(true)
-        defaults.set(data, forKey: "onboard")
+        defaults.set(true, forKey: "onboard")
     }
 
     func onboardWasSeen(onboardKey: String = "onboard") -> Bool {
-        defaults.object(forKey: onboardKey) == nil ? false : true
+        defaults.bool(forKey: "onboard")
     }
 }
