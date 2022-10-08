@@ -9,7 +9,7 @@ import UIKit
 
 protocol OnboardingViewModeling {
     func getModel(at index: Int) -> OnboardingModel
-    func numberOfRows() -> Int
+    func numberOfItems() -> Int
     func presentOnboardingIfNeeded()
     func setupTitle(at index: Int)
     func navigateToHomeIfNeeded(buttonTitle: String?)
@@ -56,7 +56,7 @@ final class OnboardingViewModel: OnboardingViewModeling {
         return models[index]
     }
     
-    func numberOfRows() -> Int {
+    func numberOfItems() -> Int {
         return models.count
     }
     
