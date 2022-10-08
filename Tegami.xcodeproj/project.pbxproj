@@ -16,7 +16,7 @@
 		CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33C28F0E963002F68FB /* OnboarginModel.swift */; };
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
-		DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */; };
+		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
 		DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
@@ -100,7 +100,7 @@
 		CE37D33C28F0E963002F68FB /* OnboarginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboarginModel.swift; sourceTree = "<group>"; };
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
-		DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelTests.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -528,8 +528,8 @@
 			isa = PBXGroup;
 			children = (
 				DF287B3028E46C5F00EF9333 /* FilmTableViewModelTests.swift */,
-				DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */,
 				DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */,
+				CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -776,7 +776,7 @@
 				DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */,
 				DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */,
 				DF287B3128E46C5F00EF9333 /* FilmTableViewModelTests.swift in Sources */,
-				DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */,
+				CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -177,7 +177,7 @@ extension OnboardingViewController: UICollectionViewDataSource {
 
 // MARK: - OnboardginViewModelDelegate
 
-extension OnboardingViewController: OnboardginViewModelDelegate {
+extension OnboardingViewController: OnboardingViewModelDelegate {
     func setup(buttonTitle: String) {
         UIView.transition(
             with: nextButton,

@@ -2,33 +2,86 @@
 //  OnboardingViewModelTests.swift
 //  TegamiTests
 //
-//  Created by Yago Marques on 06/10/22.
+//  Created by MateuSales on 07/10/22.
 //
 
 import XCTest
 @testable import Tegami
 
-final class OnboardingViewModelTests: XCTestCase {
-    let mockedDefaults = MockUserDefaults()
-    lazy var viewModel = OnboardingViewModel(defaults: self.mockedDefaults)
-
-    // MARK: markOnboardAsWatched method
-    func test_markOnboardAsWatched_setOnboardOnDefaults() {
-        viewModel.markOnboardAsWatched()
-
-        XCTAssertTrue(mockedDefaults.setOnboarding)
+final class OnboardingVieeModelTests: XCTestCase {
+    func test_init_createModelsCorrectly() {
+        let (sut, _) = makeSUT()
+        
+        let results = sut.models
+        
+        XCTAssertEqual(results[0].title, "")
+        XCTAssertEqual(results[0].description, "")
+        XCTAssertEqual(results[1].title, "")
+        XCTAssertEqual(results[1].description, "")
+        XCTAssertEqual(results[2].title, "")
+        XCTAssertEqual(results[2].description, "")
     }
+}
 
-    // MARK: markOnboardAsWatched method
-    func test_verifyIfonboardWasSeen_booleanStatus() {
-        let status = viewModel.onboardWasSeen()
 
-        XCTAssertTrue(status)
+// MARK: - Helpers
+
+private extension OnboardingVieeModelTests {
+    typealias SutAndDoubles = (
+        sut: OnboardingViewModel,
+        doubles: (
+            userDefaultsSpy: UserDefaultsProtocolSpy,
+            delegateSpy: OnboardingViewModelDelegateSpy
+        )
+    )
+
+    func makeSUT() -> SutAndDoubles {
+        let userDefaultsSpy = UserDefaultsProtocolSpy()
+        let delegateSpy = OnboardingViewModelDelegateSpy()
+        let sut = OnboardingViewModel(defaults: userDefaultsSpy)
+        sut.delegate = delegateSpy
+        
+        return (sut, (userDefaultsSpy, delegateSpy))
     }
+}
 
-    func test_verifyIfonboardWasSeenWithInvalidKey_booleanStatus() {
-        let status = viewModel.onboardWasSeen(onboardKey: "invalid")
+// MARK: - UserDefaultsProtocolSpy
 
-        XCTAssertFalse(status)
+private class UserDefaultsProtocolSpy: UserDefaultsProtocol {
+    private(set) var dictionary = [String: Bool]()
+    
+    func bool(forKey: String) -> Bool {
+        dictionary[forKey] ?? false
+    }
+    
+    func setBool(_ value: Bool, forKey: String) {
+        dictionary[forKey] = value
+    }
+}
+
+private class OnboardingViewModelDelegateSpy: OnboardingViewModelDelegate {
+    enum Message: Equatable {
+        case showOnboarding
+        case showMainScreen
+        case setup(buttonTitle: String)
+        case displayScreen(index: Int)
+    }
+    
+    private(set) var receivedMessages = [Message]()
+    
+    func showOnboarding() {
+        receivedMessages.append(.showOnboarding)
+    }
+    
+    func showMainScreen() {
+        receivedMessages.append(.showMainScreen)
+    }
+    
+    func setup(buttonTitle: String) {
+        receivedMessages.append(.setup(buttonTitle: buttonTitle))
+    }
+    
+    func displayScreen(at index: Int) {
+        receivedMessages.append(.displayScreen(index: index))
     }
 }

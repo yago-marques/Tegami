@@ -2,7 +2,7 @@
 //  Onboarding.swift
 //  GhibliAPP
 //
-//  Created by Yago Marques on 19/09/22.
+//  Created by MateuSales on 07/10/22.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ protocol OnboardingViewModeling {
     func navigateToHomeIfNeeded(buttonTitle: String?)
 }
 
-protocol OnboardginViewModelDelegate: AnyObject {
+protocol OnboardingViewModelDelegate: AnyObject {
     func showOnboarding()
     func showMainScreen()
     func setup(buttonTitle: String)
@@ -46,7 +46,7 @@ final class OnboardingViewModel: OnboardingViewModeling {
     }
 
     private let defaults: UserDefaultsProtocol
-    weak var delegate: OnboardginViewModelDelegate?
+    weak var delegate: OnboardingViewModelDelegate?
 
     init(defaults: UserDefaultsProtocol) {
         self.defaults = defaults
