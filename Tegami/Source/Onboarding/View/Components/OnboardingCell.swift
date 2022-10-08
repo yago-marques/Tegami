@@ -20,17 +20,6 @@ final class OnboardingCell: UICollectionViewCell {
         }
     }
 
-    var textContent: (title: String, message: String) = ("", "") {
-        didSet {
-            DispatchQueue.main.async { [weak self] in
-                if let self {
-                    self.titleLabel.text = self.textContent.title
-                    self.messageLabel.text = self.textContent.message
-                }
-            }
-        }
-    }
-
     private lazy var totoroImage: UIImageView = {
         self.makeImageView(named: "totoroAndOthers", contentMode: .scaleAspectFit)
     }()
@@ -87,6 +76,11 @@ final class OnboardingCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("Error - TextPostCell")
+    }
+    
+    func setup(with model: OnboardingModel) {
+        titleLabel.text = model.title
+        messageLabel.text = model.description
     }
 
     func makeImageView(named: String, contentMode: UIView.ContentMode) -> UIImageView {

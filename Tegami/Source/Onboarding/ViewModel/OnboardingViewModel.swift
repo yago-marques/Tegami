@@ -2,31 +2,78 @@
 //  Onboarding.swift
 //  GhibliAPP
 //
-//  Created by Yago Marques on 19/09/22.
+//  Created by MateuSales on 07/10/22.
 //
 
 import UIKit
 
-final class OnboardingViewModel {
+protocol OnboardingViewModeling {
+    func getModel(at index: Int) -> OnboardingModel
+    func numberOfItems() -> Int
+    func presentOnboardingIfNeeded()
+    func setupTitle(at index: Int)
+    func navigateToHomeIfNeeded(buttonTitle: String?)
+}
 
-    private let defaults: UserDefaults
+protocol OnboardingViewModelDelegate: AnyObject {
+    func showOnboarding()
+    func showMainScreen()
+    func setup(buttonTitle: String)
+    func displayScreen(at index: Int)
+}
 
-    init(defaults: UserDefaults) {
+final class OnboardingViewModel: OnboardingViewModeling {
+    private enum ButtonType: String {
+        case next = "Próximo"
+        case start = "Quero começar"
+    }
+    
+    var models: [OnboardingModel] {
+        return [
+            .init(
+                title: "Explore o vasto universo das animações do Studio Ghibli",
+                description: ""
+            ),
+            .init(
+                title: "Barra de XP",
+                description: "Maratone os filmes do Studio Ghibli e faça sua barra de XP crescer!! não esqueça de compartilhar sua evolução com os amigos"
+            ),
+            .init(
+                title: "Sua lista de filmes",
+                description: "Procuramos os cinco filmes mais populares do Studio Ghibli e adicionamos à sua lista de filmes :)"
+            )
+        ]
+    }
+
+    private let defaults: UserDefaultsProtocol
+    weak var delegate: OnboardingViewModelDelegate?
+
+    init(defaults: UserDefaultsProtocol) {
         self.defaults = defaults
     }
-
-    var textContents = [
-        ("Explore o vasto universo das animações do Studio Ghibli", ""),
-        ("Barra de XP", "Maratone os filmes do Studio Ghibli e faça sua barra de XP crescer!! não esqueça de compartilhar sua evolução com os amigos"),
-        ("Sua lista de filmes", "Procuramos os cinco filmes mais populares do Studio Ghibli e adicionamos à sua lista de filmes :)")
-    ]
-
-    func markOnboardAsWatched() {
-        let data = try? JSONEncoder().encode(true)
-        defaults.set(data, forKey: "onboard")
+    
+    func getModel(at index: Int) -> OnboardingModel {
+        return models[index]
     }
-
-    func onboardWasSeen(onboardKey: String = "onboard") -> Bool {
-        defaults.object(forKey: onboardKey) == nil ? false : true
+    
+    func numberOfItems() -> Int {
+        return models.count
+    }
+    
+    func presentOnboardingIfNeeded() {
+        let onboardWasSeen = defaults.bool(forKey: "onboard")
+        onboardWasSeen ? delegate?.showMainScreen() : delegate?.showOnboarding()
+    }
+    
+    func setupTitle(at index: Int) {
+        let type: ButtonType = index == 2 ? .start : .next
+        delegate?.setup(buttonTitle: type.rawValue)
+    }
+    
+    func navigateToHomeIfNeeded(buttonTitle: String?) {
+        if let buttonTitle, buttonTitle == ButtonType.start.rawValue {
+            delegate?.showMainScreen()
+            defaults.setBool(true, forKey: "onboard")
+        }
     }
 }

@@ -9,44 +9,12 @@ import UIKit
 
 final class OnboardingViewController: UIViewController {
 
-    private let viewModel: OnboardingViewModel
-
-    init(viewModel: OnboardingViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private var counter = 0 {
-        didSet {
-            DispatchQueue.main.async { [weak self] in
-                if let self {
-                    UIView.transition(
-                        with: self.nextButton,
-                        duration: 0.3,
-                        options: .transitionCrossDissolve,
-                        animations: {
-                            if self.counter == 2 {
-                                self.nextButton.setTitle("Quero começar", for: .normal)
-                            } else {
-                                self.nextButton.setTitle("Próximo", for: .normal)
-                            }
-                        }
-                    )
-                }
-            }
-        }
-    }
-
     private lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.translatesAutoresizingMaskIntoConstraints = false
         control.numberOfPages = 3
-        control.currentPage = 0
-        control.addTarget(self, action: #selector(pageControlSelectionAction), for: .primaryActionTriggered)
+        control.currentPage = 1
+        control.addTarget(self, action: #selector(pageControlSelectionAction), for: .valueChanged)
         control.pageIndicatorTintColor = .darkGray
         control.currentPageIndicatorTintColor = UIColor(named: "cGreen")
 
@@ -83,32 +51,50 @@ final class OnboardingViewController: UIViewController {
 
         return myCollectionView
     }()
+    
+    private let viewModel: OnboardingViewModeling
+
+    init(viewModel: OnboardingViewModeling) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.presentOnboardingIfNeeded()
+    }
+}
 
-        if viewModel.onboardWasSeen() {
-            navigationController?.pushViewController(MainScreenViewController(), animated: true)
-        } else {
-            buildLayout()
-        }
+// MARK: - Objective-C Methods
+
+@objc private extension OnboardingViewController {
+    func pageControlSelectionAction() {
+        navigateToCorrectScreen(at: pageControl.currentPage)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func toNext() {
+        pageControl.currentPage += 1
+        navigateToCorrectScreen(at: pageControl.currentPage)
+        animateButton()
+        viewModel.navigateToHomeIfNeeded(buttonTitle: nextButton.title(for: .normal))
     }
+}
 
-    @objc func pageControlSelectionAction(_ sender: UIPageControl) {
-        var indexPath: IndexPath!
-        let current = pageControl.currentPage
-        indexPath = IndexPath(item: current, section: 0)
+// MARK: - Private Methods
 
+private extension OnboardingViewController {
+    func navigateToCorrectScreen(at index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
         collectionView.isPagingEnabled = false
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.isPagingEnabled = true
     }
-
+    
     func animateButton() {
+        
         let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
         let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
 
@@ -118,7 +104,7 @@ final class OnboardingViewController: UIViewController {
             hapticRigid.impactOccurred(intensity: 1.00)
         }
 
-        UIView.animate(withDuration: 0.1, animations: {}, completion: { _ in
+        UIView.animate(withDuration: 0.1, animations: { }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.nextButton.layer.opacity = 0.5
             }, completion: { _ in
@@ -128,48 +114,9 @@ final class OnboardingViewController: UIViewController {
             })
         })
     }
-
-    @objc func toNext() {
-        animateButton()
-        var indexPath: IndexPath!
-        self.pageControl.currentPage += 1
-        let current = pageControl.currentPage
-        indexPath = IndexPath(item: current, section: 0)
-        self.counter += 1
-
-        if self.counter <= 2 {
-            collectionView.isPagingEnabled = false
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            collectionView.isPagingEnabled = true
-        } else {
-            viewModel.markOnboardAsWatched()
-            navigationController?.pushViewController(MainScreenViewController(), animated: true)
-        }
-
-    }
 }
 
-extension OnboardingViewController: UICollectionViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollPos = scrollView.contentOffset.x / view.frame.width
-        pageControl.currentPage = Int(scrollPos)
-        self.counter = pageControl.currentPage
-    }
-}
-
-extension OnboardingViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
-        cell.cellOption = indexPath.row
-        cell.textContent = viewModel.textContents[indexPath.row]
-
-        return cell
-    }
-}
+// MARK: - ViewCoding
 
 extension OnboardingViewController: ViewCoding {
     func setupView() {
@@ -197,5 +144,61 @@ extension OnboardingViewController: ViewCoding {
             nextButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             nextButton.heightAnchor.constraint(equalTo: nextButton.widthAnchor, multiplier: 0.2)
         ])
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension OnboardingViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollPos = scrollView.contentOffset.x / view.frame.width
+        pageControl.currentPage = Int(scrollPos)
+        viewModel.setupTitle(at: pageControl.currentPage)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension OnboardingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfItems()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as? OnboardingCell else {
+            return UICollectionViewCell()
+        }
+        let model = viewModel.getModel(at: indexPath.row)
+        cell.cellOption = indexPath.row
+        cell.setup(with: model)
+        return cell
+    }
+}
+
+// MARK: - OnboardginViewModelDelegate
+
+extension OnboardingViewController: OnboardingViewModelDelegate {
+    func setup(buttonTitle: String) {
+        UIView.transition(
+            with: nextButton,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.nextButton.setTitle(buttonTitle, for: .normal)
+            }
+        )
+    }
+            
+    func showOnboarding() {
+        buildLayout()
+    }
+    
+    func showMainScreen() {
+        navigationController?.pushViewController(MainScreenViewController(), animated: true)
+    }
+    
+    func displayScreen(at index: Int) {
+        pageControl.currentPage = index
+        navigateToCorrectScreen(at: index)
     }
 }

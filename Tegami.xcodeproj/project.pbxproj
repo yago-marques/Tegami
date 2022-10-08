@@ -13,11 +13,12 @@
 		4BE10E7028E47AE20023104E /* BackdropPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* BackdropPathView.swift */; };
 		4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */; };
 		4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E7228E5E7300023104E /* PosterPathView.swift */; };
-		DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */; };
+		CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33C28F0E963002F68FB /* OnboarginModel.swift */; };
+		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
+		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
+		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
 		DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
-		DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */; };
-		DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
 		DF287AC728E465CE00EF9333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC528E465CE00EF9333 /* AppDelegate.swift */; };
@@ -79,13 +80,6 @@
 			remoteGlobalIDString = DF287A8428E45F3D00EF9333;
 			remoteInfo = Tegami;
 		};
-		DF287AA628E45F3E00EF9333 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DF287A7D28E45F3D00EF9333 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DF287A8428E45F3D00EF9333;
-			remoteInfo = Tegami;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -94,15 +88,15 @@
 		4BE10E6D28E47AE20023104E /* BackdropPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackdropPathView.swift; sourceTree = "<group>"; };
 		4BE10E6E28E47AE20023104E /* DescriptionFilmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionFilmView.swift; sourceTree = "<group>"; };
 		4BE10E7228E5E7300023104E /* PosterPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPathView.swift; sourceTree = "<group>"; };
-		DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		CE37D33C28F0E963002F68FB /* OnboarginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboarginModel.swift; sourceTree = "<group>"; };
+		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
+		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelTests.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF287A9B28E45F3E00EF9333 /* TegamiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TegamiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF287AA528E45F3E00EF9333 /* TegamiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TegamiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TegamiUITests.swift; sourceTree = "<group>"; };
-		DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TegamiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DF287ABE28E4645400EF9333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF287AC428E465CE00EF9333 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF287AC528E465CE00EF9333 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,13 +166,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DF287AA228E45F3E00EF9333 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -193,12 +180,35 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		CE37D33B28F0E95A002F68FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D33C28F0E963002F68FB /* OnboarginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE37D33E28F0E997002F68FB /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		CE37D34128F0ECAE002F68FB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		DF287A7C28E45F3D00EF9333 = {
 			isa = PBXGroup;
 			children = (
 				DF287A8728E45F3D00EF9333 /* Tegami */,
 				DF287A9E28E45F3E00EF9333 /* TegamiTests */,
-				DF287AA828E45F3E00EF9333 /* TegamiUITests */,
 				DF287A8628E45F3D00EF9333 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -208,7 +218,6 @@
 			children = (
 				DF287A8528E45F3D00EF9333 /* Tegami.app */,
 				DF287A9B28E45F3E00EF9333 /* TegamiTests.xctest */,
-				DF287AA528E45F3E00EF9333 /* TegamiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,15 +240,6 @@
 				DF287B2C28E46C1800EF9333 /* ViewModel */,
 			);
 			path = TegamiTests;
-			sourceTree = "<group>";
-		};
-		DF287AA828E45F3E00EF9333 /* TegamiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DF287AA928E45F3E00EF9333 /* TegamiUITests.swift */,
-				DF287AAB28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift */,
-			);
-			path = TegamiUITests;
 			sourceTree = "<group>";
 		};
 		DF287AB828E4621C00EF9333 /* Application */ = {
@@ -440,6 +440,9 @@
 		DF287B1B28E4679A00EF9333 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				CE37D34128F0ECAE002F68FB /* Helper */,
+				CE37D33E28F0E997002F68FB /* Factory */,
+				CE37D33B28F0E95A002F68FB /* Model */,
 				DF287B1C28E467A600EF9333 /* View */,
 				DF287B1D28E467AC00EF9333 /* ViewModel */,
 			);
@@ -495,8 +498,8 @@
 			isa = PBXGroup;
 			children = (
 				DF287B3028E46C5F00EF9333 /* FilmTableViewModelTests.swift */,
-				DF0B856328EEF707001C53C3 /* OnboardingViewModelTests.swift */,
 				DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */,
+				CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -559,24 +562,6 @@
 			productReference = DF287A9B28E45F3E00EF9333 /* TegamiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DF287AA428E45F3E00EF9333 /* TegamiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DF287AB528E45F3E00EF9333 /* Build configuration list for PBXNativeTarget "TegamiUITests" */;
-			buildPhases = (
-				DF287AA128E45F3E00EF9333 /* Sources */,
-				DF287AA228E45F3E00EF9333 /* Frameworks */,
-				DF287AA328E45F3E00EF9333 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DF287AA728E45F3E00EF9333 /* PBXTargetDependency */,
-			);
-			name = TegamiUITests;
-			productName = TegamiUITests;
-			productReference = DF287AA528E45F3E00EF9333 /* TegamiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -594,10 +579,6 @@
 					DF287A9A28E45F3E00EF9333 = {
 						CreatedOnToolsVersion = 14.0;
 						LastSwiftMigration = 1400;
-						TestTargetID = DF287A8428E45F3D00EF9333;
-					};
-					DF287AA428E45F3E00EF9333 = {
-						CreatedOnToolsVersion = 14.0;
 						TestTargetID = DF287A8428E45F3D00EF9333;
 					};
 				};
@@ -620,7 +601,6 @@
 			targets = (
 				DF287A8428E45F3D00EF9333 /* Tegami */,
 				DF287A9A28E45F3E00EF9333 /* TegamiTests */,
-				DF287AA428E45F3E00EF9333 /* TegamiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -641,13 +621,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DF287A9928E45F3E00EF9333 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DF287AA328E45F3E00EF9333 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -694,6 +667,7 @@
 				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,
 				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
 				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
+				CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */,
 				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
 				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
@@ -721,10 +695,12 @@
 				DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */,
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
+				CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */,
 				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
 				DF287B0628E4675A00EF9333 /* GenreModel.swift in Sources */,
+				CE37D33D28F0E963002F68FB /* OnboarginModel.swift in Sources */,
 				DF287B0028E4674900EF9333 /* MainScreenViewController.swift in Sources */,
 				DFD8280228E5C38E00A57A75 /* OnboardingCell.swift in Sources */,
 				DF287AFC28E4672E00EF9333 /* ProgressBar.swift in Sources */,
@@ -740,16 +716,7 @@
 				DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */,
 				DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */,
 				DF287B3128E46C5F00EF9333 /* FilmTableViewModelTests.swift in Sources */,
-				DF0B856428EEF707001C53C3 /* OnboardingViewModelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DF287AA128E45F3E00EF9333 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DF287AAA28E45F3E00EF9333 /* TegamiUITests.swift in Sources */,
-				DF287AAC28E45F3E00EF9333 /* TegamiUITestsLaunchTests.swift in Sources */,
+				CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,11 +727,6 @@
 			isa = PBXTargetDependency;
 			target = DF287A8428E45F3D00EF9333 /* Tegami */;
 			targetProxy = DF287A9C28E45F3E00EF9333 /* PBXContainerItemProxy */;
-		};
-		DF287AA728E45F3E00EF9333 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DF287A8428E45F3D00EF9333 /* Tegami */;
-			targetProxy = DF287AA628E45F3E00EF9333 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1016,44 +978,6 @@
 			};
 			name = Release;
 		};
-		DF287AB628E45F3E00EF9333 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Tegami;
-			};
-			name = Debug;
-		};
-		DF287AB728E45F3E00EF9333 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3PC4MSN8T7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Tegami;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1080,15 +1004,6 @@
 			buildConfigurations = (
 				DF287AB328E45F3E00EF9333 /* Debug */,
 				DF287AB428E45F3E00EF9333 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DF287AB528E45F3E00EF9333 /* Build configuration list for PBXNativeTarget "TegamiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DF287AB628E45F3E00EF9333 /* Debug */,
-				DF287AB728E45F3E00EF9333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
