@@ -56,7 +56,6 @@
 		DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */; };
 		DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2628E4682800EF9333 /* LetterViewModel.swift */; };
 		DF287B2A28E46B0600EF9333 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DF287B2928E46B0600EF9333 /* arrow.json */; };
-		DF79CCA728EC5CA0008F2895 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */; };
 		DFD827F528E4BDDE00A57A75 /* emptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD827F428E4BDDE00A57A75 /* emptyList.json */; };
 		DFD827F728E4BE1F00A57A75 /* AnimatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */; };
 		DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F828E4C11200A57A75 /* AnimationConfig.swift */; };
@@ -131,7 +130,6 @@
 		DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DF287B2628E4682800EF9333 /* LetterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewModel.swift; sourceTree = "<group>"; };
 		DF287B2928E46B0600EF9333 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
-		DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		DFD827F428E4BDDE00A57A75 /* emptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyList.json; sourceTree = "<group>"; };
 		DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCell.swift; sourceTree = "<group>"; };
 		DFD827F828E4C11200A57A75 /* AnimationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConfig.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 		DF287AC828E4660200EF9333 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DF79CCA528EC59E7008F2895 /* Mock */,
 				DF287AD128E4667D00EF9333 /* Service */,
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
@@ -503,14 +500,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DF79CCA528EC59E7008F2895 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
 		DFD8280028E5C37500A57A75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,7 +645,6 @@
 			files = (
 				DF287AD528E4669000EF9333 /* TableState.swift in Sources */,
 				DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */,
-				DF79CCA728EC5CA0008F2895 /* MockUserDefaults.swift in Sources */,
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
 				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
 				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
