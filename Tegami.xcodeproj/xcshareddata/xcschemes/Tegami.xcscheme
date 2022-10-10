@@ -30,24 +30,12 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DF287A9A28E45F3E00EF9333"
                BuildableName = "TegamiTests.xctest"
                BlueprintName = "TegamiTests"
-               ReferencedContainer = "container:Tegami.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF287AA428E45F3E00EF9333"
-               BuildableName = "TegamiUITests.xctest"
-               BlueprintName = "TegamiUITests"
                ReferencedContainer = "container:Tegami.xcodeproj">
             </BuildableReference>
          </TestableReference>
