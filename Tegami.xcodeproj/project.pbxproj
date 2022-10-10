@@ -17,7 +17,6 @@
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
-		DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -57,9 +56,6 @@
 		DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */; };
 		DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2628E4682800EF9333 /* LetterViewModel.swift */; };
 		DF287B2A28E46B0600EF9333 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DF287B2928E46B0600EF9333 /* arrow.json */; };
-		DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */; };
-		DF287B3128E46C5F00EF9333 /* FilmTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287B3028E46C5F00EF9333 /* FilmTableViewModelTests.swift */; };
-		DF79CCA728EC5CA0008F2895 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */; };
 		DFD827F528E4BDDE00A57A75 /* emptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = DFD827F428E4BDDE00A57A75 /* emptyList.json */; };
 		DFD827F728E4BE1F00A57A75 /* AnimatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */; };
 		DFD827F928E4C11200A57A75 /* AnimationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD827F828E4C11200A57A75 /* AnimationConfig.swift */; };
@@ -92,7 +88,6 @@
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
-		DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewModelTests.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,9 +130,6 @@
 		DF287B2028E467C400EF9333 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DF287B2628E4682800EF9333 /* LetterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewModel.swift; sourceTree = "<group>"; };
 		DF287B2928E46B0600EF9333 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
-		DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModelTests.swift; sourceTree = "<group>"; };
-		DF287B3028E46C5F00EF9333 /* FilmTableViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmTableViewModelTests.swift; sourceTree = "<group>"; };
-		DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		DFD827F428E4BDDE00A57A75 /* emptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyList.json; sourceTree = "<group>"; };
 		DFD827F628E4BE1F00A57A75 /* AnimatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCell.swift; sourceTree = "<group>"; };
 		DFD827F828E4C11200A57A75 /* AnimationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConfig.swift; sourceTree = "<group>"; };
@@ -204,6 +196,22 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		CEF9B41528F253F900078EB7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CEF9B41628F2540700078EB7 /* Onoboarding */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CEF9B41628F2540700078EB7 /* Onoboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DF287B2C28E46C1800EF9333 /* ViewModel */,
+			);
+			path = Onoboarding;
+			sourceTree = "<group>";
+		};
 		DF287A7C28E45F3D00EF9333 = {
 			isa = PBXGroup;
 			children = (
@@ -236,8 +244,7 @@
 		DF287A9E28E45F3E00EF9333 /* TegamiTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF287B2B28E46C1200EF9333 /* Model */,
-				DF287B2C28E46C1800EF9333 /* ViewModel */,
+				CEF9B41528F253F900078EB7 /* Source */,
 			);
 			path = TegamiTests;
 			sourceTree = "<group>";
@@ -264,7 +271,6 @@
 		DF287AC828E4660200EF9333 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DF79CCA528EC59E7008F2895 /* Mock */,
 				DF287AD128E4667D00EF9333 /* Service */,
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
@@ -486,30 +492,12 @@
 			path = LottieFiles;
 			sourceTree = "<group>";
 		};
-		DF287B2B28E46C1200EF9333 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DF287B2E28E46C3C00EF9333 /* FilmModelTests.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DF287B2C28E46C1800EF9333 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DF287B3028E46C5F00EF9333 /* FilmTableViewModelTests.swift */,
-				DF0B856528EEFB15001C53C3 /* LetterViewModelTests.swift */,
 				CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DF79CCA528EC59E7008F2895 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				DF79CCA628EC5CA0008F2895 /* MockUserDefaults.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		DFD8280028E5C37500A57A75 /* Components */ = {
@@ -657,7 +645,6 @@
 			files = (
 				DF287AD528E4669000EF9333 /* TableState.swift in Sources */,
 				DF287AEF28E466FB00EF9333 /* ActionsSheet.swift in Sources */,
-				DF79CCA728EC5CA0008F2895 /* MockUserDefaults.swift in Sources */,
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
 				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
 				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
@@ -713,9 +700,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF0B856628EEFB15001C53C3 /* LetterViewModelTests.swift in Sources */,
-				DF287B2F28E46C3C00EF9333 /* FilmModelTests.swift in Sources */,
-				DF287B3128E46C5F00EF9333 /* FilmTableViewModelTests.swift in Sources */,
 				CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
