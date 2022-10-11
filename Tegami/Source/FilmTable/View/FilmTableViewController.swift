@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 final class FilmTableViewController: UIViewController {
 
@@ -67,11 +66,9 @@ final class FilmTableViewController: UIViewController {
         return table
     }()
 
-    private lazy var arrowView: AnimationView = {
-        var lottie = AnimationView(name: "arrow")
+    private lazy var arrowView: UIView = {
+        var lottie = UIView()
         lottie.frame = self.view.bounds
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.5
         lottie.translatesAutoresizingMaskIntoConstraints = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(scrollToBottom))
         lottie.addGestureRecognizer(tap)
@@ -103,7 +100,6 @@ final class FilmTableViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arrowView.play()
 
         if viewModel.firstWillAppear {
             DispatchQueue.main.async { [weak self] in
