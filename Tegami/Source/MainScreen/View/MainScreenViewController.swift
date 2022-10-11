@@ -7,17 +7,25 @@
 
 import UIKit
 
+class URLSessionHelper: APICalling {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        URLSession.shared.dataTask(with: request, completionHandler: completionHandler)
+    }
+}
+
 final class MainScreenViewController: UIViewController {
 
+    let session: APICalling = URLSessionHelper()
+
     private lazy var filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self, userDefaults: UserDefaults.standard),
+        viewModel: FilmTableViewModel(apiService: APICall(UrlSession: session), mainScreenDelegate: self, userDefaults: UserDefaults.standard),
         letterViewModel: self.letterView.viewModel,
         progressBar: self.letterView.progressBar
     )
 
     private lazy var letterView = LetterViewController(
         viewModel: LetterViewModel(
-            table: FilmTableViewModel(apiService: APICall(), mainScreenDelegate: self, userDefaults: UserDefaults.standard) as LetterViewModelDelegate,
+            table: FilmTableViewModel(apiService: APICall(UrlSession: session), mainScreenDelegate: self, userDefaults: UserDefaults.standard) as LetterViewModelDelegate,
             mainScreenDelegate: self)
     )
 

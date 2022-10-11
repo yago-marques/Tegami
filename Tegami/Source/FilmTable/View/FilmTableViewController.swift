@@ -106,8 +106,10 @@ final class FilmTableViewController: UIViewController {
         arrowView.play()
 
         if viewModel.firstWillAppear {
-            Task.detached {
-                await self.viewModel.fetchFilms()
+            DispatchQueue.main.async { [weak self] in
+                if let self {
+                    self.viewModel.fetchFilms()
+                }
             }
         }
 

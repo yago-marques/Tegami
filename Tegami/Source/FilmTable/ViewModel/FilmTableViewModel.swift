@@ -83,24 +83,42 @@ final class FilmTableViewModel {
         }
     }
 
-    func fetchFilms(requestException: Bool = false, filmKey: String = "filmList") async {
-        guard let ghibliInfo = !requestException ? await self.fetchGhibliInfo() : nil else { return }
+    func fetchFilms() {
+        self.fetchGhibliInfo { [weak self] result in
+            if let self {
+                switch result {
+                case .success(let ghibliInfo):
+                    var films: [FilmModel] = []
 
-        let films: [FilmModel] = await ghibliInfo.asyncMap { ghibliFilm -> FilmModel in
-            let tmdbInfo = await fetchTmdbInfo(originalTitle: ghibliFilm.originalTitle)
-            let filmInfo = FilmModel(ghibli: ghibliFilm, tmdb: tmdbInfo)
-            return filmInfo
+                    for i in 0..<ghibliInfo.count {
+                        self.fetchTmdbInfo(originalTitle: ghibliInfo[i].originalTitle) { result in
+                            switch result {
+                            case .success(let tmdbInfo):
+                                let filmInfo = FilmModel(ghibli: ghibliInfo[i], tmdb: tmdbInfo)
+                                films.append(filmInfo)
+
+                                if films.count == 22 {
+                                    if self.defaults.object(forKey: "filmList") == nil {
+                                        self.createInitialListFilm(films: films)
+                                    }
+
+                                    self.filteredFilms = films
+                                    self.filmsToSearch = films
+                                    self.films = films
+                                    self.loadingFilms = false
+                                    self.firstWillAppear = false
+                                }
+                            case .failure(let failure):
+                                print(failure)
+                            }
+                        }
+                    }
+
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
         }
-
-        if defaults.object(forKey: filmKey) == nil {
-            createInitialListFilm(films: films)
-        }
-
-        self.filteredFilms = films
-        self.filmsToSearch = films
-        self.films = films
-        self.loadingFilms = false
-        self.firstWillAppear = false
     }
 
     func showAllMovies() {
@@ -112,9 +130,9 @@ final class FilmTableViewModel {
         self.loadingFilms = false
     }
 
-    func showMoviesToWatch(filmKey: String = "filmList", decoderException: Bool = false) {
-        guard let data = defaults.object(forKey: filmKey) else { return }
-        guard let filmList = !decoderException ? try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) : nil else { return }
+    func showMoviesToWatch() {
+        guard let data = defaults.object(forKey: "filmList") else { return }
+        guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
 
         let filmsToWatch = filmList.map { position -> FilmModel in
             let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
@@ -127,30 +145,33 @@ final class FilmTableViewModel {
         self.tableState = .toWatch
     }
 
-    func fetchGhibliInfo(requestException: Bool = false, decoderException: Bool = false) async -> [GhibliInfo]? {
+    func fetchGhibliInfo(completion: @escaping (Result<[GhibliInfo], Error>) -> Void) {
         delegate?.isInterective(false)
-        guard let apiInfo = !requestException ? await apiService.GET(at: UrlEnum.ghibliUrl.rawValue) : nil else {
-            return nil
-        }
 
-        do {
-            let data = !decoderException ? apiInfo.data : Data("decoderException".utf8)
-            let ghibliInfo = try JSONDecoder().decode([GhibliInfo].self, from: data)
-            delegate?.isInterective(true)
-            return ghibliInfo
-        } catch {
-            print(error)
-            return nil
+        apiService.GET(at: UrlEnum.ghibliUrl.rawValue) { [weak self] result in
+            if let self {
+                switch result {
+                case .success(let (data, _)):
+                    do {
+                        let ghibliInfo = try JSONDecoder().decode([GhibliInfo].self, from: data)
+                        self.delegate?.isInterective(true)
+                        completion(.success(ghibliInfo))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
         }
     }
 
     func fetchTmdbInfo(
         originalTitle: String,
-        requestException: Bool = false,
-        decoderException: Bool = false,
-        genreException: Bool = false
-    ) async -> TmdbResult? {
-        guard let apiInfo = !requestException ? await apiService.GET(
+        completion: @escaping (Result<TmdbResult?, Error>) -> Void
+    ) {
+
+        apiService.GET(
             at: UrlEnum.tmbdMovie.rawValue,
             queries: [
                 ("api_key", "2fb0d7c0095f63e9c881bb4317a570a9"),
@@ -158,59 +179,79 @@ final class FilmTableViewModel {
                 ("query", originalTitle),
                 ("page", "1")
             ]
-        ) : nil else {
-            return nil
-        }
-        
-        do {
-            let data = !decoderException ? apiInfo.data : Data("decoderException".utf8)
-            let tmdbInfo = try JSONDecoder().decode(TmdbInfo.self, from: data)
-            guard let stringGenreList = !genreException ? await transformGenres(
-                ids: tmdbInfo.results.first!.genreIds
-            ) : nil else {
-                return nil
+        ) { [weak self] result in
+            if let self {
+                switch result {
+                case .success(let (data, _)):
+                    do {
+                        let tmdbInfo = try JSONDecoder().decode(TmdbInfo.self, from: data)
+                        self.transformGenres(ids: tmdbInfo.results.first!.genreIds) { genreResult in
+                            switch genreResult {
+                            case .success(let stringGenreList):
+                                tmdbInfo.results.first?.genreNames = stringGenreList
+                                completion(.success(tmdbInfo.results.first))
+                            case .failure(let failure):
+                                completion(.failure(failure))
+                            }
+                        }
+
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let failure):
+                    completion(.failure(failure))
+                }
             }
-            tmdbInfo.results.first?.genreNames = stringGenreList
-            return tmdbInfo.results.first
-        } catch {
-            print(error)
-            return nil
         }
     }
 
-    func fetchGenres(requestException: Bool = false, decoderException: Bool = false ) async -> [GenreInfo]? {
-        guard let apiInfo = !requestException ? await apiService.GET(
+    func fetchGenres(completion: @escaping (Result<[GenreInfo], Error>) -> Void) {
+
+        apiService.GET(
             at: UrlEnum.tmdbGenre.rawValue,
             queries: [
                 ("api_key","2fb0d7c0095f63e9c881bb4317a570a9"),
                 ("language","pt-BR")
             ]
-        ) : nil else {
-            return nil
+        ) { result in
+            switch result {
+            case .success(let (data, _)):
+                do {
+                    let genreInfo = try JSONDecoder().decode(GenreModel.self, from: data)
+                    completion(.success(genreInfo.genres))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
         }
-        do {
-            let data = !decoderException ? apiInfo.data : Data("decoderException".utf8)
-            let genreInfo = try JSONDecoder().decode(GenreModel.self, from: data)
-            return genreInfo.genres
-        } catch {
-            print(error)
-            return nil
-        }
+
     }
 
-    func transformGenres(ids: [Int], requestException: Bool = false) async -> [String]? {
-        guard let genreTable = !requestException ? await fetchGenres() : nil else { return nil }
-        let idsToTransform: [Int] = ids.count >= 2 ? [ids[0], ids[1]] : [ids[0]]
-        
-        let genreNames: [String] = idsToTransform.map { id in
-            var genreName = "unknown"
-            for genre in genreTable where genre.id == id {
-                genreName = genre.name
+    func transformGenres(
+        ids: [Int],
+        completion: @escaping (Result<[String], Error>) -> Void
+    ) {
+        self.fetchGenres { result in
+            switch result {
+            case .success(let genreTable):
+                let idsToTransform: [Int] = ids.count >= 2 ? [ids[0], ids[1]] : [ids[0]]
+
+                let genreNames: [String] = idsToTransform.map { id in
+                    var genreName = "unknown"
+                    for genre in genreTable where genre.id == id {
+                        genreName = genre.name
+                    }
+                    return genreName
+                }
+
+                completion(.success(genreNames))
+            case .failure(let failure):
+                completion(.failure(failure))
             }
-            return genreName
         }
 
-        return genreNames
     }
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -266,7 +307,7 @@ extension FilmTableViewModel: LetterViewModelDelegate {
         guard let data = defaults.object(forKey: "filmList") else { return nil }
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return nil }
 
-        await self.fetchFilms()
+        self.fetchFilms()
         let filmsToWatch = filmList.map { position -> FilmModel in
             let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
 
