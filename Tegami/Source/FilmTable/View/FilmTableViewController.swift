@@ -111,7 +111,7 @@ final class FilmTableViewController: UIViewController {
 
     @objc func scrollToBottom() {
         DispatchQueue.main.async { [weak self] in
-            if let self {
+            if let self = self {
                 self.viewModel.mainScreenDelegate?.move(to: .bottom)
             }
         }
@@ -133,7 +133,7 @@ extension FilmTableViewController: FilmTableViewModelDelegate {
 
     func isInterective(_ option: Bool) {
         DispatchQueue.main.async { [weak self] in
-            if let self {
+            if let self = self {
                 self.view.isUserInteractionEnabled = option
             }
         }

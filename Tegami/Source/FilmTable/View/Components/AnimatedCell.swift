@@ -12,7 +12,7 @@ final class AnimatedCell: UITableViewCell {
     var animationConfig: AnimationConfig = AnimationConfig(lottieName: "", message: "") {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.messageLabel.text = self.animationConfig.message
                     self.showAnimation(of: self.animationConfig.lottieName)
                 }

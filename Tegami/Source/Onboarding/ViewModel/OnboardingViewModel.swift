@@ -71,7 +71,7 @@ final class OnboardingViewModel: OnboardingViewModeling {
     }
     
     func navigateToHomeIfNeeded(buttonTitle: String?) {
-        if let buttonTitle, buttonTitle == ButtonType.start.rawValue {
+        if let buttonTitle = buttonTitle, buttonTitle == ButtonType.start.rawValue {
             delegate?.showMainScreen()
             defaults.setBool(true, forKey: "onboard")
         }

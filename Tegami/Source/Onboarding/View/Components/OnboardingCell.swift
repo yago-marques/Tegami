@@ -12,7 +12,7 @@ final class OnboardingCell: UICollectionViewCell {
     var cellOption: Int = 1 {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.showCell(at: self.cellOption)
                 }
             }
