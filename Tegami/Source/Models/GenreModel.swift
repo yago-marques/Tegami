@@ -10,8 +10,3 @@ import Foundation
 struct GenreModel: Decodable {
     let genres: [GenreInfo]
 }
-
-struct GenreInfo: Decodable {
-    let name: String
-    let id: Int
-}
