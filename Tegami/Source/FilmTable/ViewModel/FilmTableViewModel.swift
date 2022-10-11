@@ -135,7 +135,9 @@ final class FilmTableViewModel {
 
         do {
             let data = !decoderException ? apiInfo.data : Data("decoderException".utf8)
-            let ghibliInfo = try JSONDecoder().decode([GhibliInfo].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let ghibliInfo = try decoder.decode([GhibliInfo].self, from: data)
             delegate?.isInterective(true)
             return ghibliInfo
         } catch {

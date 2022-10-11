@@ -16,6 +16,10 @@
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
+		CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D128F54160001705BC /* GhibliInfo.swift */; };
+		CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D328F54180001705BC /* TmdbInfo.swift */; };
+		CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D528F541EB001705BC /* TmdbResult.swift */; };
+		CEA415D828F54215001705BC /* GenreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D728F54215001705BC /* GenreInfo.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -87,6 +91,10 @@
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		CEA415D128F54160001705BC /* GhibliInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliInfo.swift; sourceTree = "<group>"; };
+		CEA415D328F54180001705BC /* TmdbInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbInfo.swift; sourceTree = "<group>"; };
+		CEA415D528F541EB001705BC /* TmdbResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbResult.swift; sourceTree = "<group>"; };
+		CEA415D728F54215001705BC /* GenreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInfo.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -273,7 +281,7 @@
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
 				DF287AC928E4660D00EF9333 /* Enums */,
-				DF287ACF28E4666600EF9333 /* Model */,
+				DF287ACF28E4666600EF9333 /* Models */,
 				DF287B1B28E4679A00EF9333 /* Onboarding */,
 				DF287ACE28E4665500EF9333 /* MainScreen */,
 				DF287ACD28E4664700EF9333 /* LetterView */,
@@ -338,15 +346,19 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		DF287ACF28E4666600EF9333 /* Model */ = {
+		DF287ACF28E4666600EF9333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DF287B0128E4675A00EF9333 /* FilmModel.swift */,
+				CEA415D128F54160001705BC /* GhibliInfo.swift */,
 				DF287B0228E4675A00EF9333 /* FilmPosition.swift */,
 				DF287B0328E4675A00EF9333 /* GenreModel.swift */,
 				DFD827F828E4C11200A57A75 /* AnimationConfig.swift */,
+				CEA415D328F54180001705BC /* TmdbInfo.swift */,
+				CEA415D528F541EB001705BC /* TmdbResult.swift */,
+				CEA415D728F54215001705BC /* GenreInfo.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DF287AD028E4667000EF9333 /* Protocols */ = {
@@ -644,6 +656,7 @@
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
 				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
 				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
+				CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */,
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
@@ -651,6 +664,7 @@
 				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
 				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
 				CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */,
+				CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */,
 				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
 				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
@@ -670,6 +684,7 @@
 				DFD827FD28E4DCBB00A57A75 /* ScrollMovement.swift in Sources */,
 				4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */,
 				DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */,
+				CEA415D828F54215001705BC /* GenreInfo.swift in Sources */,
 				DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */,
 				DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */,
 				DF287AF028E466FB00EF9333 /* ActionSheetCell.swift in Sources */,
@@ -679,6 +694,7 @@
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
 				CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */,
+				CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */,
 				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
