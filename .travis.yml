@@ -1,4 +1,0 @@
-language: swift
-xcode_project: Tegami.xcodeproj # path to your xcodeproj folder
-xcode_scheme: TegamiTests
-xcode_destination: platform=iOS Simulator,OS=16.0,name=iPhone 14
