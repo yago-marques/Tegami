@@ -16,7 +16,6 @@
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
-		CEA415D028F53734001705BC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CEA415CF28F53734001705BC /* Lottie */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -147,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA415D028F53734001705BC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,7 +524,6 @@
 			);
 			name = Tegami;
 			packageProductDependencies = (
-				CEA415CF28F53734001705BC /* Lottie */,
 			);
 			productName = Tegami;
 			productReference = DF287A8528E45F3D00EF9333 /* Tegami.app */;
@@ -581,7 +578,6 @@
 			);
 			mainGroup = DF287A7C28E45F3D00EF9333;
 			packageReferences = (
-				CEA415CE28F53734001705BC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = DF287A8628E45F3D00EF9333 /* Products */;
 			projectDirPath = "";
@@ -1001,25 +997,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CEA415CE28F53734001705BC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CEA415CF28F53734001705BC /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CEA415CE28F53734001705BC /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF287A7D28E45F3D00EF9333 /* Project object */;
 }

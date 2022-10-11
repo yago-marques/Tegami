@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 final class OnboardingCell: UICollectionViewCell {
 
@@ -47,21 +46,17 @@ final class OnboardingCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var progressAnimation: AnimationView = {
-        var lottie = AnimationView(name: "progress")
+    private lazy var progressAnimation: UIView = {
+        var lottie = UIView()
         lottie.frame = self.bounds
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.3
         lottie.translatesAutoresizingMaskIntoConstraints = false
 
         return lottie
     }()
 
-    private lazy var listAnimation: AnimationView = {
-        var lottie = AnimationView(name: "filmList")
+    private lazy var listAnimation: UIView = {
+        var lottie = UIView()
         lottie.frame = self.bounds
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.5
         lottie.translatesAutoresizingMaskIntoConstraints = false
         lottie.contentMode = .scaleAspectFit
 
@@ -137,8 +132,6 @@ final class OnboardingCell: UICollectionViewCell {
             progressAnimation.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
             progressAnimation.heightAnchor.constraint(equalTo: progressAnimation.widthAnchor, multiplier: 0.2)
         ])
-
-        progressAnimation.play()
     }
 
     func showListAnimation() {
@@ -150,8 +143,6 @@ final class OnboardingCell: UICollectionViewCell {
             listAnimation.widthAnchor.constraint(equalTo: self.widthAnchor),
             listAnimation.heightAnchor.constraint(equalTo: listAnimation.widthAnchor, multiplier: 1.5)
         ])
-
-        listAnimation.play()
     }
 }
 
