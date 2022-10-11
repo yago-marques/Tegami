@@ -85,7 +85,7 @@ final class FilmTableViewModel {
 
     func fetchFilms() {
         self.fetchGhibliInfo { [weak self] result in
-            if let self {
+            if let self = self {
                 switch result {
                 case .success(let ghibliInfo):
                     var films: [FilmModel] = []
@@ -149,7 +149,7 @@ final class FilmTableViewModel {
         delegate?.isInterective(false)
 
         apiService.GET(at: UrlEnum.ghibliUrl.rawValue) { [weak self] result in
-            if let self {
+            if let self = self {
                 switch result {
                 case .success(let (data, _)):
                     do {
@@ -180,7 +180,7 @@ final class FilmTableViewModel {
                 ("page", "1")
             ]
         ) { [weak self] result in
-            if let self {
+            if let self = self {
                 switch result {
                 case .success(let (data, _)):
                     do {

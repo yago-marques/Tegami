@@ -74,7 +74,7 @@ final class LetterViewController: UIViewController {
 
     @objc func scrollToTop() {
         DispatchQueue.main.async { [weak self] in
-            if let self {
+            if let self = self {
                 self.viewModel.mainScreenDelegate?.move(to: .top)
             }
         }

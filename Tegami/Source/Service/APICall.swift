@@ -37,11 +37,11 @@ final class APICall {
         request.httpMethod = "GET"
         
         let task = UrlSession.dataTask(with: request) { data, response, error in
-            if let error {
+            if let error = error {
                 completion(.failure(.network(error)))
             }
 
-            if let data, let response {
+            if let data = data, let response = response {
                 let statusCode = self.statusCode(of: response)
 
                 completion(.success((data, statusCode)))

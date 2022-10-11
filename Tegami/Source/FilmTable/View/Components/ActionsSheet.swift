@@ -125,7 +125,7 @@ extension ActionSheet: UITableViewDelegate {
                 }
 
                 self?.dismiss(animated: true)
-                if let self {
+                if let self = self {
                     self.overViewDelegate?.popView()
                 }
             }
