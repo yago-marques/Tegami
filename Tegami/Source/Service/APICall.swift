@@ -16,7 +16,7 @@ final class APICall {
     // MARK: - Dependency injection (to testing)
     let UrlSession: APICalling
 
-    init(UrlSession: APICalling = URLSession.shared as! APICalling) {
+    init(UrlSession: APICalling) {
         self.UrlSession = UrlSession
     }
 
