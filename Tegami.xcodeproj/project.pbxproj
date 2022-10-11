@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BE10E6628E4787F0023104E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE10E6528E4787F0023104E /* Lottie */; };
 		4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6928E47A040023104E /* FilmOverviewController.swift */; };
 		4BE10E6F28E47AE20023104E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6C28E47AE20023104E /* BackgroundView.swift */; };
 		4BE10E7028E47AE20023104E /* BackdropPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE10E6D28E47AE20023104E /* BackdropPathView.swift */; };
@@ -18,6 +17,10 @@
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
 		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
+		CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D128F54160001705BC /* GhibliInfo.swift */; };
+		CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D328F54180001705BC /* TmdbInfo.swift */; };
+		CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D528F541EB001705BC /* TmdbResult.swift */; };
+		CEA415D828F54215001705BC /* GenreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D728F54215001705BC /* GenreInfo.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -90,6 +93,10 @@
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
+		CEA415D128F54160001705BC /* GhibliInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliInfo.swift; sourceTree = "<group>"; };
+		CEA415D328F54180001705BC /* TmdbInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbInfo.swift; sourceTree = "<group>"; };
+		CEA415D528F541EB001705BC /* TmdbResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbResult.swift; sourceTree = "<group>"; };
+		CEA415D728F54215001705BC /* GenreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInfo.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,7 +156,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BE10E6628E4787F0023104E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +283,7 @@
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
 				DF287AC928E4660D00EF9333 /* Enums */,
-				DF287ACF28E4666600EF9333 /* Model */,
+				DF287ACF28E4666600EF9333 /* Models */,
 				DF287B1B28E4679A00EF9333 /* Onboarding */,
 				DF287ACE28E4665500EF9333 /* MainScreen */,
 				DF287ACD28E4664700EF9333 /* LetterView */,
@@ -343,15 +349,19 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		DF287ACF28E4666600EF9333 /* Model */ = {
+		DF287ACF28E4666600EF9333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DF287B0128E4675A00EF9333 /* FilmModel.swift */,
+				CEA415D128F54160001705BC /* GhibliInfo.swift */,
 				DF287B0228E4675A00EF9333 /* FilmPosition.swift */,
 				DF287B0328E4675A00EF9333 /* GenreModel.swift */,
 				DFD827F828E4C11200A57A75 /* AnimationConfig.swift */,
+				CEA415D328F54180001705BC /* TmdbInfo.swift */,
+				CEA415D528F541EB001705BC /* TmdbResult.swift */,
+				CEA415D728F54215001705BC /* GenreInfo.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DF287AD028E4667000EF9333 /* Protocols */ = {
@@ -529,7 +539,6 @@
 			);
 			name = Tegami;
 			packageProductDependencies = (
-				4BE10E6528E4787F0023104E /* Lottie */,
 			);
 			productName = Tegami;
 			productReference = DF287A8528E45F3D00EF9333 /* Tegami.app */;
@@ -584,7 +593,6 @@
 			);
 			mainGroup = DF287A7C28E45F3D00EF9333;
 			packageReferences = (
-				4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = DF287A8628E45F3D00EF9333 /* Products */;
 			projectDirPath = "";
@@ -651,6 +659,7 @@
 				DF287B2728E4682800EF9333 /* LetterViewModel.swift in Sources */,
 				4BE10E7128E47AE20023104E /* DescriptionFilmView.swift in Sources */,
 				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
+				CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */,
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
 				DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
@@ -659,6 +668,7 @@
 				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
 				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
 				CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */,
+				CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */,
 				DF287AFB28E4672E00EF9333 /* SceneView.swift in Sources */,
 				DF287AE628E466E000EF9333 /* FilmTableViewController.swift in Sources */,
 				DF287B1F28E467BA00EF9333 /* OnbordingViewController.swift in Sources */,
@@ -678,6 +688,7 @@
 				DFD827FD28E4DCBB00A57A75 /* ScrollMovement.swift in Sources */,
 				4BE10E7328E5E7300023104E /* PosterPathView.swift in Sources */,
 				DF287ADC28E4669B00EF9333 /* UIScrollView.swift in Sources */,
+				CEA415D828F54215001705BC /* GenreInfo.swift in Sources */,
 				DF287B1028E4676E00EF9333 /* LetterViewControllerDelegate.swift in Sources */,
 				DF287B1528E4676E00EF9333 /* ProgressBarDelegate.swift in Sources */,
 				DF287AF028E466FB00EF9333 /* ActionSheetCell.swift in Sources */,
@@ -687,6 +698,7 @@
 				DF287B1228E4676E00EF9333 /* EnvelopViewDelegate.swift in Sources */,
 				DF287B1128E4676E00EF9333 /* FilmTableViewModelDelegate.swift in Sources */,
 				CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */,
+				CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */,
 				DFD8280B28E6779400A57A75 /* OverViewDelegate.swift in Sources */,
 				DF287B1628E4676E00EF9333 /* ViewCoding.swift in Sources */,
 				DF287AE828E466E700EF9333 /* FilmTableViewModel.swift in Sources */,
@@ -780,13 +792,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -834,12 +847,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -857,8 +871,9 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -872,7 +887,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -889,8 +904,9 @@
 				INFOPLIST_FILE = Tegami/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -903,7 +919,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -917,7 +933,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -926,14 +942,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tegami";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)Tegami";
 			};
 			name = Debug;
 		};
@@ -947,7 +966,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PC4MSN8T7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -956,13 +975,16 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yago.TegamiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tegami";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tegami.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)Tegami";
 			};
 			name = Release;
 		};
@@ -997,25 +1019,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4BE10E6528E4787F0023104E /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4BE10E6428E4787F0023104E /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF287A7D28E45F3D00EF9333 /* Project object */;
 }

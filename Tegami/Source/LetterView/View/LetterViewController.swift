@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 final class LetterViewController: UIViewController {
 
@@ -43,11 +42,9 @@ final class LetterViewController: UIViewController {
         return bar
     }()
 
-    private lazy var arrowView: AnimationView = {
-        var lottie = AnimationView(name: "arrow")
+    private lazy var arrowView: UIView = {
+        var lottie = UIView()
         lottie.frame = self.view.bounds
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.5
         lottie.transform = lottie.transform.rotated(by: CGFloat(Double.pi/1))
         lottie.translatesAutoresizingMaskIntoConstraints = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(scrollToTop))
@@ -65,7 +62,6 @@ final class LetterViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arrowView.play()
 
         Task.detached {
             await self.viewModel.fetchNextMovieToWatch()
@@ -74,7 +70,7 @@ final class LetterViewController: UIViewController {
 
     @objc func scrollToTop() {
         DispatchQueue.main.async { [weak self] in
-            if let self {
+            if let self = self {
                 self.viewModel.mainScreenDelegate?.move(to: .top)
             }
         }

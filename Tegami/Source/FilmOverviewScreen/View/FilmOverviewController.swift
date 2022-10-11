@@ -5,7 +5,6 @@
 //  Created by Gabriela Souza Batista on 22/09/22.
 //
 import UIKit
-import Lottie
 
 final class FilmOverviewController: UIViewController {
 

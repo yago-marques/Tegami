@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import Lottie
 
 final class AnimatedCell: UITableViewCell {
 
     var animationConfig: AnimationConfig = AnimationConfig(lottieName: "", message: "") {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.messageLabel.text = self.animationConfig.message
                     self.showAnimation(of: self.animationConfig.lottieName)
                 }
@@ -28,19 +27,15 @@ final class AnimatedCell: UITableViewCell {
         return stack
     }()
 
-    private var loadingAnimation: AnimationView = {
-        var lottie = AnimationView(name: "loading")
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.5
+    private var loadingAnimation: UIView = {
+        var lottie = UIView()
         lottie.translatesAutoresizingMaskIntoConstraints = false
 
         return lottie
     }()
 
-    private var emptyAnimation: AnimationView = {
-        var lottie = AnimationView(name: "emptyList")
-        lottie.loopMode = .loop
-        lottie.animationSpeed = 0.5
+    private var emptyAnimation: UIView = {
+        var lottie = UIView()
         lottie.translatesAutoresizingMaskIntoConstraints = false
 
         return lottie
@@ -69,7 +64,6 @@ final class AnimatedCell: UITableViewCell {
         if lottieName == "loading" {
             cardStack.addSubview(loadingAnimation)
             emptyAnimation.removeFromSuperview()
-            loadingAnimation.play()
 
             NSLayoutConstraint.activate([
                 loadingAnimation.topAnchor.constraint(equalTo: cardStack.topAnchor),
@@ -79,7 +73,6 @@ final class AnimatedCell: UITableViewCell {
         } else {
             cardStack.addSubview(emptyAnimation)
             loadingAnimation.removeFromSuperview()
-            emptyAnimation.play()
 
             NSLayoutConstraint.activate([
                 emptyAnimation.topAnchor.constraint(equalToSystemSpacingBelow: cardStack.topAnchor, multiplier: 5),
