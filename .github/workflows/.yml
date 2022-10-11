@@ -6,17 +6,16 @@ jobs:
   test:
     name: Test
     runs-on: macOS-latest
-    strategy:
-      matrix:
-        destination: ['platform=iOS Simulator,OS=16.0,name=iPhone 14']
     steps:
       - name: Checkout
         uses: actions/checkout@main
       - name: Testing
         run: |
-          cd Tegami
-          xcodebuild clean test -project Tegami.xcodeproj -scheme Tegami -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-          bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
+          xcodebuild \
+          test \
+          -project Tegami.xcodeproj \
+          -scheme Tegami \
+          -destination 'platform=iOS Simulator,name=iPhone 14'
         env:
            destination: ${{ matrix.destination }}
            CODECOV_TOKEN: ${{ secrets.codecov_token }}
