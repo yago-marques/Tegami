@@ -16,6 +16,7 @@
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
+		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
 		CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D128F54160001705BC /* GhibliInfo.swift */; };
 		CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D328F54180001705BC /* TmdbInfo.swift */; };
 		CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D528F541EB001705BC /* TmdbResult.swift */; };
@@ -91,6 +92,7 @@
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
 		CEA415D128F54160001705BC /* GhibliInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliInfo.swift; sourceTree = "<group>"; };
 		CEA415D328F54180001705BC /* TmdbInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbInfo.swift; sourceTree = "<group>"; };
 		CEA415D528F541EB001705BC /* TmdbResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbResult.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				DF287AD328E4669000EF9333 /* TableState.swift */,
 				DF287AD228E4669000EF9333 /* UrlEnum.swift */,
 				DFD827FC28E4DCBB00A57A75 /* ScrollMovement.swift */,
+				DF0B85BA28F4D221001C53C3 /* APICallError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				DFD827FF28E4DD1F00A57A75 /* MainScreenViewControllerDelegate.swift in Sources */,
 				CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */,
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
+				DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
 				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,

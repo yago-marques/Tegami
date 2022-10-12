@@ -100,7 +100,6 @@ final class OnboardingVieeModelTests: XCTestCase {
     }
 }
 
-
 // MARK: - Helpers
 
 private extension OnboardingVieeModelTests {

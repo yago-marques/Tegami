@@ -7,12 +7,16 @@
 
 import Foundation
 
+protocol APICalling {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
 final class APICall {
 
     // MARK: - Dependency injection (to testing)
-    let UrlSession: URLSession
+    let UrlSession: APICalling
 
-    init(UrlSession: URLSession = URLSession.shared) {
+    init(UrlSession: APICalling) {
         self.UrlSession = UrlSession
     }
 
@@ -20,24 +24,31 @@ final class APICall {
     func GET(
         at path: String,
         queries: [(String, String)] = [],
-        headers: [String: String] = ["Content-Type": "application/json"]
-    ) async -> (data: Data, status: Int)? {
+        headers: [String: String] = ["Content-Type": "application/json"],
+        completion: @escaping (Result<(Data, Int), APICallError>) -> Void
+    ) {
 
-        guard let url = buildUrl(with: path, queries: queries) else { return nil }
+        guard let url = buildUrl(with: path, queries: queries) else {
+            return completion(.failure(.invalidUrl))
+        }
+
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers
         request.httpMethod = "GET"
         
-        do {
-            let (data, response) = try await UrlSession.data(for: request)
-            guard let status = statusCode(of: response) else { return nil }
+        let task = UrlSession.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(.network(error)))
+            }
 
-            return (data, status)
-        } catch {
-            print(error)
+            if let data = data, let response = response {
+                let statusCode = self.statusCode(of: response)
+
+                completion(.success((data, statusCode)))
+            }
         }
 
-        return nil
+        task.resume()
     }
 
     // MARK: - Method to return an URL (using URLComponents)
@@ -63,10 +74,14 @@ final class APICall {
     }
 
     // MARK: - Method to return status code of request
-    func statusCode(of response: URLResponse) -> Int? {
+    func statusCode(of response: URLResponse) -> Int {
         let httpResponse = response as? HTTPURLResponse
 
-        return httpResponse?.statusCode
+        if let statusCode = httpResponse?.statusCode {
+            return statusCode
+        }
+
+        return 0
     }
 
 }
