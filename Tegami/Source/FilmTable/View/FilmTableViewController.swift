@@ -103,7 +103,7 @@ final class FilmTableViewController: UIViewController {
 
         if viewModel.firstWillAppear {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.viewModel.fetchFilms()
                 }
             }
