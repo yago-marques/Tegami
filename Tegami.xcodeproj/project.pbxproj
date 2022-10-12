@@ -16,11 +16,12 @@
 		CE37D34028F0E9A2002F68FB /* OnboardingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */; };
 		CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */; };
 		CE37D34528F11A8E002F68FB /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */; };
-		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
 		CEA415D228F54160001705BC /* GhibliInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D128F54160001705BC /* GhibliInfo.swift */; };
 		CEA415D428F54180001705BC /* TmdbInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D328F54180001705BC /* TmdbInfo.swift */; };
 		CEA415D628F541EB001705BC /* TmdbResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D528F541EB001705BC /* TmdbResult.swift */; };
 		CEA415D828F54215001705BC /* GenreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D728F54215001705BC /* GenreInfo.swift */; };
+		CEA415FB28F650F5001705BC /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415FA28F650F5001705BC /* Film.swift */; };
+		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -92,11 +93,12 @@
 		CE37D33F28F0E9A2002F68FB /* OnboardingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFactory.swift; sourceTree = "<group>"; };
 		CE37D34228F0ECB7002F68FB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
-		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
 		CEA415D128F54160001705BC /* GhibliInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliInfo.swift; sourceTree = "<group>"; };
 		CEA415D328F54180001705BC /* TmdbInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbInfo.swift; sourceTree = "<group>"; };
 		CEA415D528F541EB001705BC /* TmdbResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbResult.swift; sourceTree = "<group>"; };
 		CEA415D728F54215001705BC /* GenreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInfo.swift; sourceTree = "<group>"; };
+		CEA415FA28F650F5001705BC /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,6 +206,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		CEA415F928F650E8001705BC /* BusinessModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEA415FA28F650F5001705BC /* Film.swift */,
+			);
+			path = BusinessModel;
+			sourceTree = "<group>";
+		};
 		CEF9B41528F253F900078EB7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,11 +289,12 @@
 		DF287AC828E4660200EF9333 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEA415F928F650E8001705BC /* BusinessModel */,
 				DF287AD128E4667D00EF9333 /* Service */,
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
 				DF287AC928E4660D00EF9333 /* Enums */,
-				DF287ACF28E4666600EF9333 /* Models */,
+				DF287ACF28E4666600EF9333 /* ResponseModels */,
 				DF287B1B28E4679A00EF9333 /* Onboarding */,
 				DF287ACE28E4665500EF9333 /* MainScreen */,
 				DF287ACD28E4664700EF9333 /* LetterView */,
@@ -349,7 +360,7 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		DF287ACF28E4666600EF9333 /* Models */ = {
+		DF287ACF28E4666600EF9333 /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
 				DF287B0128E4675A00EF9333 /* FilmModel.swift */,
@@ -361,7 +372,7 @@
 				CEA415D528F541EB001705BC /* TmdbResult.swift */,
 				CEA415D728F54215001705BC /* GenreInfo.swift */,
 			);
-			path = Models;
+			path = ResponseModels;
 			sourceTree = "<group>";
 		};
 		DF287AD028E4667000EF9333 /* Protocols */ = {
@@ -665,6 +676,7 @@
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
 				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,
+				CEA415FB28F650F5001705BC /* Film.swift in Sources */,
 				DF287B2128E467C400EF9333 /* OnboardingViewModel.swift in Sources */,
 				DF287AFD28E4672E00EF9333 /* EnvelopView.swift in Sources */,
 				CE37D34328F0ECB7002F68FB /* UserDefaultsHelper.swift in Sources */,

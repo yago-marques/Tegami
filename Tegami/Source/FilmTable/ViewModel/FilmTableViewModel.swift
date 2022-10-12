@@ -153,7 +153,9 @@ final class FilmTableViewModel {
                 switch result {
                 case .success(let (data, _)):
                     do {
-                        let ghibliInfo = try JSONDecoder().decode([GhibliInfo].self, from: data)
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let ghibliInfo = try decoder.decode([GhibliInfo].self, from: data)
                         self.delegate?.isInterective(true)
                         completion(.success(ghibliInfo))
                     } catch {
