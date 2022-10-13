@@ -22,6 +22,7 @@
 		CEA415D828F54215001705BC /* GenreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415D728F54215001705BC /* GenreInfo.swift */; };
 		CEA415FB28F650F5001705BC /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA415FA28F650F5001705BC /* Film.swift */; };
 		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
+		DF0B85C228F86351001C53C3 /* FilmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85C128F86351001C53C3 /* FilmService.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
 		DF287ABF28E4645400EF9333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF287ABE28E4645400EF9333 /* Assets.xcassets */; };
 		DF287AC628E465CE00EF9333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF287AC428E465CE00EF9333 /* SceneDelegate.swift */; };
@@ -99,6 +100,7 @@
 		CEA415D728F54215001705BC /* GenreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInfo.swift; sourceTree = "<group>"; };
 		CEA415FA28F650F5001705BC /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
+		DF0B85C128F86351001C53C3 /* FilmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmService.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF287A9428E45F3E00EF9333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF287A9628E45F3E00EF9333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,11 +292,11 @@
 			isa = PBXGroup;
 			children = (
 				CEA415F928F650E8001705BC /* BusinessModel */,
+				DF287ACF28E4666600EF9333 /* ResponseModels */,
 				DF287AD128E4667D00EF9333 /* Service */,
 				DF287AD028E4667000EF9333 /* Protocols */,
 				DF287ACA28E4661600EF9333 /* Extensions */,
 				DF287AC928E4660D00EF9333 /* Enums */,
-				DF287ACF28E4666600EF9333 /* ResponseModels */,
 				DF287B1B28E4679A00EF9333 /* Onboarding */,
 				DF287ACE28E4665500EF9333 /* MainScreen */,
 				DF287ACD28E4664700EF9333 /* LetterView */,
@@ -397,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				DF287B1928E4677F00EF9333 /* APICall.swift */,
+				DF0B85C128F86351001C53C3 /* FilmService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				DF287B1328E4676E00EF9333 /* LetterViewModelDelegate.swift in Sources */,
 				DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */,
 				DF287B1728E4676E00EF9333 /* FilmTableHeaderDelegate.swift in Sources */,
+				DF0B85C228F86351001C53C3 /* FilmService.swift in Sources */,
 				DF287B0528E4675A00EF9333 /* FilmPosition.swift in Sources */,
 				DF287ADA28E4669B00EF9333 /* UIImageView.swift in Sources */,
 				CEA415FB28F650F5001705BC /* Film.swift in Sources */,
