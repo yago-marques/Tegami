@@ -1,4 +1,7 @@
 # Tegami
+
+![ci status](https://github.com/yago-marques/Tegami/actions/workflows/CI.yml/badge.svg?branch=main)
+
 <img src="https://user-images.githubusercontent.com/84297648/194332580-aae0caf6-a94d-4edb-a865-334e9a48915d.png" width=200/>
 <img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white">
 
