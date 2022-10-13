@@ -17,12 +17,52 @@ final class FilmService: FilmServicing {
     weak var delegate: FilmServiceDelegate?
     let decoder = JsonDecoderHelper()
 
-    init(api: APICalling) {
+    init(api: APICalling, delegate: FilmServiceDelegate?) {
         self.api = api
+        self.delegate = delegate
     }
 
     func getFilms(completion: @escaping (Result<[Film],Error>) -> Void) {
-        
+        delegate?.toggleViewInterective(to: false)
+        self.fetchFilms { [weak self] result in
+            if let self = self {
+                switch result {
+                case .success(let filmModels):
+                    var businessModels: [Film] = []
+                    for filmModel in filmModels {
+                        if let ghibli = filmModel.ghibli, let tmdb = filmModel.tmdb {
+                            self.getImagesData(from: tmdb) { result in
+                                switch result {
+                                case .success(let (posterData, bannerData)):
+                                    let businessModel = Film(
+                                        id: ghibli.id,
+                                        title: tmdb.title,
+                                        posterImage: posterData,
+                                        runningTime: ghibli.runningTime,
+                                        releaseDate: ghibli.releaseDate,
+                                        genres: self.getGenres(of: tmdb.genreNames),
+                                        bannerImage: bannerData,
+                                        description: tmdb.overview,
+                                        popularity: tmdb.popularity
+                                    )
+
+                                    businessModels.append(businessModel)
+
+                                    if businessModels.count == 22 {
+                                        completion(.success(businessModels))
+                                        self.delegate?.toggleViewInterective(to: true)
+                                    }
+                                case .failure(let failure):
+                                    completion(.failure(failure))
+                                }
+                            }
+                        }
+                    }
+                case .failure(let failure):
+                    completion(.failure(failure))
+                }
+            }
+        }
     }
 
     func fetchFilms(completion: @escaping (Result<[FilmModel], Error>) -> Void) {
@@ -163,6 +203,44 @@ final class FilmService: FilmServicing {
             }
         }
 
+    }
+
+    func getGenres(of genreNames: [String]) -> String {
+        var result = ""
+
+        if genreNames.count == 2 {
+            result = "\(genreNames[0]) - \(genreNames[1])"
+        } else {
+            result = genreNames[0]
+        }
+
+        return result
+    }
+
+    func getImagesData(
+        from tmdbInfo: TmdbResult,
+        completion: @escaping (Result<(poster: Data, banner: Data), Error>) -> Void
+    ) {
+        let posterPath = UrlEnum.baseImage.rawValue.appending(tmdbInfo.posterPath)
+        let bannerPath = UrlEnum.baseImage.rawValue.appending(tmdbInfo.backdropPath)
+
+        api?.GET(at: posterPath, headers: [:]) { [weak self] result in
+            if let self = self {
+                switch result {
+                case .success(let (posterData, _)):
+                    self.api?.GET(at: bannerPath, headers: [:]) { result in
+                        switch result {
+                        case .success(let (bannerData, _)):
+                            completion(.success((posterData, bannerData)))
+                        case .failure(let failure):
+                            completion(.failure(failure))
+                        }
+                    }
+                case .failure(let failure):
+                    completion(.failure(failure))
+                }
+            }
+        }
     }
 
 }

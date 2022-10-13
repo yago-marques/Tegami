@@ -20,6 +20,7 @@ final class FilmTableViewModel {
     var tableState: TableState = .all
     var TableIsEmpty: Bool = false
     var loadingFilms: Bool = false
+    lazy var filmService = FilmService(api: APICall(UrlSession: URLSessionHelper()), delegate: self)
 
     var isSearch: Bool = false {
         didSet {
@@ -84,41 +85,49 @@ final class FilmTableViewModel {
     }
 
     func fetchFilms() {
-        self.fetchGhibliInfo { [weak self] result in
-            if let self = self {
-                switch result {
-                case .success(let ghibliInfo):
-                    var films: [FilmModel] = []
-
-                    for i in 0..<ghibliInfo.count {
-                        self.fetchTmdbInfo(originalTitle: ghibliInfo[i].originalTitle) { result in
-                            switch result {
-                            case .success(let tmdbInfo):
-                                let filmInfo = FilmModel(ghibli: ghibliInfo[i], tmdb: tmdbInfo)
-                                films.append(filmInfo)
-
-                                if films.count == 22 {
-                                    if self.defaults.object(forKey: "filmList") == nil {
-                                        self.createInitialListFilm(films: films)
-                                    }
-
-                                    self.filteredFilms = films
-                                    self.filmsToSearch = films
-                                    self.films = films
-                                    self.loadingFilms = false
-                                    self.firstWillAppear = false
-                                }
-                            case .failure(let failure):
-                                print(failure)
-                            }
-                        }
-                    }
-
-                case .failure(let failure):
-                    print(failure)
-                }
+        filmService.getFilms { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
             }
         }
+
+//        self.fetchGhibliInfo { [weak self] result in
+//            if let self = self {
+//                switch result {
+//                case .success(let ghibliInfo):
+//                    var films: [FilmModel] = []
+//                    for i in 0..<ghibliInfo.count {
+//                        self.fetchTmdbInfo(originalTitle: ghibliInfo[i].originalTitle) { result in
+//                            switch result {
+//                            case .success(let tmdbInfo):
+//                                let filmInfo = FilmModel(ghibli: ghibliInfo[i], tmdb: tmdbInfo)
+//                                films.append(filmInfo)
+//
+//                                if films.count == 22 {
+//                                    if self.defaults.object(forKey: "filmList") == nil {
+//                                        self.createInitialListFilm(films: films)
+//                                    }
+//
+//                                    self.filteredFilms = films
+//                                    self.filmsToSearch = films
+//                                    self.films = films
+//                                    self.loadingFilms = false
+//                                    self.firstWillAppear = false
+//                                }
+//                            case .failure(let failure):
+//                                print(failure)
+//                            }
+//                        }
+//                    }
+//
+//                case .failure(let failure):
+//                    print(failure)
+//                }
+//            }
+//        }
     }
 
     func showAllMovies() {
@@ -166,10 +175,6 @@ final class FilmTableViewModel {
                 }
             }
         }
-    }
-
-    func toggleViewInterective(to state: Bool) {
-        delegate?.isInterective(state)
     }
 
     func fetchTmdbInfo(
@@ -403,5 +408,11 @@ extension FilmTableViewModel: ActionSheetDelegate {
         } else {
             return self.getActions(state: .all)
         }
+    }
+}
+
+extension FilmTableViewModel: FilmServiceDelegate {
+    func toggleViewInterective(to state: Bool) {
+        delegate?.isInterective(state)
     }
 }
