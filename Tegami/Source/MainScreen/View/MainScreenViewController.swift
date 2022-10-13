@@ -7,7 +7,7 @@
 
 import UIKit
 
-class URLSessionHelper: APICalling {
+class URLSessionHelper: URling {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         URLSession.shared.dataTask(with: request, completionHandler: completionHandler)
     }
@@ -15,7 +15,7 @@ class URLSessionHelper: APICalling {
 
 final class MainScreenViewController: UIViewController {
 
-    let session: APICalling = URLSessionHelper()
+    let session: URling = URLSessionHelper()
 
     private lazy var filmTable = FilmTableViewController(
         viewModel: FilmTableViewModel(apiService: APICall(UrlSession: session), mainScreenDelegate: self, userDefaults: UserDefaults.standard),

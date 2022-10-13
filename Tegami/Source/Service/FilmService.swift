@@ -13,22 +13,57 @@ protocol FilmServicing {
 
 final class FilmService: FilmServicing {
 
-    func getFilms(completion: @escaping (Result<[Film],Error>) -> Void) {
+    weak var api: APICalling?
+    weak var delegate: FilmServiceDelegate?
+    let decoder = JsonDecoderHelper()
 
+    init(api: APICalling) {
+        self.api = api
+    }
+
+    func getFilms(completion: @escaping (Result<[Film],Error>) -> Void) {
+        
+    }
+
+    func fetchFilms(completion: @escaping (Result<[FilmModel], Error>) -> Void) {
+        self.fetchGhibliInfo { [weak self] result in
+            if let self = self {
+                switch result {
+                case .success(let ghibliInfo):
+                    var films: [FilmModel] = []
+
+                    for i in 0..<ghibliInfo.count {
+                        self.fetchTmdbInfo(originalTitle: ghibliInfo[i].originalTitle) { result in
+                            switch result {
+                            case .success(let tmdbInfo):
+                                let filmInfo = FilmModel(ghibli: ghibliInfo[i], tmdb: tmdbInfo)
+                                films.append(filmInfo)
+
+                                if films.count == 22 {
+                                    completion(.success(films))
+                                }
+
+                            case .failure(let failure):
+                                completion(.failure(failure))
+                            }
+                        }
+                    }
+
+                case .failure(let failure):
+                    completion(.failure(failure))
+                }
+            }
+        }
     }
 
     func fetchGhibliInfo(completion: @escaping (Result<[GhibliInfo], Error>) -> Void) {
-        delegate?.isInterective(false)
 
-        apiService.GET(at: UrlEnum.ghibliUrl.rawValue) { [weak self] result in
+        api?.GET(at: UrlEnum.ghibliUrl.rawValue) { [weak self] result in
             if let self = self {
                 switch result {
                 case .success(let (data, _)):
                     do {
-                        let decoder = JSONDecoder()
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        let ghibliInfo = try decoder.decode([GhibliInfo].self, from: data)
-                        self.delegate?.isInterective(true)
+                        let ghibliInfo = try self.decoder.decode([GhibliInfo].self, from: data)
                         completion(.success(ghibliInfo))
                     } catch {
                         completion(.failure(error))
@@ -45,7 +80,7 @@ final class FilmService: FilmServicing {
         completion: @escaping (Result<TmdbResult?, Error>) -> Void
     ) {
 
-        apiService.GET(
+        api?.GET(
             at: UrlEnum.tmbdMovie.rawValue,
             queries: [
                 ("api_key", "2fb0d7c0095f63e9c881bb4317a570a9"),
@@ -58,7 +93,7 @@ final class FilmService: FilmServicing {
                 switch result {
                 case .success(let (data, _)):
                     do {
-                        let tmdbInfo = try JSONDecoder().decode(TmdbInfo.self, from: data)
+                        let tmdbInfo = try self.decoder.decode(TmdbInfo.self, from: data)
                         self.transformGenres(ids: tmdbInfo.results.first!.genreIds) { genreResult in
                             switch genreResult {
                             case .success(let stringGenreList):
@@ -81,23 +116,25 @@ final class FilmService: FilmServicing {
 
     func fetchGenres(completion: @escaping (Result<[GenreInfo], Error>) -> Void) {
 
-        apiService.GET(
+        api?.GET(
             at: UrlEnum.tmdbGenre.rawValue,
             queries: [
                 ("api_key","2fb0d7c0095f63e9c881bb4317a570a9"),
                 ("language","pt-BR")
             ]
-        ) { result in
-            switch result {
-            case .success(let (data, _)):
-                do {
-                    let genreInfo = try JSONDecoder().decode(GenreModel.self, from: data)
-                    completion(.success(genreInfo.genres))
-                } catch {
-                    completion(.failure(error))
+        ) { [weak self] result in
+            if let self = self {
+                switch result {
+                case .success(let (data, _)):
+                    do {
+                        let genreInfo = try self.decoder.decode(GenreModel.self, from: data)
+                        completion(.success(genreInfo.genres))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let failure):
+                    completion(.failure(failure))
                 }
-            case .failure(let failure):
-                completion(.failure(failure))
             }
         }
 

@@ -7,16 +7,12 @@
 
 import Foundation
 
-protocol APICalling {
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-final class APICall {
+final class APICall: APICalling {
 
     // MARK: - Dependency injection (to testing)
-    let UrlSession: APICalling
+    let UrlSession: URling
 
-    init(UrlSession: APICalling) {
+    init(UrlSession: URling) {
         self.UrlSession = UrlSession
     }
 

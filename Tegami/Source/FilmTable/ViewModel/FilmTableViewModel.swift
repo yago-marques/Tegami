@@ -168,6 +168,10 @@ final class FilmTableViewModel {
         }
     }
 
+    func toggleViewInterective(to state: Bool) {
+        delegate?.isInterective(state)
+    }
+
     func fetchTmdbInfo(
         originalTitle: String,
         completion: @escaping (Result<TmdbResult?, Error>) -> Void
