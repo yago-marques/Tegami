@@ -13,7 +13,7 @@ struct Film {
     let posterImage: Data
     let runningTime: String
     let releaseDate: String
-    let genres: String
+    let genre: String
     let bannerImage: Data
     let description: String
     let popularity: Double
