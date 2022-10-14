@@ -9,17 +9,21 @@ import UIKit
 
 final class MainScreenViewController: UIViewController {
 
-    let session: URLSession = .shared
-
     private lazy var filmTable = FilmTableViewController(
-        viewModel: FilmTableViewModel(apiService: URLSessionHTTPClient(session: .shared), mainScreenDelegate: self, userDefaults: UserDefaults.standard),
+        viewModel: FilmTableViewModel(
+            mainScreenDelegate: self,
+            userDefaults: UserDefaults.standard,
+            loader: RemoteFilmLoader(api: URLSessionHTTPClient(session: .shared))),
         letterViewModel: self.letterView.viewModel,
         progressBar: self.letterView.progressBar
     )
 
     private lazy var letterView = LetterViewController(
         viewModel: LetterViewModel(
-            table: FilmTableViewModel(apiService: URLSessionHTTPClient(session: .shared), mainScreenDelegate: self, userDefaults: UserDefaults.standard) as LetterViewModelDelegate,
+            table: FilmTableViewModel(
+                mainScreenDelegate: self,
+                userDefaults: UserDefaults.standard,
+                loader: RemoteFilmLoader(api: URLSessionHTTPClient(session: .shared))) as LetterViewModelDelegate,
             mainScreenDelegate: self)
     )
 

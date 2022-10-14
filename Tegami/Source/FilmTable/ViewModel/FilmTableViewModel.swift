@@ -12,15 +12,14 @@ final class FilmTableViewModel {
     weak var progressBarDelegate: ProgressBarDelegate?
     weak var delegate: FilmTableViewModelDelegate?
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
-    private let apiService: URLSessionHTTPClient
-    private let defaults: UserDefaults
     var firstWillAppear: Bool = true
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
     var tableState: TableState = .all
     var TableIsEmpty: Bool = false
     var loadingFilms: Bool = false
-    let filmService = RemoteFilmLoader(api: URLSessionHTTPClient(session: .shared))
+    private let defaults: UserDefaults
+    private let loader: FilmLoader
 
     var isSearch: Bool = false {
         didSet {
@@ -47,18 +46,18 @@ final class FilmTableViewModel {
     }
 
     init(
-        apiService: URLSessionHTTPClient,
         delegate: FilmTableViewModelDelegate? = nil,
         letterDelegate: UpdateNextFilmDelegate? = nil,
         progressBarDelegate: ProgressBarDelegate? = nil,
         mainScreenDelegate: MainScreenViewControllerDelegate?,
-        userDefaults: UserDefaults
+        userDefaults: UserDefaults,
+        loader: FilmLoader
     ) {
         self.mainScreenDelegate = mainScreenDelegate
         self.progressBarDelegate = progressBarDelegate
         self.letterDelegate = letterDelegate
-        self.apiService = apiService
         self.defaults = userDefaults
+        self.loader = loader
     }
 
     func createInitialListFilm(films: [FilmModel]) {
@@ -85,7 +84,7 @@ final class FilmTableViewModel {
     }
 
     func fetchFilms() {
-        filmService.getFilms { result in
+        loader.getFilms { result in
             switch result {
             case .success(let success):
                 print(success)
