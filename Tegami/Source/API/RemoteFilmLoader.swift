@@ -105,7 +105,7 @@ final class RemoteFilmLoader: FilmLoader {
                 posterImage: Data(),
                 runningTime: $0.ghibli.runningTime,
                 releaseDate: $0.ghibli.releaseDate,
-                genres: "Desconhecido",
+                genre: "Desconhecido",
                 bannerImage: Data(),
                 description: $0.tmdb.overview,
                 popularity: $0.tmdb.popularity)
