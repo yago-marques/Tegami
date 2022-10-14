@@ -9,13 +9,11 @@ import UIKit
 
 final class BackdropPathView: UIView {
     
-    var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
+    var film: FilmModel = FilmModel(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()){
         didSet {
             DispatchQueue.main.async {
-                if let backdropPath = self.film.tmdb?.backdropPath {
-                    let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
-                    self.backdropPath.downloaded(from: imageUrl)
-                }
+                let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(self.film.tmdb.backdropPath))!
+                self.backdropPath.downloaded(from: imageUrl)
             }
         }
     }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct FilmModel: Codable {
-    let ghibli: GhibliInfo?
-    let tmdb: TmdbResult?
+    let ghibli: GhibliInfo
+    let tmdb: TmdbResult
 }

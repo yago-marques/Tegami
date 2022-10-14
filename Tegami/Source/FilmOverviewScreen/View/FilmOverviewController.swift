@@ -99,8 +99,7 @@ final class FilmOverviewController: UIViewController {
             }
         } else {
             guard
-                let id = film.ghibli?.id,
-                let content = viewModel.findFilmOnList(id: id)
+                let content = viewModel.findFilmOnList(id: film.ghibli.id)
             else { return }
 
             mySheet.contentOfRowAt = content
