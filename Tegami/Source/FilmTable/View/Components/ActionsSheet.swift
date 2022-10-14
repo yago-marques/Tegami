@@ -22,11 +22,11 @@ final class ActionSheet: UIViewController {
         fatalError("error ActionSheet")
     }
 
-    var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
+    var film: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let backdropPath = self?.film.tmdb?.backdropPath {
-                    self?.titleLabel.text = self?.film.tmdb?.title
+                if let backdropPath = self?.film.tmdb.backdropPath {
+                    self?.titleLabel.text = self?.film.tmdb.title
                     let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
                     self?.filmBackdropView.downloaded(from: imageUrl)
                 }
@@ -108,7 +108,7 @@ extension ActionSheet: UITableViewDelegate {
         DispatchQueue.main.async { [weak self] in
             if
                 let delegate = self?.delegate,
-                let id = self?.film.ghibli?.id,
+                let id = self?.film.ghibli.id,
                 let label = cell.actionLabel.text
             {
                 switch label {

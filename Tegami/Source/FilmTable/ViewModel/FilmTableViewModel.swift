@@ -12,14 +12,14 @@ final class FilmTableViewModel {
     weak var progressBarDelegate: ProgressBarDelegate?
     weak var delegate: FilmTableViewModelDelegate?
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
-    private let apiService: APICall
-    private let defaults: UserDefaults
     var firstWillAppear: Bool = true
     var filmsBackup: [FilmModel] = []
     var filmsToSearch = [FilmModel]()
     var tableState: TableState = .all
     var TableIsEmpty: Bool = false
     var loadingFilms: Bool = false
+    private let defaults: UserDefaults
+    private let loader: FilmLoader
 
     var isSearch: Bool = false {
         didSet {
@@ -46,28 +46,28 @@ final class FilmTableViewModel {
     }
 
     init(
-        apiService: APICall,
         delegate: FilmTableViewModelDelegate? = nil,
         letterDelegate: UpdateNextFilmDelegate? = nil,
         progressBarDelegate: ProgressBarDelegate? = nil,
         mainScreenDelegate: MainScreenViewControllerDelegate?,
-        userDefaults: UserDefaults
+        userDefaults: UserDefaults,
+        loader: FilmLoader
     ) {
         self.mainScreenDelegate = mainScreenDelegate
         self.progressBarDelegate = progressBarDelegate
         self.letterDelegate = letterDelegate
-        self.apiService = apiService
         self.defaults = userDefaults
+        self.loader = loader
     }
 
     func createInitialListFilm(films: [FilmModel]) {
-        let sortedFilms = films.sorted { $0.tmdb!.popularity > $1.tmdb!.popularity }
+        let sortedFilms = films.sorted { $0.tmdb.popularity > $1.tmdb.popularity }
         let fiveFilms = sortedFilms[0...4]
         var filmList: [FilmPosition] = []
         let watchedFilms: [FilmPosition] = []
 
         for i in 0..<fiveFilms.count {
-            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli!.id)
+            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli.id)
 
             filmList.append(newFilm)
         }
@@ -84,39 +84,12 @@ final class FilmTableViewModel {
     }
 
     func fetchFilms() {
-        self.fetchGhibliInfo { [weak self] result in
-            if let self = self {
-                switch result {
-                case .success(let ghibliInfo):
-                    var films: [FilmModel] = []
-
-                    for i in 0..<ghibliInfo.count {
-                        self.fetchTmdbInfo(originalTitle: ghibliInfo[i].originalTitle) { result in
-                            switch result {
-                            case .success(let tmdbInfo):
-                                let filmInfo = FilmModel(ghibli: ghibliInfo[i], tmdb: tmdbInfo)
-                                films.append(filmInfo)
-
-                                if films.count == 22 {
-                                    if self.defaults.object(forKey: "filmList") == nil {
-                                        self.createInitialListFilm(films: films)
-                                    }
-
-                                    self.filteredFilms = films
-                                    self.filmsToSearch = films
-                                    self.films = films
-                                    self.loadingFilms = false
-                                    self.firstWillAppear = false
-                                }
-                            case .failure(let failure):
-                                print(failure)
-                            }
-                        }
-                    }
-
-                case .failure(let failure):
-                    print(failure)
-                }
+        loader.getFilms { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
             }
         }
     }
@@ -135,125 +108,14 @@ final class FilmTableViewModel {
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
 
         let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
 
-            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+            return filmOfPosition ?? makeFilmModel()
         }
 
         self.filmsBackup = self.films
         self.films = filmsToWatch
         self.tableState = .toWatch
-    }
-
-    func fetchGhibliInfo(completion: @escaping (Result<[GhibliInfo], Error>) -> Void) {
-        delegate?.isInterective(false)
-
-        apiService.GET(at: UrlEnum.ghibliUrl.rawValue) { [weak self] result in
-            if let self = self {
-                switch result {
-                case .success(let (data, _)):
-                    do {
-                        let decoder = JSONDecoder()
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        let ghibliInfo = try decoder.decode([GhibliInfo].self, from: data)
-                        self.delegate?.isInterective(true)
-                        completion(.success(ghibliInfo))
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case .failure(let failure):
-                    print(failure)
-                }
-            }
-        }
-    }
-
-    func fetchTmdbInfo(
-        originalTitle: String,
-        completion: @escaping (Result<TmdbResult?, Error>) -> Void
-    ) {
-
-        apiService.GET(
-            at: UrlEnum.tmbdMovie.rawValue,
-            queries: [
-                ("api_key", "2fb0d7c0095f63e9c881bb4317a570a9"),
-                ("language", "pt-BR"),
-                ("query", originalTitle),
-                ("page", "1")
-            ]
-        ) { [weak self] result in
-            if let self = self {
-                switch result {
-                case .success(let (data, _)):
-                    do {
-                        let tmdbInfo = try JSONDecoder().decode(TmdbInfo.self, from: data)
-                        self.transformGenres(ids: tmdbInfo.results.first!.genreIds) { genreResult in
-                            switch genreResult {
-                            case .success(let stringGenreList):
-                                tmdbInfo.results.first?.genreNames = stringGenreList
-                                completion(.success(tmdbInfo.results.first))
-                            case .failure(let failure):
-                                completion(.failure(failure))
-                            }
-                        }
-
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case .failure(let failure):
-                    completion(.failure(failure))
-                }
-            }
-        }
-    }
-
-    func fetchGenres(completion: @escaping (Result<[GenreInfo], Error>) -> Void) {
-
-        apiService.GET(
-            at: UrlEnum.tmdbGenre.rawValue,
-            queries: [
-                ("api_key","2fb0d7c0095f63e9c881bb4317a570a9"),
-                ("language","pt-BR")
-            ]
-        ) { result in
-            switch result {
-            case .success(let (data, _)):
-                do {
-                    let genreInfo = try JSONDecoder().decode(GenreModel.self, from: data)
-                    completion(.success(genreInfo.genres))
-                } catch {
-                    completion(.failure(error))
-                }
-            case .failure(let failure):
-                completion(.failure(failure))
-            }
-        }
-
-    }
-
-    func transformGenres(
-        ids: [Int],
-        completion: @escaping (Result<[String], Error>) -> Void
-    ) {
-        self.fetchGenres { result in
-            switch result {
-            case .success(let genreTable):
-                let idsToTransform: [Int] = ids.count >= 2 ? [ids[0], ids[1]] : [ids[0]]
-
-                let genreNames: [String] = idsToTransform.map { id in
-                    var genreName = "unknown"
-                    for genre in genreTable where genre.id == id {
-                        genreName = genre.name
-                    }
-                    return genreName
-                }
-
-                completion(.success(genreNames))
-            case .failure(let failure):
-                completion(.failure(failure))
-            }
-        }
-
     }
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -262,7 +124,7 @@ final class FilmTableViewModel {
         } else {
             self.isSearch = true
             self.filteredFilms = self.filmsToSearch.filter { film in
-                return film.tmdb!.title.lowercased().contains(searchText.lowercased())
+                return film.tmdb.title.lowercased().contains(searchText.lowercased())
             }
         }
     }
@@ -294,9 +156,9 @@ final class FilmTableViewModel {
             defaults.set(dataToStore, forKey: "filmList")
 
             let filmsToWatch = filmList.map { position -> FilmModel in
-                let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+                let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
 
-                return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+                return filmOfPosition ?? makeFilmModel()
             }
 
             self.films = filmsToWatch
@@ -309,11 +171,10 @@ extension FilmTableViewModel: LetterViewModelDelegate {
         guard let data = defaults.object(forKey: "filmList") else { return nil }
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return nil }
 
-        self.fetchFilms()
         let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
 
-            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+            return filmOfPosition ?? makeFilmModel()
         }
 
         return filmsToWatch
@@ -330,9 +191,9 @@ extension FilmTableViewModel: ActionSheetDelegate {
         }
 
         let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli?.id == position.filmId }
+            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
 
-            return filmOfPosition ?? FilmModel(ghibli: nil, tmdb: nil)
+            return filmOfPosition ?? makeFilmModel()
         }
 
         if let dataToStore = try? JSONEncoder().encode(filmList) {
@@ -353,7 +214,7 @@ extension FilmTableViewModel: ActionSheetDelegate {
 
         self.updateFilmsToWatch(filmList: filmList)
 
-        self.letterDelegate?.updateNextFilm(newFilm: !self.films.isEmpty ? self.films[0] : FilmModel(ghibli: nil, tmdb: nil))
+        self.letterDelegate?.updateNextFilm(newFilm: !self.films.isEmpty ? self.films[0] : makeFilmModel())
     }
 
     func turnFirstOfList(id: String) {
@@ -399,5 +260,15 @@ extension FilmTableViewModel: ActionSheetDelegate {
         } else {
             return self.getActions(state: .all)
         }
+    }
+    
+    func makeFilmModel() -> FilmModel {
+        FilmModel(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init())
+    }
+}
+
+extension FilmTableViewModel {
+    func toggleViewInterective(to state: Bool) {
+        delegate?.isInterective(state)
     }
 }

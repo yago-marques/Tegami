@@ -9,13 +9,13 @@ import UIKit
 
 final class DescriptionFilmView: UIView {
     
-    var filmTeste: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
+    var filmTeste: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
         didSet {
             DispatchQueue.main.async {
-                self.titleLabel.text = self.filmTeste.tmdb?.title
-                self.releaseDateLabel.text = self.filmTeste.ghibli?.releaseDate
-                self.overviewLabel.text = self.filmTeste.tmdb?.overview
-                self.runningTimeLabel.text = "\(self.filmTeste.ghibli?.runningTime ?? "--") minutos, "
+                self.titleLabel.text = self.filmTeste.tmdb.title
+                self.releaseDateLabel.text = self.filmTeste.ghibli.releaseDate
+                self.overviewLabel.text = self.filmTeste.tmdb.overview
+                self.runningTimeLabel.text = "\(self.filmTeste.ghibli.runningTime ?? "--") minutos, "
             }
         }
     }

@@ -96,19 +96,7 @@ final class FilmTableViewController: UIViewController {
         super.viewDidLoad()
 
         buildLayout()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if viewModel.firstWillAppear {
-            DispatchQueue.main.async { [weak self] in
-                if let self = self {
-                    self.viewModel.fetchFilms()
-                }
-            }
-        }
-
+        viewModel.fetchFilms()
     }
 
     @objc func scrollToBottom() {
@@ -255,8 +243,7 @@ extension FilmTableViewController: UITableViewDataSource {
         } else if sender.state == .began {
             mySheet.film = filteredFilm
             guard
-                let id = filteredFilm.ghibli?.id,
-                let content = viewModel.findFilmOnList(id: id)
+                let content = viewModel.findFilmOnList(id: filteredFilm.ghibli.id)
             else { return }
 
             mySheet.contentOfRowAt = content

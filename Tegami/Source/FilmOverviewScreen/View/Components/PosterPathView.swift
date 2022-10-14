@@ -9,13 +9,11 @@ import UIKit
 
 final class PosterPathView: UIView {
     
-    var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
+    var film: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
         didSet {
             DispatchQueue.main.async {
-                if let backdropPath = self.film.tmdb?.posterPath {
-                    let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
-                    self.posterPath.downloaded(from: imageUrl)
-                }
+                let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(self.film.tmdb.posterPath))!
+                self.posterPath.downloaded(from: imageUrl)
             }
         }
     }

@@ -93,11 +93,11 @@ extension LetterViewController: LetterViewControllerDelegate {
         self.envelopView.film = film
         var labelText: String = "Seu próximo filme"
 
-        if counter == 0, film.ghibli == nil {
+        if counter == 0 {
             labelText = "Lista vazia"
         }
 
-        if counter > 0, film.ghibli == nil {
+        if counter > 0 {
             labelText = "Último filme removido da lista"
         }
 

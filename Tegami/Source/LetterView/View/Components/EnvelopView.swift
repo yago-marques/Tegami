@@ -11,7 +11,7 @@ final class EnvelopView: UIView {
 
     weak var delegate: EnvelopViewDelegate?
 
-    var film: FilmModel = FilmModel(ghibli: nil, tmdb: nil) {
+    var film: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 if let film = self?.film {
