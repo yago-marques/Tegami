@@ -99,19 +99,6 @@ final class FilmTableViewController: UIViewController {
         viewModel.fetchFilms()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        if viewModel.firstWillAppear {
-//            DispatchQueue.main.async { [weak self] in
-//                if let self = self {
-//                    self.viewModel.fetchFilms()
-//                }
-//            }
-//        }
-//
-//    }
-
     @objc func scrollToBottom() {
         DispatchQueue.main.async { [weak self] in
             if let self = self {
