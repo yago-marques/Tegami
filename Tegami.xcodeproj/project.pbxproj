@@ -26,6 +26,7 @@
 		CEA4161828F8D7F3001705BC /* TmdbInfoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4161728F8D7F3001705BC /* TmdbInfoEndpoint.swift */; };
 		CEA4161A28F8DA92001705BC /* TmdbGenreEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4161928F8DA92001705BC /* TmdbGenreEndpoint.swift */; };
 		CEA4161C28F8EE31001705BC /* FilmLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4161B28F8EE31001705BC /* FilmLoader.swift */; };
+		CEA4161E28FA287E001705BC /* TmdbImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4161D28FA287E001705BC /* TmdbImageEndpoint.swift */; };
 		DF0B85BB28F4D221001C53C3 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85BA28F4D221001C53C3 /* APICallError.swift */; };
 		DF0B85C228F86351001C53C3 /* RemoteFilmLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B85C128F86351001C53C3 /* RemoteFilmLoader.swift */; };
 		DF287A9528E45F3E00EF9333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF287A9328E45F3E00EF9333 /* LaunchScreen.storyboard */; };
@@ -109,6 +110,7 @@
 		CEA4161728F8D7F3001705BC /* TmdbInfoEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbInfoEndpoint.swift; sourceTree = "<group>"; };
 		CEA4161928F8DA92001705BC /* TmdbGenreEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbGenreEndpoint.swift; sourceTree = "<group>"; };
 		CEA4161B28F8EE31001705BC /* FilmLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmLoader.swift; sourceTree = "<group>"; };
+		CEA4161D28FA287E001705BC /* TmdbImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbImageEndpoint.swift; sourceTree = "<group>"; };
 		DF0B85BA28F4D221001C53C3 /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
 		DF0B85C128F86351001C53C3 /* RemoteFilmLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFilmLoader.swift; sourceTree = "<group>"; };
 		DF287A8528E45F3D00EF9333 /* Tegami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tegami.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 				CEA4161528F8D787001705BC /* GhibliFilmsEnpoint.swift */,
 				CEA4161728F8D7F3001705BC /* TmdbInfoEndpoint.swift */,
 				CEA4161928F8DA92001705BC /* TmdbGenreEndpoint.swift */,
+				CEA4161D28FA287E001705BC /* TmdbImageEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				DF287B0428E4675A00EF9333 /* FilmModel.swift in Sources */,
 				4BE10E6A28E47A040023104E /* FilmOverviewController.swift in Sources */,
 				DF287AC728E465CE00EF9333 /* AppDelegate.swift in Sources */,
+				CEA4161E28FA287E001705BC /* TmdbImageEndpoint.swift in Sources */,
 				DF287B1A28E4677F00EF9333 /* URLSessionHTTPClient.swift in Sources */,
 				DF287B1828E4676E00EF9333 /* ActionSheetDelegate.swift in Sources */,
 				DF287ADB28E4669B00EF9333 /* Array.swift in Sources */,

@@ -18,6 +18,8 @@ final class RemoteFilmLoader: FilmLoader {
     private var ghibliInfos: [GhibliInfo] = []
     private var tmdbResults: [TmdbResult] = []
     private var genres: [GenreInfo] = []
+    private var posters: [Data] = []
+    private var banners: [Data] = []
     
     init(api: HTTPClient) {
         self.api = api
@@ -28,7 +30,11 @@ final class RemoteFilmLoader: FilmLoader {
             guard let self = self else { return }
             self.ghibliInfos.forEach {
                 self.fetchTmdbInfo(for: $0.originalTitle) {
-                    completion(self.makeFilms())
+                    self.fetchPosterImages {
+                        self.fetchBannersImages {
+                            completion(self.makeFilms())
+                        }
+                    }
                 }
             }
         }
@@ -54,14 +60,12 @@ final class RemoteFilmLoader: FilmLoader {
     
     private func fetchTmdbInfo(for title: String, completion: @escaping () -> Void) {
         let endpoint = TmdbInfoEndpoint(title: title)
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         api.get(endpoint: endpoint) { [weak self] result in
             guard let self = self else { return }
             
             if case let .success((data, response)) = result {
-                guard response.statusCode == 200, let tmdbInfo = try? decoder.decode(TmdbInfo.self, from: data) else { return }
+                guard response.statusCode == 200, let tmdbInfo = try? JSONDecoder().decode(TmdbInfo.self, from: data) else { return }
                 self.tmdbResults.append(tmdbInfo.results[0])
             }
             
@@ -89,6 +93,47 @@ final class RemoteFilmLoader: FilmLoader {
         }
     }
     
+    func fetchPosterImages(completion: @escaping () -> Void) {
+        tmdbResults.forEach {
+            fetchImage(with: $0.posterPath) { [weak self] data in
+                guard let self = self else { return }
+                guard let data = data else { return }
+                self.posters.append(data)
+                
+                if self.posters.count == 22 {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func fetchBannersImages(completion: @escaping () -> Void) {
+        tmdbResults.forEach {
+            fetchImage(with: $0.backdropPath) { [weak self] data in
+                guard let self = self else { return }
+                guard let data = data else { return }
+                self.banners.append(data)
+                
+                if self.banners.count == 22 {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    private func fetchImage(with imagePath: String, completion: @escaping (Data?) -> Void) {
+        let endpoint = TmdbImageEndpoint(imagePath: imagePath)
+        guard let url = endpoint.makeURL() else {
+            return
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            return
+        }
+        
+        completion(data)
+    }
+    
     private func makeFilms() -> Result<[Film], Error> {
         if ghibliInfos.isEmpty {
             return .failure(DomainError.invalidData)
@@ -98,17 +143,17 @@ final class RemoteFilmLoader: FilmLoader {
             FilmModel(ghibli: value, tmdb: self.tmdbResults[index])
         }
 
-        let films = models.map {
+        let films = models.enumerated().map { (index, value) in
             Film(
-                id: $0.ghibli.id,
-                title: $0.ghibli.originalTitle,
-                posterImage: Data(),
-                runningTime: $0.ghibli.runningTime,
-                releaseDate: $0.ghibli.releaseDate,
+                id: value.ghibli.id,
+                title: value.ghibli.originalTitle,
+                posterImage: posters[index],
+                runningTime: value.ghibli.runningTime,
+                releaseDate: value.ghibli.releaseDate,
                 genre: "Desconhecido",
-                bannerImage: Data(),
-                description: $0.tmdb.overview,
-                popularity: $0.tmdb.popularity)
+                bannerImage: banners[index],
+                description: value.tmdb.overview,
+                popularity: value.tmdb.popularity)
         }
         
         return .success(films)
