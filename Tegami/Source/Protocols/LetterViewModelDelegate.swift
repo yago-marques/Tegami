@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LetterViewModelDelegate: AnyObject {
-    func getMoviesToWatch() async -> [FilmModel]?
+    func getMoviesToWatch() async -> [Film]?
 }

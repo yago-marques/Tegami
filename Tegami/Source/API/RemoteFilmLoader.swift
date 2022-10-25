@@ -146,16 +146,44 @@ final class RemoteFilmLoader: FilmLoader {
         let films = models.enumerated().map { (index, value) in
             Film(
                 id: value.ghibli.id,
-                title: value.ghibli.originalTitle,
+                title: value.tmdb.title,
                 posterImage: posters[index],
                 runningTime: value.ghibli.runningTime,
                 releaseDate: value.ghibli.releaseDate,
-                genre: "Desconhecido",
+                genre: self.getGenres(genreIds: value.tmdb.genreIds),
                 bannerImage: banners[index],
                 description: value.tmdb.overview,
                 popularity: value.tmdb.popularity)
         }
         
         return .success(films)
+    }
+
+    private func getGenres(genreIds: [Int]) -> String {
+        let genreNames = self.converGenres(ids: genreIds)
+
+        if genreNames.count >= 2 {
+            if let firstGenre = genreNames[0], let secondGenre = genreNames[1] {
+                return "\(firstGenre) - \(secondGenre)"
+            } else {
+                return "Desconheecido"
+            }
+        } else {
+            return genreNames[0] ?? "Desconheecido"
+        }
+    }
+
+    private func converGenres(ids: [Int]) -> [String?] {
+        let genreNames = ids.map { id -> String? in
+            let genreString = self.genres.first(where: { $0.id == id })
+
+            if let name = genreString?.name {
+                return name
+            } else {
+                return nil
+            }
+        }
+
+        return genreNames
     }
 }

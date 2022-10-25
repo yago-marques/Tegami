@@ -316,16 +316,11 @@
 		DF287AC828E4660200EF9333 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DFC38A92290842550093F795 /* Utils */,
 				CEA415F928F650E8001705BC /* FilmFeature */,
 				DF287AD128E4667D00EF9333 /* API */,
 				DF287AD028E4667000EF9333 /* Protocols */,
-				DF287ACA28E4661600EF9333 /* Extensions */,
-				DF287AC928E4660D00EF9333 /* Enums */,
-				DF287B1B28E4679A00EF9333 /* Onboarding */,
-				DF287ACE28E4665500EF9333 /* MainScreen */,
-				DF287ACD28E4664700EF9333 /* LetterView */,
-				DF287ACC28E4663D00EF9333 /* FilmTable */,
-				DF287ACB28E4662400EF9333 /* FilmOverviewScreen */,
+				DFC38A95290848890093F795 /* Scenes */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -551,6 +546,27 @@
 				CE37D34428F11A8E002F68FB /* OnboardingViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DFC38A92290842550093F795 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DF287ACA28E4661600EF9333 /* Extensions */,
+				DF287AC928E4660D00EF9333 /* Enums */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DFC38A95290848890093F795 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DF287ACB28E4662400EF9333 /* FilmOverviewScreen */,
+				DF287ACC28E4663D00EF9333 /* FilmTable */,
+				DF287ACD28E4664700EF9333 /* LetterView */,
+				DF287ACE28E4665500EF9333 /* MainScreen */,
+				DF287B1B28E4679A00EF9333 /* Onboarding */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		DFD8280028E5C37500A57A75 /* Components */ = {

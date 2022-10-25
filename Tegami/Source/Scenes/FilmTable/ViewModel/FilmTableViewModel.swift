@@ -13,8 +13,8 @@ final class FilmTableViewModel {
     weak var delegate: FilmTableViewModelDelegate?
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     var firstWillAppear: Bool = true
-    var filmsBackup: [FilmModel] = []
-    var filmsToSearch = [FilmModel]()
+    var filmsBackup: [Film] = []
+    var filmsToSearch = [Film]()
     var tableState: TableState = .all
     var TableIsEmpty: Bool = false
     var loadingFilms: Bool = false
@@ -29,7 +29,7 @@ final class FilmTableViewModel {
         }
     }
 
-    var films: [FilmModel] = [] {
+    var films: [Film] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.delegate?.reloadTable()
@@ -37,7 +37,7 @@ final class FilmTableViewModel {
         }
     }
 
-    var filteredFilms = [FilmModel]() {
+    var filteredFilms = [Film]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.delegate?.reloadTable()
@@ -60,14 +60,14 @@ final class FilmTableViewModel {
         self.loader = loader
     }
 
-    func createInitialListFilm(films: [FilmModel]) {
-        let sortedFilms = films.sorted { $0.tmdb.popularity > $1.tmdb.popularity }
+    func createInitialListFilm(films: [Film]) {
+        let sortedFilms = films.sorted { $0.popularity > $1.popularity }
         let fiveFilms = sortedFilms[0...4]
         var filmList: [FilmPosition] = []
         let watchedFilms: [FilmPosition] = []
 
         for i in 0..<fiveFilms.count {
-            let newFilm = FilmPosition(filmId: fiveFilms[i].ghibli.id)
+            let newFilm = FilmPosition(filmId: fiveFilms[i].id)
 
             filmList.append(newFilm)
         }
@@ -86,8 +86,8 @@ final class FilmTableViewModel {
     func fetchFilms() {
         loader.getFilms { result in
             switch result {
-            case .success(let success):
-                print(success)
+            case .success(let returnedFilms):
+                self.films = returnedFilms
             case .failure(let failure):
                 print(failure)
             }
@@ -96,7 +96,7 @@ final class FilmTableViewModel {
 
     func showAllMovies() {
         self.TableIsEmpty = false
-        let filmsTemp: [FilmModel] = self.films
+        let filmsTemp: [Film] = self.films
         self.films = self.filmsBackup
         self.filmsBackup = filmsTemp
         self.tableState = .all
@@ -107,10 +107,10 @@ final class FilmTableViewModel {
         guard let data = defaults.object(forKey: "filmList") else { return }
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return }
 
-        let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
+        let filmsToWatch = filmList.map { position -> Film in
+            let filmOfPosition = self.films.first { $0.id == position.filmId }
 
-            return filmOfPosition ?? makeFilmModel()
+            return filmOfPosition ?? makeFilm()
         }
 
         self.filmsBackup = self.films
@@ -124,7 +124,7 @@ final class FilmTableViewModel {
         } else {
             self.isSearch = true
             self.filteredFilms = self.filmsToSearch.filter { film in
-                return film.tmdb.title.lowercased().contains(searchText.lowercased())
+                return film.title.lowercased().contains(searchText.lowercased())
             }
         }
     }
@@ -155,10 +155,10 @@ final class FilmTableViewModel {
         if let dataToStore = try? JSONEncoder().encode(filmList) {
             defaults.set(dataToStore, forKey: "filmList")
 
-            let filmsToWatch = filmList.map { position -> FilmModel in
-                let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
+            let filmsToWatch = filmList.map { position -> Film in
+                let filmOfPosition = self.films.first { $0.id == position.filmId }
 
-                return filmOfPosition ?? makeFilmModel()
+                return filmOfPosition ?? makeFilm()
             }
 
             self.films = filmsToWatch
@@ -167,14 +167,14 @@ final class FilmTableViewModel {
 }
 
 extension FilmTableViewModel: LetterViewModelDelegate {
-    func getMoviesToWatch() async -> [FilmModel]? {
+    func getMoviesToWatch() async -> [Film]? {
         guard let data = defaults.object(forKey: "filmList") else { return nil }
         guard let filmList = try? JSONDecoder().decode([FilmPosition].self, from: data as! Data) else { return nil }
 
-        let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
+        let filmsToWatch = filmList.map { position -> Film in
+            let filmOfPosition = self.films.first { $0.id == position.filmId }
 
-            return filmOfPosition ?? makeFilmModel()
+            return filmOfPosition ?? makeFilm()
         }
 
         return filmsToWatch
@@ -190,10 +190,10 @@ extension FilmTableViewModel: ActionSheetDelegate {
             filmList.append(FilmPosition(filmId: id))
         }
 
-        let filmsToWatch = filmList.map { position -> FilmModel in
-            let filmOfPosition = self.films.first { $0.ghibli.id == position.filmId }
+        let filmsToWatch = filmList.map { position -> Film in
+            let filmOfPosition = self.films.first { $0.id == position.filmId }
 
-            return filmOfPosition ?? makeFilmModel()
+            return filmOfPosition ?? makeFilm()
         }
 
         if let dataToStore = try? JSONEncoder().encode(filmList) {
@@ -214,7 +214,7 @@ extension FilmTableViewModel: ActionSheetDelegate {
 
         self.updateFilmsToWatch(filmList: filmList)
 
-        self.letterDelegate?.updateNextFilm(newFilm: !self.films.isEmpty ? self.films[0] : makeFilmModel())
+        self.letterDelegate?.updateNextFilm(newFilm: !self.films.isEmpty ? self.films[0] : makeFilm())
     }
 
     func turnFirstOfList(id: String) {
@@ -262,8 +262,8 @@ extension FilmTableViewModel: ActionSheetDelegate {
         }
     }
     
-    func makeFilmModel() -> FilmModel {
-        FilmModel(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init())
+    func makeFilm() -> Film {
+        .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00)
     }
 }
 

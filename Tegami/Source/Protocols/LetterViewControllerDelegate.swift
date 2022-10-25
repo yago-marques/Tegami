@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LetterViewControllerDelegate: AnyObject {
-    func addFilmToStack(film: FilmModel, counter: Int)
+    func addFilmToStack(film: Film, counter: Int)
 }

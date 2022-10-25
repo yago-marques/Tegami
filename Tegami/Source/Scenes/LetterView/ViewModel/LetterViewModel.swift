@@ -15,7 +15,7 @@ final class LetterViewModel {
     weak var mainScreenDelegate: MainScreenViewControllerDelegate?
     private var counter: Int = -1
     
-    var nextFilm: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
+    lazy var nextFilm: Film = self.makeFilm() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 if let delegate = self?.delegate, let film = self?.nextFilm, let counter = self?.counter {
@@ -39,7 +39,7 @@ final class LetterViewModel {
 
     func fetchNextMovieToWatch(tableException: Bool = false) async {
         guard let films = !tableException ? await table?.getMoviesToWatch() : nil else { return }
-        nextFilm = films.first ?? .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init())
+        nextFilm = films.first ?? self.makeFilm()
     }
 
     func getWatchedFilms(watchedKey: String = "watchedFilms", decodeException: Bool = false) -> Double? {
@@ -48,10 +48,14 @@ final class LetterViewModel {
 
         return Double(watchedFilms.count)
     }
+
+    func makeFilm() -> Film {
+        .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00)
+    }
 }
 
 extension LetterViewModel: UpdateNextFilmDelegate {
-    func updateNextFilm(newFilm: FilmModel) {
+    func updateNextFilm(newFilm: Film) {
         self.nextFilm = newFilm
     }
 }

@@ -184,11 +184,15 @@ extension FilmTableViewController: UITableViewDataSource {
         if !viewModel.isSearch, viewModel.tableState == .toWatch, rows == 0 {
             viewModel.TableIsEmpty = true
             return 1
+        } else {
+            viewModel.TableIsEmpty = false
         }
 
         if !viewModel.isSearch, viewModel.tableState == .all, rows == 0 {
             viewModel.loadingFilms = true
             return 1
+        } else {
+            viewModel.loadingFilms = false
         }
 
         return rows
@@ -243,7 +247,7 @@ extension FilmTableViewController: UITableViewDataSource {
         } else if sender.state == .began {
             mySheet.film = filteredFilm
             guard
-                let content = viewModel.findFilmOnList(id: filteredFilm.ghibli.id)
+                let content = viewModel.findFilmOnList(id: filteredFilm.id)
             else { return }
 
             mySheet.contentOfRowAt = content
