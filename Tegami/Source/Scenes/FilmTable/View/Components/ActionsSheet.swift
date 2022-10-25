@@ -25,7 +25,7 @@ final class ActionSheet: UIViewController {
     var film: Film = .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00) {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.titleLabel.text = self.film.title
                     self.filmBackdropView.image = UIImage(data: self.film.bannerImage)
                 }

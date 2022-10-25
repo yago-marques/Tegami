@@ -12,7 +12,7 @@ final class FilmCardCell: UITableViewCell {
     var film: Film = .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00) {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let self {
+                if let self = self {
                     self.titleLabel.text = self.film.title
                     self.filmImageView.image = UIImage(data: self.film.posterImage)
                     self.runningTimeLabel.text = "\(self.film.runningTime) minutos |"
