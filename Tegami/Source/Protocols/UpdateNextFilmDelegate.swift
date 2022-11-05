@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UpdateNextFilmDelegate: AnyObject {
-    func updateNextFilm(newFilm: FilmModel)
+    func updateNextFilm(newFilm: Film)
 }

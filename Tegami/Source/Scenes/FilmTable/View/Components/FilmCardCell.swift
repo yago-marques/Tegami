@@ -9,15 +9,16 @@ import UIKit
 
 final class FilmCardCell: UITableViewCell {
     
-    var film: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
+    var film: Film = .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00) {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                self?.titleLabel.text = self?.film.tmdb.title
-                let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending((self?.film.tmdb.posterPath)!))!
-                self?.filmImageView.downloaded(from: imageUrl)
-                self?.runningTimeLabel.text = "\(self?.film.ghibli.runningTime ?? "--") minutos |"
-                self?.releaseDateLabel.text = self?.film.ghibli.releaseDate
-                self?.genresLabel.text = self?.film.tmdb.getGenres()
+                if let self = self {
+                    self.titleLabel.text = self.film.title
+                    self.filmImageView.image = UIImage(data: self.film.posterImage)
+                    self.runningTimeLabel.text = "\(self.film.runningTime) minutos |"
+                    self.releaseDateLabel.text = self.film.releaseDate
+                    self.genresLabel.text = self.film.genre
+                }
             }
         }
     }

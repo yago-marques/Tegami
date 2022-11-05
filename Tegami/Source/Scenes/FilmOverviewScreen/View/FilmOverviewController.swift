@@ -9,7 +9,7 @@ import UIKit
 final class FilmOverviewController: UIViewController {
 
     weak var tableViewModel: FilmTableViewModel?
-    private var film: FilmModel
+    private var film: Film
     private var indexPath: Int
     private var closeActions: Bool = false {
         didSet {
@@ -18,7 +18,7 @@ final class FilmOverviewController: UIViewController {
     }
     
     init(
-        film: FilmModel,
+        film: Film,
         tableViewModel: FilmTableViewModel,
         indexPath: Int
     ) {
@@ -58,7 +58,7 @@ final class FilmOverviewController: UIViewController {
     private lazy var descriptionFilmView : DescriptionFilmView = {
         let description = DescriptionFilmView()
         description.translatesAutoresizingMaskIntoConstraints = false
-        description.filmTeste = self.film
+        description.film = self.film
 
         return description
     }()
@@ -99,7 +99,7 @@ final class FilmOverviewController: UIViewController {
             }
         } else {
             guard
-                let content = viewModel.findFilmOnList(id: film.ghibli.id)
+                let content = viewModel.findFilmOnList(id: film.id)
             else { return }
 
             mySheet.contentOfRowAt = content

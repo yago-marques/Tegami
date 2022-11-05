@@ -89,7 +89,7 @@ extension LetterViewController: EnvelopViewDelegate {
 }
 
 extension LetterViewController: LetterViewControllerDelegate {
-    func addFilmToStack(film: FilmModel, counter: Int) {
+    func addFilmToStack(film: Film, counter: Int) {
         self.envelopView.film = film
         var labelText: String = "Seu próximo filme"
 

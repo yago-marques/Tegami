@@ -22,13 +22,12 @@ final class ActionSheet: UIViewController {
         fatalError("error ActionSheet")
     }
 
-    var film: FilmModel = .init(ghibli: .init(id: "", releaseDate: "", runningTime: "", originalTitle: ""), tmdb: .init()) {
+    var film: Film = .init(id: "", title: "", posterImage: Data(), runningTime: "", releaseDate: "", genre: "", bannerImage: Data(), description: "", popularity: 0.00) {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                if let backdropPath = self?.film.tmdb.backdropPath {
-                    self?.titleLabel.text = self?.film.tmdb.title
-                    let imageUrl = URL(string: UrlEnum.baseImage.rawValue.appending(backdropPath))!
-                    self?.filmBackdropView.downloaded(from: imageUrl)
+                if let self = self {
+                    self.titleLabel.text = self.film.title
+                    self.filmBackdropView.image = UIImage(data: self.film.bannerImage)
                 }
             }
         }
@@ -105,30 +104,28 @@ extension ActionSheet: UITableViewDataSource {
 extension ActionSheet: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ActionSheetCell
-        DispatchQueue.main.async { [weak self] in
-            if
-                let delegate = self?.delegate,
-                let id = self?.film.ghibli.id,
-                let label = cell.actionLabel.text
-            {
-                switch label {
-                case "Adicionar na minha lista":
-                    delegate.addNewFilmToList(id: id)
-                case "Remover da minha lista":
-                    delegate.removeFilmOfList(id: id)
-                case "Tornar o primeiro da lista":
-                    delegate.turnFirstOfList(id: id)
-                case "Marcar como assistido":
-                    delegate.markFilmAsWatched(id: id)
-                default:
-                    print("error not expected")
-                }
-
-                self?.dismiss(animated: true)
-                if let self = self {
-                    self.overViewDelegate?.popView()
-                }
+        if
+            let delegate = self.delegate,
+            let label = cell.actionLabel.text
+        {
+            let id = self.film.id
+            switch label {
+            case "Adicionar na minha lista":
+                delegate.addNewFilmToList(id: id)
+            case "Remover da minha lista":
+                delegate.removeFilmOfList(id: id)
+            case "Tornar o primeiro da lista":
+                delegate.turnFirstOfList(id: id)
+            case "Marcar como assistido":
+                delegate.markFilmAsWatched(id: id)
+            default:
+                print("error not expected")
             }
+
+            self.dismiss(animated: true)
+
+            self.overViewDelegate?.popView()
+
         }
     }
 }
